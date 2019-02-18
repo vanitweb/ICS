@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Felipa');
+
+
+
+.mr-auto{
+    margin:auto;
+}
+.title_h1{
+	font-family: 'Felipa', cursive;
+	font-weight: 500;
+	color: #ED1262;
+}
+.header_color {
+	background-color: #fff;
+}
