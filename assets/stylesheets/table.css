@@ -1,0 +1,42 @@
+.input_search{
+	width: 200px;
+    border-radius: 20px;  
+    margin-top: 3%;
+ 
+}
+.form-control:focus{
+	color: #495057;
+    background-color: #fff;
+    border-color: #FD703E;
+    outline: 2;
+    box-shadow: 0 0 0 0.1rem rgba(237,63,2,.30);
+}
+
+.table {
+	color: #3f3d3d;
+	background-color: #fff;
+	font-size: 18px;
+}
+caption {
+	color: #FD703E;
+	font-weight: 700;
+}
+.table button {
+	padding: 3px 28px 3px 28px;
+	border-radius: 8px;
+	background-color: #FD703E;
+	border-color: #E1D4CE;
+	color: #fff;
+}
+.table img {
+	width: 200px;
+	height: 150px;
+}
+
+
+@media screen and (max-width: 1199px){
+    .table {
+        -webkit-overflow-y: auto;
+        overflow-y: auto;
+    }
+}

@@ -1,0 +1,21 @@
+.user {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.info {
+	margin-left: 10px;
+	display: inline;
+}
+h1 {
+	text-align: center;	
+}
+p {
+	color: #4b5859;
+}
+.textBlue {
+	color: #0898a8;
+	/*color: #17A2B8; */
+}
