@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import {Button,Container, Row, Col, FormGroup, Label, Input } from 'reactstrap';
-import './../../assets/stylesheets/specialist.css';
 import PropTypes from 'prop-types';
+
+import Messages from './../Messages';
+
+import './../../assets/stylesheets/specialist.css';
 
 class Specialist extends Component {
     static propTypes = {
         Data : PropTypes.array.isRequired,
-        Messages : PropTypes.object.isRequired,
     }
     render() {
-        const {Data, Messages} = this.props
+        const {Data} = this.props
         return (
             <div className = "sections">
                  <Container>
@@ -24,18 +26,18 @@ class Specialist extends Component {
                                 </div>
                             </div> 
                             <div> 
-                                <h2 className = "textBlue"> {Messages.information} </h2>
-                                <p> {Messages.phoneNumber} {Data[0].phone} </p>
-                                <p> {Messages.salonName}{Data[0].name}</p>
-                                <p>{Messages.salonAddress} {Data[0].address}</p>
-                                <p>{Messages.socialMedia} {Data[0].category[0].workers[0].socialNetwork}  </p>
+                                <h2 className = "textBlue"> {Messages.specialist.information} </h2>
+                                <p> {Messages.specialist.phoneNumber} {Data[0].phone} </p>
+                                <p> {Messages.specialist.salonName}{Data[0].name}</p>
+                                <p>{Messages.specialist.salonAddress} {Data[0].address}</p>
+                                <p>{Messages.specialist.socialMedia} {Data[0].category[0].workers[0].socialNetwork}  </p>
                             </div> 
                          </Col>
                          <Col sm="4" >
                              <h3 className = "textBlue"> {Messages.registered}</h3>
                              <div>
                                  <FormGroup tag="fieldset"> 
-                                     <legend>{Messages.chooseWork}</legend>
+                                     <legend>{Messages.specialist.chooseWork}</legend>
                                      <FormGroup check>
                                          <Label check>
                                              <Input type="checkbox" />Կտրվածք (sa el petq e dataic lini)
@@ -55,7 +57,7 @@ class Specialist extends Component {
                              </div>
                              <div>
                                  <FormGroup tag="fieldset">
-                                     <legend>{Messages.chooseClock}</legend>
+                                     <legend>{Messages.specialist.chooseClock}</legend>
                                      <FormGroup check>
                                          <Label check>
                                              <Input type="radio" name="radio1" />09։00 (sa el chigitem vonc e linelu)
@@ -73,10 +75,10 @@ class Specialist extends Component {
                                      </FormGroup>
                                  </FormGroup>
                              </div>
-                             <Button type = "submit" color="info" > {Messages.confirmed} </Button>
+                             <Button type = "submit" color="info" > {Messages.specialist.confirmed} </Button>
                          </Col>
                      </Row>
-                     <h1 className = "textBlue" >{Messages.myWorkes}</h1>
+                     <h1 className = "textBlue" >{Messages.specialist.myWorkes}</h1>
                      <Row className = "mt-5">
                          {Data[0].category[0].workers[0].workImgs.map((item, index) => {
                              return <Col align = "center" key = {index}>

@@ -1,8 +1,13 @@
+import Data from './../data/data.js';
 import {extendObservable} from 'mobx';
-import {teachersData} from '../data/teachersData';
 
 class AppStore {
-    
+    storeProps = {
+        Data : new Data().salons,
+    }
+    constructor(){
+        extendObservable(this, this.storeProps)
+    }  
 }
 
-export {AppStore};
+export default AppStore;

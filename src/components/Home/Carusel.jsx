@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {Carousel, CarouselItem, CarouselControl, CarouselIndicators} from 'reactstrap';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
+
+import {homeConfigs} from './../../config/categoryConfig';
 
 
 
 class Example extends Component {
-    static propTypes = {
-        slideItems : PropTypes.array.isRequired,
-    }
+//    static propTypes = {
+//
+//    }
     constructor(props) {
         super(props);
         this.state = { activeIndex: 0 };
@@ -28,13 +30,13 @@ class Example extends Component {
 
     next() {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === this.props.slideItems.length - 1 ? 0 : this.state.activeIndex + 1;
+        const nextIndex = this.state.activeIndex === homeConfigs.slideItems.length - 1 ? 0 : this.state.activeIndex + 1;
         this.setState({ activeIndex: nextIndex });
     }
 
     previous() {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? this.props.slideItems.length - 1 : this.state.activeIndex - 1;
+        const nextIndex = this.state.activeIndex === 0 ? homeConfigs.slideItems.length - 1 : this.state.activeIndex - 1;
         this.setState({ activeIndex: nextIndex });
     }
 
@@ -45,8 +47,7 @@ class Example extends Component {
     
     render() {
         const { activeIndex } = this.state;
-        const { slideItems } = this.props;
-        const slides = slideItems.map((item) => {
+        const slides = homeConfigs.slideItems.map((item) => {
             return (
                 <CarouselItem
                     className="custom-tag"
@@ -75,7 +76,7 @@ class Example extends Component {
                     previous={this.previous}
                     >
                     <CarouselIndicators 
-                        items={slideItems} 
+                        items={homeConfigs.slideItems} 
                         activeIndex={activeIndex} 
                         onClickHandler={this.goToIndex} 
                         />

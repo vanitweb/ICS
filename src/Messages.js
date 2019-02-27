@@ -28,7 +28,6 @@ const Messages = {
     },
     section : {
         homeCardButtonText : "Դիտել մասնագետներին",
-        specialiistButtonText : "Դիտել մասնագետներին",
     },
     footer : {
         footerEmail : "Mail: butySaolns@mail.ru",
@@ -52,6 +51,7 @@ const Messages = {
         forSurname : "Ազգանվան",
         forAddress : "Հասցեի",
         forSalon : "Սրահի",
+        specialiistButtonText : "Դիտել մասնագետին",
     },
     beautySalons : {
         beautySalonsAbout : "Մեր մասին",
@@ -68,8 +68,7 @@ const Messages = {
         chooseWork : "Ընտրել աշխատանքը",
         chooseClock : "Ընտրել ժամ",
         confirmed : "Հաստատել",
-        myWorkes: "Իմ աշխատանքներ"
-
+        myWorkes: "Իմ աշխատանքներ",
     }
 }
 export default Messages;

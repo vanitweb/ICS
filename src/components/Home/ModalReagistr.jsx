@@ -1,5 +1,7 @@
 import React, { Component }  from 'react';
 import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import Messages from './../../Messages';
+
 import './../../../assets/stylesheets/header.css';
 
 class ModalRegister extends Component {
@@ -16,31 +18,30 @@ class ModalRegister extends Component {
         }));
     }
     render(){
-        const {signUp} = this.props;
 		return(
 			<div >
-                <Button className="ml-0 mod_btn" outline color="link" onClick={this.toggle}>{this.props.buttonLabel }{signUp.signUp}</Button>
+                <Button className="ml-0 mod_btn" outline color="link" onClick={this.toggle}>{this.props.buttonLabel }{Messages.header.signUp.signUp}</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
-                    <ModalHeader toggle={this.toggle}>{signUp.signUpTitle}</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>{Messages.header.signUp.signUpTitle}</ModalHeader>
                     <ModalBody >
                         <Form>
                             <FormGroup>
-                                <Label for="examplePassword">{signUp.signUpName}</Label>
+                                <Label for="examplePassword">{Messages.header.signUp.signUpName}</Label>
                                 <Input type="text"  id="examplePassword" />
-                                <Label for="examplePassword">{signUp.signUpSurname}</Label>
+                                <Label for="examplePassword">{Messages.header.signUp.signUpSurname}</Label>
                                 <Input type="text"  id="examplePassword" />
-                                <Label for="exampleEmail">{signUp.signUpEmail}</Label>
-                                <Input type="email" name="email" id="exampleEmail" placeholder={signUp.signUpEmailPlaceholder} /> 
-                                <Label for="exampleEmail">{signUp.signUpNickName}</Label>
+                                <Label for="exampleEmail">{Messages.header.signUp.signUpEmail}</Label>
+                                <Input type="email" name="email" id="exampleEmail" placeholder={Messages.header.signUp.signUpEmailPlaceholder} /> 
+                                <Label for="exampleEmail">{Messages.header.signUp.signUpNickName}</Label>
                                 <Input type="text" id="exampleEmail"/>
                             </FormGroup>
                             <FormGroup>
-                                <Label for="examplePassword">{signUp.signUpPassword}</Label>
-                                <Input type="password" name="password" id="examplePassword" placeholder={signUp.signUpPasswordPlaceholder} />
-                                <Label for="examplePassword">{signUp.signUpRepeatPassword}</Label>
-                                <Input type="password" name="password" id="examplePassword" placeholder={signUp.signUpRepeatPasswordPlaceholder} />
+                                <Label for="examplePassword">{Messages.header.signUp.signUpPassword}</Label>
+                                <Input type="password" name="password" id="examplePassword" placeholder={Messages.header.signUp.signUpPasswordPlaceholder} />
+                                <Label for="examplePassword">{Messages.header.signUp.signUpRepeatPassword}</Label>
+                                <Input type="password" name="password" id="examplePassword" placeholder={Messages.header.signUp.signUpwordPlaceholder} />
                             </FormGroup>
-                            <button className="modal_button">{signUp.signUpButton}</button>
+                            <button className="modal_button">{Messages.header.signUp.signUpButton}</button>
                         </Form>
                     </ModalBody>
                 </Modal>

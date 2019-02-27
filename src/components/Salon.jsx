@@ -1,15 +1,16 @@
 import React,{Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import CardCategory from './CardCategory.jsx';
 import PropTypes from 'prop-types';
+
+import Messages from './../Messages';
+import CardCategory from './CardCategory';
 
 class Salon extends Component {
     static propTypes = {
         Data : PropTypes.object.isRequired,
-        Messages : PropTypes.object.isRequired,
     }
     render() {
-        const {Data, Messages} = this.props;
+        const {Data} = this.props;
 		return (
             <Container>
                 <Row>
@@ -45,7 +46,9 @@ class Salon extends Component {
                                         img={item1.img}
                                         title={item1.name} 
                                         explaText={item1.surname}
-                                        cardClick={()=>alert()}/>
+                                        cardClick={()=>alert()}
+                                        buttonText = {Messages.table.specialiistButtonText}
+                                        />
                                 </React.Fragment>
                             })}
                         </Row>

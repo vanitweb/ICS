@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
-import './../../assets/stylesheets/table.css';
 import { Container,  Input, Table, FormGroup, Label} from 'reactstrap';
 import PropTypes from 'prop-types';
 
+import Messages from './../Messages';
+
+import './../../assets/stylesheets/table.css';
+
 class TableCategory extends Component {
     static propTypes = {
-        Messages : PropTypes.object.isRequired,
         prof : PropTypes.string.isRequired,
         tableSearch : PropTypes.func.isRequired,
         filterTable : PropTypes.array.isRequired,
         onChaked : PropTypes.func.isRequired,
     }
     render(){
-        const {Messages, prof, tableSearch, filterTable, onChaked} = this.props;
-        console.log(filterTable)
+        const {prof, tableSearch, filterTable, onChaked} = this.props;
 		return(
             <Container>
 				<div className="table w-100">
@@ -21,34 +22,34 @@ class TableCategory extends Component {
                     <Table bordered>
                         <thead>
                             <tr>
-                                <th>{Messages.searchFor}</th>
+                                <th>{Messages.table.searchFor}</th>
                                 <th>
                                     <FormGroup check>
                                         <Label check>
                                             <Input type="radio" name="search"
                                                 value="name" onChange = {onChaked}
-                                                defaultChecked />{Messages.forName}
+                                                defaultChecked />{Messages.table.forName}
                                         </Label>
                                     </FormGroup>
                                 </th>
                                 <th>
                                     <FormGroup check>
                                         <Label check>
-                                            <Input type="radio" value="surname" name = "search" onChange = {onChaked}/>{Messages.forSurname}
+                                            <Input type="radio" value="surname" name = "search" onChange = {onChaked}/>{Messages.table.forSurname}
                                         </Label>
                                     </FormGroup>
                                 </th>
                                 <th>
                                     <FormGroup check>
                                         <Label check>
-                                            <Input type="radio" value="salonAddress" name = "search" onChange = {onChaked}/>{Messages.forAddress}
+                                            <Input type="radio" value="salonAddress" name = "search" onChange = {onChaked}/>{Messages.table.forAddress}
                                         </Label>
                                     </FormGroup>
                                 </th>
                                 <th>
                                     <FormGroup check>
                                         <Label check>
-                                            <Input type="radio" value="salonTitle" name = "search" onChange = {onChaked}/>{Messages.forSalon}
+                                            <Input type="radio" value="salonTitle" name = "search" onChange = {onChaked}/>{Messages.table.forSalon}
                                         </Label>
                                     </FormGroup>
                                 </th>
@@ -57,11 +58,11 @@ class TableCategory extends Component {
                                 </th>
                             </tr>
                             <tr>
-                                <th>{Messages.imgTitle}</th>
-                                <th>{Messages.userName}</th>
-                                <th>{Messages.userSurName}</th>
-                                <th>{Messages.userAddress}</th>
-                                <th>{Messages.beautySalonName}</th>
+                                <th>{Messages.table.imgTitle}</th>
+                                <th>{Messages.table.userName}</th>
+                                <th>{Messages.table.userSurName}</th>
+                                <th>{Messages.table.userAddress}</th>
+                                <th>{Messages.table.beautySalonName}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -73,7 +74,7 @@ class TableCategory extends Component {
                                     <td>{item.surname} </td>
                                     <td>{item.salonAddress}</td>
                                     <td>{item.salonTitle}</td>
-                                    <td><button>{Messages.buttonText}</button></td>
+                                    <td><button>{Messages.table.specialiistButtonText}</button></td>
                                 </tr> 
                             })}
                         </tbody>

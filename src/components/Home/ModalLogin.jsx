@@ -1,12 +1,16 @@
 import React, { Component }  from 'react';
 import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
+//import PropTypes from 'prop-types';
+
+import Messages from './../../Messages'
+
 import './../../../assets/stylesheets/header.css';
-import PropTypes from 'prop-types';
+
 
 class ModalLogin extends Component {
-    static propTypes = {
-        signIn : PropTypes.object.isRequired,
-    }
+//    static propTypes = {
+//        
+//    }
     constructor(props) {
         super(props);
         this.state = {
@@ -20,23 +24,22 @@ class ModalLogin extends Component {
         }));
     }
     render(){
-        const {signIn} = this.props;
 		return(
 			<div>
-				<Button className="ml-auto mod_btn"  color="link" onClick={this.toggle}>{this.props.buttonLabel}{signIn.signIn}</Button>
+				<Button className="ml-auto mod_btn"  color="link" onClick={this.toggle}>{this.props.buttonLabel}{Messages.header.signIn.signIn}</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>{signIn.signInTitle}</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>{Messages.header.signIn.signInTitle}</ModalHeader>
                     <ModalBody>
                         <Form>
                             <FormGroup>
-                                <Label for="exampleEmail">{signIn.signInEmail}</Label>
-                                <Input type="email" name="email" id="exampleEmail" placeholder={signIn.signInEmailPlaceholder} />
+                                <Label for="exampleEmail">{Messages.header.signIn.signInEmail}</Label>
+                                <Input type="email" name="email" id="exampleEmail" placeholder={Messages.header.signIn.signInEmailPlaceholder} />
                             </FormGroup>
                             <FormGroup>
-                                <Label for="examplePassword">{signIn.signInPassword}</Label>
-                                <Input type="password" name="password" id="examplePassword" placeholder={signIn.signInPasswordPlaceholder} />
+                                <Label for="examplePassword">{Messages.header.signIn.signInPassword}</Label>
+                                <Input type="password" name="password" id="examplePassword" placeholder={Messages.header.signIn.signInPasswordPlaceholder} />
                             </FormGroup>
-                            <button className="modal_button">{signIn.signInButton}</button>
+                            <button className="modal_button">{Messages.header.signIn.signInButton}</button>
                         </Form>
                     </ModalBody>
                 </Modal>

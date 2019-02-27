@@ -1,17 +1,20 @@
-import React from 'react';
-import logo from './../../../assets/images/header/logo.png';
-import ModalLogin from './ModalLogin';
-import ModalRegister from './ModalReagistr';
+import React, { Component } from 'react';
 import {Link}  from 'react-router-dom';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand,
         Nav, NavItem, UncontrolledDropdown, DropdownToggle,
         DropdownMenu, DropdownItem , Container} from 'reactstrap';
-import './../../../assets/stylesheets/header.css';
 import PropTypes from 'prop-types';
 
-export default class Header extends React.Component {
+import ModalLogin from './ModalLogin';
+import Messages from './../../Messages';
+import ModalRegister from './ModalReagistr';
+
+import logo from './../../../assets/images/header/logo.png';
+
+import './../../../assets/stylesheets/header.css';
+
+class Header extends Component {
     static propTypes = {
-        Messages : PropTypes.object.isRequired,
         dropdown : PropTypes.array.isRequired,
         changeDropdown : PropTypes.func.isRequired,
     }
@@ -28,7 +31,7 @@ export default class Header extends React.Component {
         });
     }
     render() {
-        const {Messages, dropdown, changeDropdown} = this.props;
+        const {dropdown, changeDropdown} = this.props;
         return (
             <div>
                 <Container>
@@ -42,14 +45,14 @@ export default class Header extends React.Component {
                                     className="d-inline-block align-top"
                                     alt="React Bootstrap logo"
                                 />
-                                <span className="title">{Messages.title}</span>
+                                <span className="title">{Messages.header.title}</span>
                             </NavbarBrand>
                             <NavbarToggler onClick={this.toggle} />
                                 <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="ml-auto" navbar> 
                                         <UncontrolledDropdown nav inNavbar>
                                             <DropdownToggle nav className="drop" caret>
-                                                {Messages.dropDown}
+                                                {Messages.header.dropDown}
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 {dropdown.map((item,index) =>{
@@ -62,14 +65,10 @@ export default class Header extends React.Component {
                                             </DropdownMenu>
                                         </UncontrolledDropdown>
                                         <NavItem>
-                                            <ModalLogin
-                                                signIn = {Messages.signIn}
-                                                /> 
+                                            <ModalLogin/> 
                                         </NavItem>
                                         <NavItem>
-                                            <ModalRegister
-                                                signUp = {Messages.signUp}
-                                                />
+                                            <ModalRegister/>
                                         </NavItem>
                                     </Nav>
                             </Collapse>
@@ -80,3 +79,4 @@ export default class Header extends React.Component {
         );
     }
 }
+export default Header
