@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 footer {
-background: #FD703E;
-	background: -webkit-linear-gradient(#9b7171, #000);
-    background: linear-gradient(to bottom, #9b7171, #000);
+
+	background: -webkit-linear-gradient(#3a6877, #000);
+    background: linear-gradient(to bottom, #3a6877, #000);
 	margin-top: 30px;
 }
 ul {

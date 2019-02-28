@@ -33,9 +33,9 @@ class Header extends Component {
     render() {
         const {dropdown, changeDropdown} = this.props;
         return (
-            <div>
+            <div >
                 <Container>
-                    <div >
+                    <div className = "header_design">
                         <Navbar  light expand="md">
                             <NavbarBrand href="/">                        
                                 <img

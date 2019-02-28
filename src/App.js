@@ -42,9 +42,7 @@ class App extends Component {
                         </Switch>
                     </div>
                 </Router>
-                <Specialist 
-                    Data = {this.AppStore.Data}
-                    />
+               
                 <Footer/>
             </div>
         );  
