@@ -19,7 +19,7 @@ import salon6 from './../../assets/images/salon/salon6.jpg';
 class Data {
     salons = [
             {
-                name : 'Սյուզի իմիջ կենտրոն',
+                name : 'Սյուզի գեղեցկության սրահ',
                 img : salon1,
                 address : "Տիգրան Մեծ 74",
                 phone : "+374 98 52 64 78",
@@ -31,7 +31,7 @@ class Data {
                         prof : "Վարսահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user1,
                                 name : "Լիլիթ",
@@ -46,7 +46,7 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                             	img : user2,
                                 name : "Անուշ",
@@ -61,13 +61,13 @@ class Data {
                                 ],
                             },
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                             	img : user3,
                                 name : "Հասմիկ ",
                                 surname : "Չիլինգարյան",
                                 age : "24",
-                                textAbout : "Ունեմ 8 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 2 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Պեկինում ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -82,14 +82,14 @@ class Data {
                     	prof : "Դիմահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user4,
                                 name : "Հայկուհի",
                                 surname : "Կարապետյան",
                                 age : "34",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
-                                socialNetwork : "facebook - https://www.facebook.com/Lilit.Karapetyan5616156",
+                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ ԱՄՆ-ում ",
+                                socialNetwork : "facebook - https://www.facebook.com/Haykuhi5616156",
                                 workImgs : [
                                     'work1',
                                     'work2',
@@ -102,14 +102,49 @@ class Data {
                     	prof : "Մատնահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user5,
                                 name : "Սիրարփի",
                                 surname : "Հայրապետյան",
                                 age : "25",
-                                textAbout : "վերապատրաստվել եմ Մոսկվայում ",
-                                socialNetwork : "instagram -https://www.instagram.com/Lilit124586 ",
+                                textAbout : "Ունեմ 3 տարվա աշխատանքային փորձ,վերապատրաստվել եմ Երևանում ",
+                                socialNetwork : "instagram -https://www.instagram.com/245454 ",
+                                workImgs : [
+                                    'work1',
+                                    'work2',
+                                    'work3'
+                                ],                   
+                            }
+                        ]
+                    },
+                    {
+                        prof : "Կոսմետոլոգներ",
+                        workers : [
+                            {
+                                salonTitle : 'Սյուզի գեղեցկության սրահ',
+                                salonAddress : "Տիգրան Մեծ 74",
+                                img : user6,
+                                name : "Մանե",
+                                surname : "Իսահակյան",
+                                age : "28",
+                                textAbout : "Ունեմ 5 տարվա աշխատանքային փորձ,վերապատրաստվել եմ Վրաստանում ",
+                                socialNetwork : "instagram -https://www.instagram.com/245454 ",
+                                workImgs : [
+                                    'work1',
+                                    'work2',
+                                    'work3'
+                                ],                   
+                            },
+                            {
+                                salonTitle : 'Սյուզի գեղեցկության սրահ',
+                                salonAddress : "Տիգրան Մեծ 74",
+                                img : user6,
+                                name : "Աննա",
+                                surname : "Հարությունյան",
+                                age : "32",
+                                textAbout : "Ունեմ 8 տարվա աշխատանքային փորձ,վերապատրաստվել եմ Իտալիայում",
+                                socialNetwork : "instagram -https://www.instagram.com/245454 ",
                                 workImgs : [
                                     'work1',
                                     'work2',
@@ -118,10 +153,11 @@ class Data {
                             }
                         ]
                     }
+
                 ]
             },
             {
-            	name : 'Լիլիթ',
+            	name : 'Լիլիթ գեղեցկության սրահ',
                 img : salon2,
                 address : "Գր․ Լուսավորիչ 42",
                 phone : "+374 43 50 10 24",
@@ -133,13 +169,13 @@ class Data {
                         prof : "Վարսահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Լիլիթ',
+                                salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                                 img : user7,
                                 name : "Հակոբ",
                                 surname : "Աբաղյան",
                                 age : "34",
-                                textAbout : "Ունեմ 3 տարվա աշխատանքային փորձ",
+                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -148,13 +184,13 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'Լիլիթ',
+                                salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                             	img : user8,
                                 name : "Հրաչիկ",
                                 surname : "Հովսեփյան",
-                                age : "22",
-                                textAbout : "Ունեմ 1 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                age : "29",
+                                textAbout : "Ունեմ 5 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Երևանում ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -163,13 +199,13 @@ class Data {
                                 ],
                             },
                             {
-                                salonTitle : 'Լիլիթ',
+                                salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                             	img : user1,
                                 name : "Հասմիկ ",
                                 surname : "Չիլինգարյան",
                                 age : "24",
-                                textAbout : "Ունեմ 2 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 2 տարվա աշխատանքային փորձ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -184,7 +220,7 @@ class Data {
                     	prof : "Դիմահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Լիլիթ',
+                                salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                                 img : user9,
                                 name : "Սիրակ",
@@ -204,7 +240,7 @@ class Data {
                     	prof : "Մատնահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Լիլիթ',
+                                salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                                 img : user4,
                                 name : "Անի",
@@ -219,11 +255,32 @@ class Data {
                                 ],                   
                             }
                         ]
+                    },
+                    {
+                        prof : "Կոսմետոլոգներ",
+                        workers : [
+                            {
+                                salonTitle : 'Լիլիթ գեղեցկության սրահ',
+                                salonAddress : "Գր․ Լուսավորիչ 42",
+                                img : user4,
+                                name : "Անաստասիա",
+                                surname : "Մամուլյան",
+                                age : "29",
+                                textAbout : "ՈՒնեմ 4 տարվա աշխատանքային փորձ",
+                                socialNetwork : "nstagram -https://www.instagram.com",
+                                workImgs : [
+                                    'work3',
+                                    'work2',
+                                    'work1',
+                                ],                   
+                            }
+                        ]
                     }
+
                 ]
             },
             {
-            	name : 'փարվանա իմիջ կենտրոն',
+            	name : 'Փարվանա գեղեցկության սրահ',
                 img : salon3,
                 address : "Նժդեհի 25",
                 phone : "0322 4 35 25",
@@ -235,13 +292,13 @@ class Data {
                         prof : "Վարսահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'փարվանա իմիջ կենտրոն',
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user1,
                                 name : "Աննա",
                                 surname : "Կարապետյան",
                                 age : "34",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Ալժիրում ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -256,13 +313,13 @@ class Data {
                     	prof : "Դիմահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'փարվանա իմիջ կենտրոն',
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user2,
                                 name : "Նունե",
                                 surname : "Խաչատրյան",
                                 age : "34",
-                                textAbout : "վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ",
                                 socialNetwork : "nstagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -271,13 +328,13 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'փարվանա իմիջ կենտրոն',
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                             	img : user3,
                                 name : "Վարդուհի",
                                 surname : "Ղազարյան",
                                 age : "24",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 3 տարվա աշխատանքային փորձ, վերապատրաստվել եմ ԱՄՆ-ում ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -291,13 +348,13 @@ class Data {
                     	prof : "Մատնահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'փարվանա իմիջ կենտրոն',
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user4,
                                 name : "Գոհար",
                                 surname : "Բաբելյան",
                                 age : "25",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 4 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -306,13 +363,63 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'փարվանա իմիջ կենտրոն',
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                             	img : user5,
                                 name : "Մարիամ",
                                 surname : "Պապյան",
                                 age : "32",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 9 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                socialNetwork : "instagram -https://www.instagram.com",
+                                workImgs : [
+                                    'work1',
+                                    'work2',
+                                    'work3'
+                                ],
+                            }
+                        ]
+                    },
+                    {
+                        prof : "Կոսմետոլոգներ",
+                        workers : [
+                            {
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
+                                salonAddress : "Նժդեհի 25",
+                                img : user4,
+                                name : "Արմինե",
+                                surname : "Բաբայան",
+                                age : "27",
+                                textAbout : "Ունեմ 4 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Հունաստանում ",
+                                socialNetwork : "instagram -https://www.instagram.com",
+                                workImgs : [
+                                    'work1',
+                                    'work2',
+                                    'work3'
+                                ],                   
+                            },
+                            {
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
+                                salonAddress : "Նժդեհի 25",
+                                img : user5,
+                                name : "Արմինե",
+                                surname : "Հովսեփյան",
+                                age : "35",
+                                textAbout : "Ունեմ 11 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մեծ Բրիտանիայում ",
+                                socialNetwork : "instagram -https://www.instagram.com",
+                                workImgs : [
+                                    'work1',
+                                    'work2',
+                                    'work3'
+                                ],
+                            },
+                            {
+                                salonTitle : 'Փարվանա գեղեցկության սրահ',
+                                salonAddress : "Նժդեհի 25",
+                                img : user5,
+                                name : "Կարինե",
+                                surname : "Մուրադյան",
+                                age : "29",
+                                textAbout : "Ունեմ 6 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Իսպանիայում ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -322,9 +429,11 @@ class Data {
                             }
                         ]
                     }
+
+
                 ]
             },
-            {name : 'Սյուզի իմիջ կենտրոն',
+            {name : 'Կոկետ գեղեցկության սրահ',
                 img : salon4,
                 address : "Մյասնիկյան 64",
                 phone : "0322 5 05 81",
@@ -336,13 +445,13 @@ class Data {
                         prof : "Վարսահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                             	img : user10,
                                 name : "Կարապետ",
                                 surname : "Հովակիմյան",
                                 age : "24",
-                                textAbout : "Ունեմ 1 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 1 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Հնդկաստանում ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -357,13 +466,13 @@ class Data {
                     	prof : "Դիմահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                                 img : user6,
                                 name : "Լուսինե",
                                 surname : "Խաչատրյան",
                                 age : "44",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 15 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Գերմանիայում ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -372,13 +481,13 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                             	img : user5,
                                 name : "Էմա",
                                 surname : "Ադամյան",
                                 age : "32",
-                                textAbout : "վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "վերապատրաստվել եմ Անգորայում ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -387,13 +496,13 @@ class Data {
                                 ],
                             },
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                                 img : user4,
                                 name : "Մերի",
                                 surname : "Խառատյան",
-                                age : "34",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                age : "39",
+                                textAbout : "Ունեմ 15 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Ավստրիայում ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -407,13 +516,33 @@ class Data {
                     	prof : "Մատնահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Սյուզի իմիջ կենտրոն',
+                                salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                                 img : user3,
+                                name : "Աշխեն",
+                                surname : "Խաչիկյան",
+                                age : "30",
+                                textAbout : "Ունեմ 5 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Բրազիլիայում ",
+                                socialNetwork : "facebook - https://www.facebook.com",
+                                workImgs : [
+                                    'work1',
+                                    'work2',
+                                    'work3'
+                                ],                   
+                            }
+                        ]
+                    },
+                    {
+                        prof : "Կոսմետոլոգներ",
+                        workers : [
+                            {
+                                salonTitle : 'Կոկետ գեղեցկության սրահ',
+                                salonAddress : "Մյասնիկյան 64",
+                                img : user5,
                                 name : "Կարինե",
                                 surname : "Հարությունյան",
-                                age : "28",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                age : "25",
+                                textAbout : "Ունեմ 3 տարվա աշխատանքային փորձ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -426,7 +555,7 @@ class Data {
                 ]
             },
             {
-            	name : 'Անջելիկա',
+            	name : 'Անժելիկա գեղեցկության սրահ',
                 img : salon5,
                 address : "Մյասնիկյան 26/4",
                 phone : "0322 4 74 55",
@@ -438,13 +567,13 @@ class Data {
                         prof : "Վարսահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Անջելիկա',
+                                salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                                 img : user12,
                                 name : "Տիգրան",
                                 surname : "Քոչինյան",
-                                age : "234",
-                                textAbout : "Ունեմ Մոսկվայում, վերապատրաստվել եմ աշխատանքային փորձ",
+                                age : "23",
+                                textAbout : "Վերապատրաստվել եմ Գվինեայում",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -453,13 +582,13 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'Անջելիկա',
+                                salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                             	img : user11,
                                 name : "Գարիկ ",
                                 surname : "Իսկանդարյան",
-                                age : "64",
-                                textAbout : "Ունեմ 10 րոպեի աշխատանքային փորձ, վերապատրաստվել եմ Մադագասկարում ",
+                                age : "31",
+                                textAbout : "Ունեմ 8 տարվա աշխատանքային փորձ",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -474,12 +603,12 @@ class Data {
                     	prof : "Դիմահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Անջելիկա',
+                                salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                                 img : user3,
                                 name : "Անահիտ",
                                 surname : "Կառյան",
-                                age : "80",
+                                age : "23",
                                 textAbout : "Ունեմ 1 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Աֆրիկայում ",
                                 socialNetwork : "facebook - https://www.facebook.com/Lilit.Karapetyan5616156",
                                 workImgs : [
@@ -494,13 +623,13 @@ class Data {
                     	prof : "Մատնահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Անջելիկա',
+                                salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                                 img : user4,
                                 name : "Ինեսա",
                                 surname : "Մկրտչյան",
-                                age : "1",
-                                textAbout : "Ունեմ 80 տարվա աշխատանքային փորձ, վերապատրաստվել եմ է",
+                                age : "29",
+                                textAbout : "Ունեմ 8 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Բելգիա",
                                 socialNetwork : "facebook - https://www.facebook.com",
                                 workImgs : [
                                     'work1',
@@ -509,13 +638,13 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'Անջելիկա',
+                                salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
-                            	img : user5,
+                            	img : user8,
                                 name : "Էրիկ ",
                                 surname : "Պապյան",
-                                age : "124",
-                                textAbout : "Ունեմ տարվա աշխատանքային փորձ, վերապատրաստվել եմ Ղամշկուտում ",
+                                age : "32",
+                                textAbout : "Ունեմ 8 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Թալիանդում ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -528,7 +657,7 @@ class Data {
                 ]
             },
             {
-            	name : 'Անի',
+            	name : 'Անի գեղեցկության սրահ',
                 img : salon6,
                 address : "Վարդանանց 14",
                 phone : "0322 2 56 83",
@@ -540,13 +669,13 @@ class Data {
                         prof : "Վարսահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Անի',
+                                salonTitle : 'Անի գեղեցկության սրահ',
                                 salonAddress : "Վարդանանց 14",
                                 img : user7,
                                 name : "Կարեն",
                                 surname : "Կարապետյան",
                                 age : "34",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Ինդոնեզիայում ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',
@@ -555,13 +684,13 @@ class Data {
                                 ],                   
                             },
                             {
-                                salonTitle : 'Անի',
+                                salonTitle : 'Անի գեղեցկության սրահ',
                                 salonAddress : "Վարդանանց 14",
-                            	img : user1,
+                            	img : user8,
                                 name : "Գոռ",
                                 surname : "Վարդանյան",
                                 age : "32",
-                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Իրանում ",
                                 socialNetwork : "facebook - https://www.facebook.com՞",
                                 workImgs : [
                                     'work1',
@@ -576,13 +705,33 @@ class Data {
                     	prof : "Մատնահարդարներ",
                         workers : [
                             {
-                                salonTitle : 'Անի',
+                                salonTitle : 'Անի գեղեցկության սրահ',
                                 salonAddress : "Վարդանանց 14",
                                 img : user2,
                                 name : "Ամալյա",
                                 surname : "Կիրակոսյան",
                                 age : "25",
                                 textAbout : "Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ",
+                                socialNetwork : "instagram -https://www.instagram.com",
+                                workImgs : [
+                                    'work1',
+                                    'work2',
+                                    'work3'
+                                ],                   
+                            }
+                        ]
+                    },
+                    {
+                        prof : "Կոսմետոլոգներ",
+                        workers : [
+                            {
+                                salonTitle : 'Անի գեղեցկության սրահ',
+                                salonAddress : "Վարդանանց 14",
+                                img : user3,
+                                name : "Նունե",
+                                surname : "Հայրապետյան",
+                                age : "25",
+                                textAbout : "Ունեմ 3 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Երևանում ",
                                 socialNetwork : "instagram -https://www.instagram.com",
                                 workImgs : [
                                     'work1',

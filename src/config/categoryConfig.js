@@ -24,7 +24,7 @@ const homeConfigs = {
             img : mat,
         },
         {
-            title : 'Այլ ծառայություններ',
+            title : 'Կոսմետոլոգներ',
             explaText : 'Գեղեցիկն աստվածային է, վեհը՝ մարդկային: Լեսինգ',
             img : spa,
         }
@@ -47,7 +47,7 @@ const homeConfigs = {
         },
         {
             id: 4,
-            altText: 'Այլ ծառայություններ',
+            altText: 'Կոսմետոլոգներ',
             Img : aylImg
         }
     ]

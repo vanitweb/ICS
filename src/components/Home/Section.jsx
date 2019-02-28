@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container,  Row } from 'reactstrap';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react'
 
 import Carusel from './Carusel';
 import CardCategory from './../CardCategory';
@@ -10,6 +11,7 @@ import {homeConfigs} from './../../config/categoryConfig';
 
 import './../../../assets/stylesheets/section.css';
 
+@observer
 class Section extends Component {
     static propTypes = {
         cardClick : PropTypes.func.isRequired,

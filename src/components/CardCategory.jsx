@@ -9,17 +9,19 @@ import './../../assets/stylesheets/card.css'
 class CardCategory extends Component {
     static propTypes = {
         img : PropTypes.string.isRequired,
-        title : PropTypes.string.isRequired,
+        deleteCard : PropTypes.string,
+        title : PropTypes.string,
         explaText : PropTypes.string.isRequired,
         cardClick : PropTypes.func.isRequired,
         CardClass : PropTypes.string,
         buttonText : PropTypes.string.isRequired,
     }
 	render() {   
-        const { img, title, explaText, cardClick, CardClass, buttonText} = this.props;
+        const { deleteCard, img, title, explaText, cardClick, CardClass, buttonText} = this.props;
 		return(
             <Col lg = {3} md={6} sm = {6} xs = {8} className="cardOne">
                 <Card>
+                    {deleteCard}
                     <CardImg variant="top" src={img} heigth = "200px" width = "200px"/>
                     <CardBody>
                         <CardTitle>{title}</CardTitle>

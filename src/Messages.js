@@ -40,9 +40,6 @@ const Messages = {
         footerLi3 : "barberha.com",
     },
     table : {
-        imgTitle : "Նկար",
-        userName : "Անուն",
-        userSurName : "Ազգանուն",
         userAddress : "Հասցե",
         beautySalonName : "Գեղեցկության սրահ",
         buttonText : "Մանրամասն",

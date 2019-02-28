@@ -2,13 +2,13 @@ import React,{Component} from 'react';
 import {Container, Row, Col,Button} from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import Messages from './../Messages';
-import CardCategory from './CardCategory';
-import plus from './../../assets/images/salon/plus.png';
-import notification from './../../assets/images/salon/notification.png';
-import './../../assets/stylesheets/salon.css';
+import Messages from './../../Messages';
+import CardCategory from './../CardCategory';
+import plus from './../../../assets/images/salon/plus.png';
+import notification from './../../../assets/images/salon/notification.png';
+import './../../../assets/stylesheets/salon.css';
 
-class Salon extends Component {
+class SalonUser extends Component {
     static propTypes = {
         Data : PropTypes.object.isRequired,
     }
@@ -48,6 +48,7 @@ class Salon extends Component {
                         <Row>{item.workers.map(item1 => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
+                                        deleteCard = {<Button color="danger" className="delete">X</Button>}
                                         img={item1.img}
                                         explaText= {`${item1.name} ${item1.surname}`}
                                         cardClick={()=>alert()}
@@ -56,6 +57,7 @@ class Salon extends Component {
 
                                 </React.Fragment>
                             })}
+                        <Button outline color="info"> Ավալացնել աշխատող</Button>
                         </Row>
                         
                     </React.Fragment>
@@ -65,4 +67,4 @@ class Salon extends Component {
 	}
 }
 
-export default Salon;
+export default SalonUser;
