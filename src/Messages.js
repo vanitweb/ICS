@@ -34,7 +34,7 @@ const Messages = {
         footerPhone1 : "TelePhone: +37498722717",
         footerPhone2 : "TelePhone: +37496550272",
         footerPhone3 : "TelePhone: +37493399432",
-        footerDate : "©Copyright BEAUTY SAlON 17.02.2019<",
+        footerDate : "©Copyright BEAUTY SAlON 17.02.2019s",
         footerLi1 : "Barber - Shaves & Trims.com",
         footerLi2 : "Blind Barber - Stay Handsome.com",
         footerLi3 : "barberha.com",

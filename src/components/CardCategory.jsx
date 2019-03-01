@@ -17,7 +17,7 @@ class CardCategory extends Component {
         buttonText : PropTypes.string.isRequired,
     }
 	render() {   
-        const { deleteCard, img, title, explaText, cardClick, CardClass, buttonText} = this.props;
+        const { x,deleteCard, img, title, explaText, cardClick, CardClass, buttonText} = this.props;
 		return(
             <Col lg = {3} md={6} sm = {6} xs = {8} className="cardOne">
                 <Card>
@@ -26,9 +26,9 @@ class CardCategory extends Component {
                     <CardBody>
                         <CardTitle>{title}</CardTitle>
                         <CardText className = {CardClass}>{explaText}</CardText>
-                        <Link to={`/category/${title}`}>
+                        {/*<Link to={}>*/}
                             <Button color="info" onClick = {cardClick}>{buttonText}</Button>
-                        </Link>
+                        {/*</Link>*/}
                     </CardBody>
                 </Card>
             </Col>

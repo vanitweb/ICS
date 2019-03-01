@@ -48,6 +48,7 @@ class SalonUser extends Component {
                         <Row>{item.workers.map(item1 => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
+                                        x = {`/category/${item.title}`}
                                         deleteCard = {<Button color="danger" className="delete">X</Button>}
                                         img={item1.img}
                                         explaText= {`${item1.name} ${item1.surname}`}
@@ -62,6 +63,9 @@ class SalonUser extends Component {
                         
                     </React.Fragment>
                 })}
+                <Row>
+                    <Button color="danger" className="addCategotis"> Ավալացնել կատեգորիա</Button> 
+                </Row>
 			</Container>
 		);
 	}

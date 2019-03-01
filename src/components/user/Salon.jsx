@@ -48,19 +48,23 @@ class Salon extends Component {
                         <Row>{item.workers.map(item1 => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
+                                   x =  {<Button color="danger" className="delete">X</Button>}
                                         img={item1.img}
                                         explaText= {`${item1.name} ${item1.surname}`}
                                         cardClick={()=>alert()}
                                         buttonText = {Messages.table.specialiistButtonText}
-                                        x = {`/category/${item.title}`}
                                         />
 
                                 </React.Fragment>
                             })}
+                            <Button outline color="info"> Ավալացնել աշխատող</Button>   
                         </Row>
                         
                     </React.Fragment>
                 })}
+                <Row>
+                    <Button color="danger" className="addCategotis"> Ավալացնել կատեգորիա</Button> 
+                </Row>  
 			</Container>
 		);
 	}

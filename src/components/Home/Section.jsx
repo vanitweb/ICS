@@ -34,6 +34,7 @@ class Section extends Component {
                                     explaText={item.explaText}
                                     CardClass = "cardSection1"
                                     buttonText = {Messages.section.homeCardButtonText}
+                                    x = {`/category/${item.title}`}
                                     />
                             </React.Fragment>
                         })}

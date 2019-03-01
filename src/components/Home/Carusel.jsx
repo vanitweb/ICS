@@ -66,27 +66,26 @@ class Example extends Component {
                     {
                         `.custom-tag {
                                 max-width: 100%;
-                                height: 90vh;
+                                height: 70vh;
                         }`
                     }
                 </style>
                 <Carousel
+                    
                     activeIndex={activeIndex}
                     next={this.next}
                     previous={this.previous}
+                    className="size"
                     >
-                    <CarouselIndicators 
-                        items={homeConfigs.slideItems} 
-                        activeIndex={activeIndex} 
-                        onClickHandler={this.goToIndex} 
-                        />
                     {slides}
-                    <CarouselControl 
+                    <CarouselControl
+                        className="next_prev"
                         direction="prev" 
                         directionText="Previous" 
                         onClickHandler={this.previous} 
                         />
                     <CarouselControl
+                        className="next_prev"
                         direction="next"
                         directionText="Next" 
                         onClickHandler={this.next}

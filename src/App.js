@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {observer} from 'mobx-react'
 
 import Header from './components/Home/Header';
+import Header2 from './components/user/Header2';
 import Section from './components/Home/Section';
 import Footer from './components/Home/Footer';
 import Salon from './components/Salon'; 
@@ -29,13 +30,17 @@ class App extends Component {
                             dropdown = {this.AppStore.Data}
                             changeDropdown = {this.UIStore.changeDropdown}
                             />
+                        <Header2 
+                            dropdown = {this.AppStore.Data}
+                            changeDropdown = {this.UIStore.changeDropdown}
+                            />
                         <Switch>
                             <Route exact path="/" component={()=><Section  
                                 cardClick = {this.UIStore.cardClick}
                                 />} />
-                            <Route path="/Salon/:i" component={()=><Salon 
+                            {/*<Route path="/Salon/:i" component={()=><Salon 
                                 Data = {this.AppStore.Data[Number(this.UIStore.index)]}
-                                />}/>
+                                />}/>*/}
                             <Route path='/:g' component={()=><CardCategorySearch                      
                                 prof = {this.UIStore.prof}
                                 tableSearch = {this.UIStore.tableSearch}
@@ -46,9 +51,9 @@ class App extends Component {
                     </div>
                 </Router>
                 <Specialist Data = {this.AppStore.Data}/>
-                {/*<SalonUser 
+                <SalonUser 
                     Data = {this.AppStore.Data[0]}
-                    />*/}
+                    />
                 <Footer/>
             </div>
         );  
