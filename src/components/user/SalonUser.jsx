@@ -7,6 +7,7 @@ import Messages from './../../Messages';
 import CardCategory from './../CardCategory';
 import notification from './../../../assets/images/salon/notification.png';
 import './../../../assets/stylesheets/salon.css';
+import Settings from './Settings';
 
 @observer
 class SalonUser extends Component {
@@ -35,7 +36,8 @@ class SalonUser extends Component {
 						<p>{Data.info}</p>
                         <p>{Messages.beautySalons.beautySalonsAddress}` {Data.address}</p>
                         <p>{Messages.beautySalons.beautySalonsPhone}` {Data.phone}</p>
-                        <Button outline color="info"> Փոփոխել տվյալները</Button>
+                      <Settings />
+
 
 					</Col>
 

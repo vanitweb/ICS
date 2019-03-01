@@ -61,6 +61,7 @@ class App extends Component {
                     Data = {this.AppStore.Data[0]}
                     deleteCard = {this.UIStore.deleteCard}
                     />*/}
+                    <Specialist Data={this.AppStore.Data}/>
                 <Footer/>
             </div>
         );  

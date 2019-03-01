@@ -1,0 +1,22 @@
+.name {
+  color: transparent;
+}
+.name::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.name::before {
+  content: 'Ընտրեք նկարը';
+  color: #17A2B8;
+  display: inline-block;
+  
+  border: 1px solid #17A2B8;
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+ 
+  
+}
+.name:hover::before {
+  border-color: #17A2B8;
+}
+

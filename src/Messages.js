@@ -2,6 +2,8 @@ const Messages = {
     header : {
         title : "Ոճի Զգացմունք",
         dropDown : "Գեղեցկության սրահներ",
+        UserPage : "Անձնական էջ",
+        LogOut : "Դուրս գալ", 
         signIn : {
             signIn : "Մուտք",
             signInTitle : "Մուտք",
@@ -28,6 +30,14 @@ const Messages = {
     },
     section : {
         homeCardButtonText : "Դիտել մասնագետներին",
+    },
+    settings : {
+        settingsName : "Փոխել տվյալները",
+        adress : "Հասցե",
+        phone : "Հեռախոսահամար",
+        ourSet : "Մեր մասին",
+        insertImg : "Տեղադրել նկար",
+        saveChange : "Հաստատել",
     },
     footer : {
         footerEmail : "Mail: butySaolns@mail.ru",
@@ -66,6 +76,21 @@ const Messages = {
         chooseClock : "Ընտրել ժամ",
         confirmed : "Հաստատել",
         myWorkes: "Իմ աշխատանքներ",
+    },
+        AddWorker : {
+      AddWorker : "Ավելացնել աշխատակից",
+      image : "Նկար",
+      name : "Անուն",
+      surname : "Ազգանուն",
+      age : "Տարիք",
+      information : "Տեղեկատվություն",
+      connectionWithSocialMedia : "Կապ սոց․ կայքեր",
+      AddWorkExample : "Ավելացնել աշխատանքի օրինակ",
+      save : "Պահպանել",
+      confirmChanges : "Հաստատել փոփոխությունները",
+      modifyData : "Փոփոխել տվյալները",
+
     }
+    
 }
 export default Messages;

@@ -3,7 +3,7 @@ import {Button,Container, Row, Col, FormGroup, Label, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import Messages from './../Messages';
-
+import Change from './user/ChangeData'
 import './../../assets/stylesheets/specialist.css';
 
 class Specialist extends Component {
@@ -76,13 +76,16 @@ class Specialist extends Component {
                                  </FormGroup>
                              </div>
                              <Button type = "submit" color="info" > {Messages.specialist.confirmed} </Button>
+                             
                          </Col>
                      </Row>
                      <h1 className = "textBlue" >{Messages.specialist.myWorkes}</h1>
                      <Row className = "mt-5">
+                     <Change/> 
                          {Data[0].category[0].workers[0].workImgs.map((item, index) => {
                              return <Col align = "center" key = {index}>
                                  <img src={item} alt="Անհայտ նկար" className ="d-inline " />
+
                              </Col>
                          })}
                      </Row>
