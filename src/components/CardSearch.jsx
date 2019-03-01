@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Card, Button, Media } from 'reactstrap';
 import PropTypes from 'prop-types';
+import {Link}  from 'react-router-dom';
 
 import Messages from './../Messages';
 
 class CardSearch extends Component {
     static propTypes = {
-        cardClick : PropTypes.func.isRequired,
+        cardClick : PropTypes.func,//isRequired
     }
     render() {
-        const {prof, image, nameSurname, address, salonTitle} = this.props;
+        const { image, nameSurname, address, salonTitle} = this.props;
         return (
             <Card>
                     <Media>
@@ -23,7 +24,9 @@ class CardSearch extends Component {
                             {Messages.table.userAddress}` {address}
                             <div>{Messages.table.beautySalonName}`  {salonTitle}</div>
                         </Media>
-                     <Button className="btn_card_category">Մանրամասն</Button>
+                        <Link to = {`/Category/:g/specialist`}>
+                            <Button className="btn_card_category">Մանրամասն</Button>
+                        </Link>
                 </Media>
             </Card>
         );

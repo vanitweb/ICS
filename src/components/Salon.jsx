@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
 import {Container, Row, Col,Button} from 'reactstrap';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Messages from './../Messages';
+import Footer from './Home/Footer';
 import CardCategory from './CardCategory';
-import plus from './../../assets/images/salon/plus.png';
-import notification from './../../assets/images/salon/notification.png';
 import './../../assets/stylesheets/salon.css';
 
 class Salon extends Component {
@@ -20,7 +20,6 @@ class Salon extends Component {
                     <Col >
                         <h1 className='varsAnun'>{Data.name}</h1>
                     </Col>
-                    <img src={notification} alt=""  align="right" width = "50px" height = "50px"/>
 
 				</Row>
 				<Row className = "salon-page">
@@ -32,7 +31,6 @@ class Salon extends Component {
 						<p>{Data.info}</p>
                         <p>{Messages.beautySalons.beautySalonsAddress}` {Data.address}</p>
                         <p>{Messages.beautySalons.beautySalonsPhone}` {Data.phone}</p>
-                        <Button outline color="info"> Փոփոխել տվյալները</Button>
 
 					</Col>
 
@@ -48,15 +46,15 @@ class Salon extends Component {
                         <Row>{item.workers.map(item1 => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
+                                        x =  {`/Salon/:i/specialist/${item1.name}`}
                                         img={item1.img}
                                         explaText= {`${item1.name} ${item1.surname}`}
-                                        cardClick={()=>alert()}
+                                        cardClick={()=>console.log()}
                                         buttonText = {Messages.table.specialiistButtonText}
-                                        x = {`/category/${item.title}`}
                                         />
 
                                 </React.Fragment>
-                            })}
+                            })}  
                         </Row>
                         
                     </React.Fragment>

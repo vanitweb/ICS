@@ -22,6 +22,7 @@ class App extends Component {
     UIStore = new UIStore();
     AppStore = new AppStore();
     render() {
+        console.log(this.AppStore.Data[0].category[0].workers)
         return (
             <div className = "App">
                 <Router>
@@ -38,22 +39,23 @@ class App extends Component {
                             <Route exact path="/" component={()=><Section  
                                 cardClick = {this.UIStore.cardClick}
                                 />} />
-                            {/*<Route path="/Salon/:i" component={()=><Salon 
+                            <Route exact path="/Salon/:i" component={()=><Salon 
                                 Data = {this.AppStore.Data[Number(this.UIStore.index)]}
-                                />}/>*/}
-                            <Route path='/:g' component={()=><CardCategorySearch                      
+                                />}/>
+                            <Route path='/Category/:g' component={()=><CardCategorySearch         
                                 prof = {this.UIStore.prof}
                                 tableSearch = {this.UIStore.tableSearch}
                                 filterTable = {this.UIStore.filterTable}
                                 onChaked = {this.UIStore.onChaked}
                                 />}/>
+                            <Route exact path="/Salon/:i/:e" component={()=><Specialist    Data = {this.AppStore.Data}/>}/>        
                         </Switch>
                     </div>
                 </Router>
-                <Specialist Data = {this.AppStore.Data}/>
-                <SalonUser 
+                {/*<SalonUser 
                     Data = {this.AppStore.Data[0]}
-                    />
+                    deleteCard = {this.UIStore.deleteCard}
+                    />*/}
                 <Footer/>
             </div>
         );  

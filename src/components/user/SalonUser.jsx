@@ -1,19 +1,21 @@
 import React,{Component} from 'react';
 import {Container, Row, Col,Button} from 'reactstrap';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
 
 import Messages from './../../Messages';
 import CardCategory from './../CardCategory';
-import plus from './../../../assets/images/salon/plus.png';
 import notification from './../../../assets/images/salon/notification.png';
 import './../../../assets/stylesheets/salon.css';
 
+@observer
 class SalonUser extends Component {
     static propTypes = {
         Data : PropTypes.object.isRequired,
     }
     render() {
-        const {Data} = this.props;
+        const {Data, deleteCard} = this.props;
+        console.log(Data.category[0].workers)
 		return (
             <Container className = "salon-page">
                 <Row>
@@ -45,11 +47,11 @@ class SalonUser extends Component {
                                 <h2>{item.prof}</h2>
                             </Col>
                         </Row>
-                        <Row>{item.workers.map(item1 => {
+                        <Row>{item.workers.map((item1, index) => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
-                                        x = {`/category/${item.title}`}
-                                        deleteCard = {<Button color="danger" className="delete">X</Button>}
+                                        x = {`/Salon/0/specialist`}
+                                        deleteCard = {<Button color="danger" onClick = {deleteCard} data-index = {index} prof = {item.prof} salon-name = {Data.name} className="delete">X</Button>}
                                         img={item1.img}
                                         explaText= {`${item1.name} ${item1.surname}`}
                                         cardClick={()=>alert()}
@@ -63,7 +65,7 @@ class SalonUser extends Component {
                         
                     </React.Fragment>
                 })}
-                <Row>
+                <Row align = "center" className = "mt-5 mb-5">
                     <Button color="danger" className="addCategotis"> Ավալացնել կատեգորիա</Button> 
                 </Row>
 			</Container>

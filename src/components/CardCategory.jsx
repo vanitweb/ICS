@@ -9,7 +9,7 @@ import './../../assets/stylesheets/card.css'
 class CardCategory extends Component {
     static propTypes = {
         img : PropTypes.string.isRequired,
-        deleteCard : PropTypes.string,
+        deleteCard : PropTypes.object,
         title : PropTypes.string,
         explaText : PropTypes.string.isRequired,
         cardClick : PropTypes.func.isRequired,
@@ -17,7 +17,7 @@ class CardCategory extends Component {
         buttonText : PropTypes.string.isRequired,
     }
 	render() {   
-        const { x,deleteCard, img, title, explaText, cardClick, CardClass, buttonText} = this.props;
+        const { x, deleteCard, img, title, explaText, cardClick, CardClass, buttonText} = this.props;
 		return(
             <Col lg = {3} md={6} sm = {6} xs = {8} className="cardOne">
                 <Card>
@@ -26,9 +26,9 @@ class CardCategory extends Component {
                     <CardBody>
                         <CardTitle>{title}</CardTitle>
                         <CardText className = {CardClass}>{explaText}</CardText>
-                        {/*<Link to={}>*/}
-                            <Button color="info" onClick = {cardClick}>{buttonText}</Button>
-                        {/*</Link>*/}
+                        <Link to={x}>
+                            <Button color="info" onClick = {cardClick} >{buttonText}</Button>
+                        </Link>
                     </CardBody>
                 </Card>
             </Col>

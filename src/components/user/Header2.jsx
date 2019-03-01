@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {Link}  from 'react-router-dom';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand,
-        Nav, NavItem, UncontrolledDropdown, DropdownToggle,
+        Nav, UncontrolledDropdown, DropdownToggle,
         DropdownMenu, DropdownItem , Container,Button} from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import ModalLogin from './../Home/ModalLogin';
 import Messages from './../../Messages';
-import ModalRegister from './../Home/ModalReagistr';
 
 import logo from './../../../assets/images/header/logo.png';
 
@@ -49,7 +47,7 @@ class Header2 extends Component {
                             </NavbarBrand>
                             <NavbarToggler onClick={this.toggle}/>
                                 <Collapse isOpen={this.state.isOpen} navbar>
-                                    <Nav className="ml-auto" navbar className = "dropd"> 
+                                    <Nav className="ml-auto dropd" navbar> 
                                         <UncontrolledDropdown nav inNavbar >
                                             <DropdownToggle nav className="drop" caret>
                                                 {Messages.header.dropDown}

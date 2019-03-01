@@ -47,6 +47,22 @@ class UIStore {
     onChaked = (event) =>{
         this.searchType = event.target.value
     }
+    @action
+    deleteCard = (event) =>{
+        console.log(event.target.getAttribute("data-index"))
+        console.log(event.target.getAttribute("prof"))
+        console.log(event.target.getAttribute("salon-name"))
+        this.Data.forEach(item =>{
+            if(item.name === event.target.getAttribute("salon-name")){
+                item.category.forEach(item1 =>{
+                    if(item1.prof === event.target.getAttribute("prof")){
+                        item1.workers.splice(event.target.getAttribute("data-index"), 1)
+                        console.log(item1.workers)
+                    }
+                })
+            }
+        })
+    }
 }
 
 

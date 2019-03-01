@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import Messages from './../Messages';
 import CardCategory from './CardCategory';
-import plus from './../../assets/images/salon/plus.png';
 import notification from './../../assets/images/salon/notification.png';
 import './../../assets/stylesheets/salon.css';
 
@@ -48,7 +47,7 @@ class Salon extends Component {
                         <Row>{item.workers.map(item1 => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
-                                   x =  {<Button color="danger" className="delete">X</Button>}
+                                        x =  {<Button color="danger" className="delete">X</Button>}
                                         img={item1.img}
                                         explaText= {`${item1.name} ${item1.surname}`}
                                         cardClick={()=>alert()}

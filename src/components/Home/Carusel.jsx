@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Carousel, CarouselItem, CarouselControl, CarouselIndicators} from 'reactstrap';
+import {Carousel, CarouselItem, CarouselControl} from 'reactstrap';
 //import PropTypes from 'prop-types';
 
 import {homeConfigs} from './../../config/categoryConfig';

@@ -54,13 +54,15 @@ class CardCategorySearch extends Component {
                 <div>
                     <h3 align = "center" className = "mt-5 mb-5">{prof}</h3>
                     {filterTable.map((item, index) =>{
-                        return <CardSearch 
+                        return <React.Fragment key = {index}>
+                            <CardSearch 
                                    image = {item.img}
                                    prof = {item.prof}
                                    nameSurname = {`${item.name} ${item.surname}`}
                                    address = {item.salonAddress}
                                    salonTitle = {item.salonTitle}
                                    /> 
+                        </React.Fragment>
                     })}
                     
                 </div>
