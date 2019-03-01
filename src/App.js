@@ -36,19 +36,24 @@ class App extends Component {
                             changeDropdown = {this.UIStore.changeDropdown}
                             />
                         <Switch>
-                            <Route exact path="/" component={()=><Section  
+                            <Route exact path="/" component={(props)=><Section  
+                                {...props}
                                 cardClick = {this.UIStore.cardClick}
                                 />} />
-                            <Route exact path="/Salon/:i" component={()=><Salon 
-                                Data = {this.AppStore.Data[Number(this.UIStore.index)]}
+                            <Route path="/Salon/:i" component={(props)=><SalonUser 
+                                {...props}
+                                Data = {this.AppStore.Data}
+                                deleteCard = {this.UIStore.deleteCard}
                                 />}/>
-                            <Route path='/Category/:g' component={()=><CardCategorySearch         
+                            <Route path='/category/:g' component={(props)=><CardCategorySearch         
+                                {...props}
                                 prof = {this.UIStore.prof}
                                 tableSearch = {this.UIStore.tableSearch}
                                 filterTable = {this.UIStore.filterTable}
                                 onChaked = {this.UIStore.onChaked}
                                 />}/>
-                            <Route exact path="/Salon/:i/:e" component={()=><Specialist    Data = {this.AppStore.Data}/>}/>        
+                           {/* <Route exact path="/Salon/:i/:e" component={(props)=><Specialist {...props}   
+                            Data = {this.AppStore.Data}/>}/>*/}        
                         </Switch>
                     </div>
                 </Router>

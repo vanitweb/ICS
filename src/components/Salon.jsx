@@ -1,19 +1,17 @@
 import React,{Component} from 'react';
-import {Container, Row, Col,Button} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Messages from './../Messages';
-import Footer from './Home/Footer';
 import CardCategory from './CardCategory';
 import './../../assets/stylesheets/salon.css';
 
 class Salon extends Component {
     static propTypes = {
-        Data : PropTypes.object.isRequired,
+        Data : PropTypes.array.isRequired,
     }
     render() {
-        const {Data} = this.props;
+        const Data = this.props.Data[this.props.match.params.i];
 		return (
             <Container className = "salon-page">
                 <Row>
@@ -46,7 +44,7 @@ class Salon extends Component {
                         <Row>{item.workers.map(item1 => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
-                                        x =  {`/Salon/:i/specialist/${item1.name}`}
+                                        x =  {`/Salon/${this.props.match.params.i}/${item1.name}`}
                                         img={item1.img}
                                         explaText= {`${item1.name} ${item1.surname}`}
                                         cardClick={()=>console.log()}

@@ -24,9 +24,9 @@ class CardSearch extends Component {
                             {Messages.table.userAddress}` {address}
                             <div>{Messages.table.beautySalonName}`  {salonTitle}</div>
                         </Media>
-                        <Link to = {`/Category/:g/specialist`}>
+                        {/*<Link to = {`/Category/:g/specialist`}>*/}
                             <Button className="btn_card_category">Մանրամասն</Button>
-                        </Link>
+                        {/*</Link>*/}
                 </Media>
             </Card>
         );

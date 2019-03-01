@@ -56,7 +56,7 @@ class Header extends Component {
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 {dropdown.map((item,index) =>{
-                                                    return <Link to={`/Salon/${item.name}`} key = {item.address}>
+                                                    return <Link to={`/Salon/${index}`} key = {item.address}>
                                                         <DropdownItem  className="drop_item"  data-index={index} onClick = {changeDropdown}>
                                                             {item.name}
                                                         </DropdownItem>

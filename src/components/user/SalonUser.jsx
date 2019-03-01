@@ -11,10 +11,11 @@ import './../../../assets/stylesheets/salon.css';
 @observer
 class SalonUser extends Component {
     static propTypes = {
-        Data : PropTypes.object.isRequired,
+        Data : PropTypes.array.isRequired,
     }
     render() {
-        const {Data, deleteCard} = this.props;
+        const {deleteCard} = this.props;
+        const Data = this.props.Data[this.props.match.params.i];
         console.log(Data.category[0].workers)
 		return (
             <Container className = "salon-page">
