@@ -18,7 +18,9 @@ li a:hover {
 	color: #e0dddb;
 
 }
-
+li {
+	color : #fff;
+}
 
 .icon_width {
 	width: 40px;

@@ -3,6 +3,9 @@ import { Card, Button, Media } from 'reactstrap';
 import PropTypes from 'prop-types';
 import {Link}  from 'react-router-dom';
 
+
+import './../../assets/stylesheets/table.css';
+
 import Messages from './../Messages';
 
 class CardSearch extends Component {
@@ -12,10 +15,10 @@ class CardSearch extends Component {
     render() {
         const { image, nameSurname, address, salonTitle, url, name} = this.props;
         return (
-            <Card>
-                    <Media>
+            <Card className = "Card_top">
+                    <Media className = "text">
                         <Media left href="#">
-                            <img src={image} alt = "specialistImg" width = "200px" height = "200px"/>
+                            <img src={image} alt = "specialistImg" width = "150px" height = "150px"/>
                         </Media>
                         <Media body className="full_text">
                         <Media heading className="name_title">
@@ -25,7 +28,7 @@ class CardSearch extends Component {
                             <div>{Messages.table.beautySalonName}`  {salonTitle}</div>
                         </Media>
                         <Link to = {`${url}/${name}`}>
-                            <Button className="btn_card_category">Մանրամասն</Button>
+                            <Button className = "btn_card_category" outline color = "info">Մանրամասն</Button>
                         </Link>
                 </Media>
             </Card>

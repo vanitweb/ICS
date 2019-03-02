@@ -36,7 +36,7 @@ class App extends Component {
                                 {...props}
                                 cardClick = {this.UIStore.cardClick}
                                 />} />
-                            <Route exact path="/Salon/:i" component={(props)=><Salon 
+                            <Route exact path="/Salon/:i" component={(props)=><SalonUser 
                                 {...props}
                                 Data = {this.AppStore.Data}
                                 deleteCard = {this.UIStore.deleteCard}
@@ -59,7 +59,6 @@ class App extends Component {
                         </Switch>
                     </div>
                 </Router>
-                
                 <Footer/>
             </div>
         );  

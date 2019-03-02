@@ -77,19 +77,24 @@ const Messages = {
         confirmed : "Հաստատել",
         myWorkes: "Իմ աշխատանքներ",
     },
-        AddWorker : {
-      AddWorker : "Ավելացնել աշխատակից",
-      image : "Նկար",
-      name : "Անուն",
-      surname : "Ազգանուն",
-      age : "Տարիք",
-      information : "Տեղեկատվություն",
-      connectionWithSocialMedia : "Կապ սոց․ կայքեր",
-      AddWorkExample : "Ավելացնել աշխատանքի օրինակ",
-      save : "Պահպանել",
-      confirmChanges : "Հաստատել փոփոխությունները",
-      modifyData : "Փոփոխել տվյալները",
 
+    AddWorker : {
+        AddWorker : "Ավելացնել աշխատակից",
+        image : "Նկար",
+        name : "Անուն",
+        surname : "Ազգանուն",
+        age : "Տարիք",
+        information : "Տեղեկատվություն",
+        connectionWithSocialMedia : "Կապ սոց․ կայքեր",
+        AddWorkExample : "Ավելացնել աշխատանքի օրինակ",
+        save : "Պահպանել",
+        confirmChanges : "Հաստատել ",
+        modifyData : "Փոփոխել տվյալները",
+    },
+    AddCategory : {
+        addCat : "Ավալացնել կատեգորիա",
+        nameCategory : "Նշել կատեգորիայի անուն",
+        confirmChanges : "Հաստատել ",
     }
     
 }

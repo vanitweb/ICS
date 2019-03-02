@@ -9,6 +9,8 @@ import notification from './../../../assets/images/salon/notification.png';
 import './../../../assets/stylesheets/salon.css';
 import Settings from './Settings';
 
+import AddCategory from './AddCategori'
+
 @observer
 class SalonUser extends Component {
     static propTypes = {
@@ -17,7 +19,6 @@ class SalonUser extends Component {
     render() {
         const {deleteCard} = this.props;
         const Data = this.props.Data[this.props.match.params.i];
-        console.log(Data.category[0].workers)
 		return (
             <Container className = "salon-page">
                 <Row>
@@ -53,12 +54,11 @@ class SalonUser extends Component {
                         <Row>{item.workers.map((item1, index) => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
-                                        x = {`/Salon/0/specialist`}
-                                        deleteCard = {<Button color="danger" onClick = {deleteCard} data-index = {index} prof = {item.prof} salon-name = {Data.name} className="delete">X</Button>}
                                         img={item1.img}
-                                        explaText= {`${item1.name} ${item1.surname}`}
-                                        cardClick={()=>alert()}
+                                        title= {`${item1.name} ${item1.surname}`}
+                                        cardClick={()=>{}}
                                         buttonText = {Messages.table.specialiistButtonText}
+                                        url = {this.props.match.url}
                                         />
 
                                 </React.Fragment>
@@ -69,7 +69,8 @@ class SalonUser extends Component {
                     </React.Fragment>
                 })}
                 <Row align = "center" className = "mt-5 mb-5">
-                    <Button color="danger" className="addCategotis"> Ավալացնել կատեգորիա</Button> 
+                     
+                   <AddCategory />
                 </Row>
 			</Container>
 		);

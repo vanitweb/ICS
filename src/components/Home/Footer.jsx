@@ -17,27 +17,27 @@ class Footer extends Component {
 					<Row>
 						<Col md={4} sm={8}>
 							<ul>
-								<li><a href="a">{Messages.footer.footerEmail}</a></li>
-								<li><a href="a">{Messages.footer.footerPhone1}</a></li>
-								<li><a href="a">{Messages.footer.footerPhone2}</a></li>
-								<li><a href="a">{Messages.footer.footerPhone3}</a></li>
-								<li><a href="a">{Messages.footer.footerDate}</a></li>
+								<li>{Messages.footer.footerEmail}</li>
+								<li>{Messages.footer.footerPhone1}</li>
+								<li>{Messages.footer.footerPhone2}</li>
+								<li>{Messages.footer.footerPhone3}</li>
+								<li>{Messages.footer.footerDate}</li>
 							</ul>
 						</Col>
 						<Col md={4} sm={8}>
 							<ul>
-								<li><a href="a">{Messages.footer.footerLi1}</a></li>
-								<li><a href="a">{Messages.footer.footerLi2}</a></li>
-								<li><a href="a">{Messages.footer.footerLi3}</a></li>
+								<li><a href="http://trims.com/" target = "_blank">{Messages.footer.footerLi1}</a></li>
+								<li><a href="http://www.handsome.com/" target = "_blank">{Messages.footer.footerLi2}</a></li>
+								<li><a href="https://barberha.com/"  target = "_blank">{Messages.footer.footerLi3}</a></li>
 							</ul>
 						</Col>
 						<Col md={4}  sm={8}  xs={8} >
 							<ul>
 								<li>
-									<a href="a"><img src={facebook} alt="Facebook.com"  className="icon_width"/></a>
-									<a href="a"><img src={instagram} alt="instagram"  className="icon_width"/></a>
-									<a href="a"><img src={twitter} alt="twitter"  className="icon_width"/></a>
-									<a href="a"><img src={youtube} alt="youtube"  className="icon_width"/></a>
+									<a href="https://www.facebook.com/" target = "_blank"><img src={facebook} alt="Facebook.com"  className="icon_width"/></a>
+									<a href="https://www.instagram.com/" target = "_blank"><img src={instagram} alt="instagram"  className="icon_width"/></a>
+									<a href="https://twitter.com/" target = "_blank"><img src={twitter} alt="twitter"  className="icon_width"/></a>
+									<a href="https://www.youtube.com/" target = "_blank"><img src={youtube} alt="youtube"  className="icon_width"/></a>
 								</li>
 							</ul>
 						</Col>

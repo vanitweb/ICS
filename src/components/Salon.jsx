@@ -46,10 +46,10 @@ class Salon extends Component {
                                     <CardCategory 
                                         img={item1.img}
                                         title= {`${item1.name} ${item1.surname}`}
+                                        name = {item1.name}
                                         cardClick={()=>{}}
                                         buttonText = {Messages.table.specialiistButtonText}
                                         url = {this.props.match.url}
-                                        name = {item1.name}
                                         />
 
                                 </React.Fragment>
