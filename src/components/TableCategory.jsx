@@ -6,7 +6,7 @@ import Messages from './../Messages';
 
 import CardSearch from './CardSearch'
 
-import './../../assets/stylesheets/Table.css';
+import './../../assets/stylesheets/table.css';
 
 
 
@@ -61,6 +61,7 @@ class CardCategorySearch extends Component {
                                    nameSurname = {`${item.name} ${item.surname}`}
                                    address = {item.salonAddress}
                                    salonTitle = {item.salonTitle}
+                                   url = {this.props.match.url}
                                    /> 
                         </React.Fragment>
                     })}

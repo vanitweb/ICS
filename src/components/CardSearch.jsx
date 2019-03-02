@@ -10,7 +10,7 @@ class CardSearch extends Component {
         cardClick : PropTypes.func,//isRequired
     }
     render() {
-        const { image, nameSurname, address, salonTitle} = this.props;
+        const { image, nameSurname, address, salonTitle, url} = this.props;
         return (
             <Card>
                     <Media>
@@ -24,9 +24,9 @@ class CardSearch extends Component {
                             {Messages.table.userAddress}` {address}
                             <div>{Messages.table.beautySalonName}`  {salonTitle}</div>
                         </Media>
-                        {/*<Link to = {`/Category/:g/specialist`}>*/}
+                        <Link to = {`${url}/specialist`}>
                             <Button className="btn_card_category">Մանրամասն</Button>
-                        {/*</Link>*/}
+                        </Link>
                 </Media>
             </Card>
         );

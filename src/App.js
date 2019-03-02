@@ -31,37 +31,35 @@ class App extends Component {
                             dropdown = {this.AppStore.Data}
                             changeDropdown = {this.UIStore.changeDropdown}
                             />
-                        <Header2 
-                            dropdown = {this.AppStore.Data}
-                            changeDropdown = {this.UIStore.changeDropdown}
-                            />
                         <Switch>
                             <Route exact path="/" component={(props)=><Section  
                                 {...props}
                                 cardClick = {this.UIStore.cardClick}
                                 />} />
-                            <Route path="/Salon/:i" component={(props)=><SalonUser 
+                            <Route exact path="/Salon/:i" component={(props)=><Salon 
                                 {...props}
                                 Data = {this.AppStore.Data}
                                 deleteCard = {this.UIStore.deleteCard}
                                 />}/>
-                            <Route path='/category/:g' component={(props)=><CardCategorySearch         
+                            <Route exact path='/category/:g' component={(props)=><CardCategorySearch         
                                 {...props}
                                 prof = {this.UIStore.prof}
                                 tableSearch = {this.UIStore.tableSearch}
                                 filterTable = {this.UIStore.filterTable}
                                 onChaked = {this.UIStore.onChaked}
                                 />}/>
-                           {/* <Route exact path="/Salon/:i/:e" component={(props)=><Specialist {...props}   
-                            Data = {this.AppStore.Data}/>}/>*/}        
+                            <Route path='/Salon/:i/:k' component={(props)=><Specialist 
+                                {...props}
+                                Data = {this.AppStore.Data}
+                                />}/>
+                            <Route path='/category/:g/:p' component={(props)=><Specialist
+                                {...props}
+                                Data = {this.AppStore.Data}
+                                />}/>
                         </Switch>
                     </div>
                 </Router>
-                {/*<SalonUser 
-                    Data = {this.AppStore.Data[0]}
-                    deleteCard = {this.UIStore.deleteCard}
-                    />*/}
-                    <Specialist Data={this.AppStore.Data}/>
+                
                 <Footer/>
             </div>
         );  

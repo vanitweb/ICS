@@ -44,11 +44,11 @@ class Salon extends Component {
                         <Row>{item.workers.map(item1 => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
-                                        x =  {`/Salon/${this.props.match.params.i}/${item1.name}`}
                                         img={item1.img}
-                                        explaText= {`${item1.name} ${item1.surname}`}
-                                        cardClick={()=>console.log()}
+                                        title= {`${item1.name} ${item1.surname}`}
+                                        cardClick={()=>{}}
                                         buttonText = {Messages.table.specialiistButtonText}
+                                        url = {this.props.match.url}
                                         />
 
                                 </React.Fragment>
