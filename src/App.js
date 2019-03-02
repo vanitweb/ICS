@@ -41,7 +41,7 @@ class App extends Component {
                                 Data = {this.AppStore.Data}
                                 deleteCard = {this.UIStore.deleteCard}
                                 />}/>
-                            <Route exact path='/category/:g' component={(props)=><CardCategorySearch         
+                            <Route exact path='/category/:i' component={(props)=><CardCategorySearch         
                                 {...props}
                                 prof = {this.UIStore.prof}
                                 tableSearch = {this.UIStore.tableSearch}
@@ -52,7 +52,7 @@ class App extends Component {
                                 {...props}
                                 Data = {this.AppStore.Data}
                                 />}/>
-                            <Route path='/category/:g/:p' component={(props)=><Specialist
+                            <Route path='/category/:i/:k' component={(props)=><Specialist
                                 {...props}
                                 Data = {this.AppStore.Data}
                                 />}/>

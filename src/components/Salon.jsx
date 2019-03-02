@@ -49,6 +49,7 @@ class Salon extends Component {
                                         cardClick={()=>{}}
                                         buttonText = {Messages.table.specialiistButtonText}
                                         url = {this.props.match.url}
+                                        name = {item1.name}
                                         />
 
                                 </React.Fragment>

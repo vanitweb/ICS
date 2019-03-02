@@ -62,6 +62,7 @@ class CardCategorySearch extends Component {
                                    address = {item.salonAddress}
                                    salonTitle = {item.salonTitle}
                                    url = {this.props.match.url}
+                                   name = {item.name}
                                    /> 
                         </React.Fragment>
                     })}
