@@ -38,7 +38,6 @@ module.exports = {
             'VariableDeclarator': 1,
             'outerIIFEBody': 1
         }],
-        'linebreak-style': ['error', 'unix'],
         'quotes': ['error', 'single'],
         'semi': ['error', 'always'],
         'no-var': 2,
