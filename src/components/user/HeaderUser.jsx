@@ -11,10 +11,11 @@ import logo from './../../../assets/images/header/logo.png';
 
 //import './../../../../assets/stylesheets/header2.css';
 
-class Header2 extends Component {
-    static propTypes = {
-        dropdown : PropTypes.array.isRequired,
-        changeDropdown : PropTypes.func.isRequired,
+class HeaderUser extends Component {
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            Data : PropTypes.array.isRequired,  
+        }).isRequired
     }
     constructor(props) {
         super(props);
@@ -29,7 +30,7 @@ class Header2 extends Component {
         });
     }
     render() {
-        const {dropdown, changeDropdown} = this.props;
+        const dropdown = this.context.AppStore.Data;
         return (
             <div >
                 <Container>
@@ -55,7 +56,7 @@ class Header2 extends Component {
                                             <DropdownMenu right>
                                                 {dropdown.map((item,index) =>{
                                                     return <Link to={`/Salon/${index}`} key = {item.address}>
-                                                        <DropdownItem  className="drop_item"  data-index={index} onClick = {changeDropdown}>
+                                                        <DropdownItem  className="drop_item" >
                                                             {item.name}
                                                         </DropdownItem>
                                                     </Link>
@@ -76,4 +77,4 @@ class Header2 extends Component {
         );
     }
 }
-export default Header2
+export default HeaderUser

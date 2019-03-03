@@ -13,30 +13,34 @@ import AddCategory from './AddCategori'
 
 @observer
 class SalonUser extends Component {
-    static propTypes = {
-        Data : PropTypes.array.isRequired,
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            _Data : PropTypes.array,
+            deleteCategory : PropTypes.func,
+            deleteCard : PropTypes.func,
+        }).isRequired
     }
     render() {
-        const {deleteCard} = this.props;
-        const Data = this.props.Data[this.props.match.params.i];
+        const {_Data, deleteCard, deleteCategory} = this.context.AppStore;
+        const DataSalon = _Data[this.props.match.params.i];
 		return (
             <Container className = "salon-page">
                 <Row>
                     <Col >
-                        <h1 className='varsAnun'>{Data.name}</h1>
+                        <h1 className='varsAnun'>{DataSalon.name}</h1>
                     </Col>
                     <img src={notification} alt=""  align="right" width = "50px" height = "50px"/>
 
 				</Row>
 				<Row className = "salon-page">
 					<Col md="6" >
-						<img src={Data.img} alt="" className="logoSal" width = "100%" height = "370vh"/>
+						<img src={DataSalon.img} alt="" className="logoSal" width = "100%" height = "370vh"/>
 					</Col>
 					<Col md="6">
 						<h2>{Messages.beautySalons.beautySalonsAbout}</h2>
-						<p>{Data.info}</p>
-                        <p>{Messages.beautySalons.beautySalonsAddress}` {Data.address}</p>
-                        <p>{Messages.beautySalons.beautySalonsPhone}` {Data.phone}</p>
+						<p>{DataSalon.info}</p>
+                        <p>{Messages.beautySalons.beautySalonsAddress}` {DataSalon.address}</p>
+                        <p>{Messages.beautySalons.beautySalonsPhone}` {DataSalon.phone}</p>
                       <Settings />
 
 
@@ -44,16 +48,20 @@ class SalonUser extends Component {
 
         		</Row>
         		
-                {Data.category.map(item => {
+                {DataSalon.category.map((item, index) => {
                     return 	<React.Fragment key = {item.prof}>
                         <Row align = "center" className = "mt-5 mb-5">
                             <Col>
-                                <h2>{item.prof}</h2>
+                                <h2>
+                                    {item.prof}
+                                    <Button color="danger" className="delete" onClick = {deleteCategory} data-index = {index} salon-name = {DataSalon.name}>X</Button>
+                                </h2>
                             </Col>
                         </Row>
-                        <Row>{item.workers.map((item1, index) => {
+                        <Row>{item.workers.map((item1, index1) => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
+                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteCard} data-index ={index1} prof ={item.prof} salon-name = {item1.salonTitle}>X</Button>}
                                         img={item1.img}
                                         title= {`${item1.name} ${item1.surname}`}
                                         cardClick={()=>{}}
@@ -70,7 +78,7 @@ class SalonUser extends Component {
                 })}
                 <Row align = "center" className = "mt-5 mb-5">
                      
-                   <AddCategory />
+                   <AddCategory salonName = {DataSalon.name}/>
                 </Row>
 			</Container>
 		);

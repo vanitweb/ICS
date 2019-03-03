@@ -3,15 +3,15 @@ import {Input, FormGroup, Label, Modal, ModalBody, ModalHeader, ModalFooter, But
 import PropTypes from 'prop-types';
 import './../../../assets/stylesheets/salon.css';
 import Messages from './../../Messages';
-import { observable } from "mobx";
-import {observer} from "mobx-react";
 
-@observer
+
 class AddCategory extends Component {
-
-  //    static propTypes = {
-  //
-  //    }
+      static contextTypes = {
+           AppStore : PropTypes.shape({
+               addCategory : PropTypes.func,
+               addCategorychange : PropTypes.func,
+           }).isRequired
+      }
   constructor(props) {
       super(props);
       this.state = {
@@ -24,21 +24,9 @@ class AddCategory extends Component {
       modal: !prevState.modal
       }));
   }
-
-  @observable information = {
-    categoryName: "",
-   
-  }
-  setInputsValue = (event) =>
-  {
-     this.information.categoryName = event.target.value;
-           
-  }
-    consoleInfo = () => {
-      console.log(this.information);
-    }
-
     render(){
+        const {addCategory, addCategorychange} = this.context.AppStore;
+        const {salonName} = this.props;
         return(
           <div>
             <Button onClick={this.toggle} color="info" outline>{Messages.AddCategory.addCat}</Button>
@@ -48,13 +36,13 @@ class AddCategory extends Component {
                             <Form>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddCategory.nameCategory}</Label>
-                                    <Input onChange={this.setInputsValue} type="text" name="Anun"/>
+                                    <Input onChange={addCategorychange} type="text" name="Anun"/>
                                 </FormGroup>
    
                             </Form>
                         </ModalBody>
                         <ModalFooter>
-                          <Button color="info"  onClick={this.consoleInfo}>{Messages.AddCategory.confirmChanges}</Button>
+                          <Button color="info"  onClick={addCategory} salon-name = {salonName}>{Messages.AddCategory.confirmChanges}</Button>
                         </ModalFooter>
                     </Modal>
           </div>

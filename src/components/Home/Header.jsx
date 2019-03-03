@@ -14,9 +14,10 @@ import logo from './../../../assets/images/header/logo.png';
 import './../../../assets/stylesheets/header.css';
 
 class Header extends Component {
-    static propTypes = {
-        dropdown : PropTypes.array.isRequired,
-        changeDropdown : PropTypes.func.isRequired,
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            Data : PropTypes.array.isRequired,  
+        }).isRequired
     }
     constructor(props) {
         super(props);
@@ -31,7 +32,7 @@ class Header extends Component {
         });
     }
     render() {
-        const {dropdown, changeDropdown} = this.props;
+        const dropdown = this.context.AppStore.Data;
         return (
             <div >
                 <Container>
@@ -57,7 +58,7 @@ class Header extends Component {
                                             <DropdownMenu right>
                                                 {dropdown.map((item,index) =>{
                                                     return <Link to={`/Salon/${index}`} key = {item.address}>
-                                                        <DropdownItem  className="drop_item"  data-index={index} onClick = {changeDropdown}>
+                                                        <DropdownItem  className="drop_item">
                                                             {item.name}
                                                         </DropdownItem>
                                                     </Link>

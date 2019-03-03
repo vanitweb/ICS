@@ -13,11 +13,13 @@ import './../../../assets/stylesheets/section.css';
 
 @observer
 class Section extends Component {
-    static propTypes = {
-        cardClick : PropTypes.func.isRequired,
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            cardClick : PropTypes.func,
+        }).isRequired
     }
     render() {
-        const {cardClick} = this.props;
+        const {cardClick} = this.context.AppStore;
         return (
             <section>
                 <Container fluid className = "carusel">

@@ -3,15 +3,17 @@ import { Card, CardImg, CardText, CardBody,
         CardTitle, Button, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import {Link}  from 'react-router-dom';
+import {observer} from 'mobx-react';
 
 import './../../assets/stylesheets/card.css'
 
+@observer
 class CardCategory extends Component {
     static propTypes = {
         img : PropTypes.string.isRequired,
         deleteCard : PropTypes.object,
         title : PropTypes.string,
-        explaText : PropTypes.string.isRequired,
+        explaText : PropTypes.string,
         cardClick : PropTypes.func.isRequired,
         CardClass : PropTypes.string,
         buttonText : PropTypes.string.isRequired,

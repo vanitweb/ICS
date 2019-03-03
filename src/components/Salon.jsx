@@ -7,11 +7,13 @@ import CardCategory from './CardCategory';
 import './../../assets/stylesheets/salon.css';
 
 class Salon extends Component {
-    static propTypes = {
-        Data : PropTypes.array.isRequired,
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            _Data : PropTypes.array,
+        }).isRequired
     }
     render() {
-        const Data = this.props.Data[this.props.match.params.i];
+        const Data = this.context.AppStore._Data[this.props.match.params.i];
 		return (
             <Container className = "salon-page">
                 <Row>

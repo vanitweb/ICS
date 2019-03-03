@@ -7,11 +7,13 @@ import Change from './user/ChangeData'
 import './../../assets/stylesheets/specialist.css';
 
 class Specialist extends Component {
-    static propTypes = {
-        Data : PropTypes.array.isRequired,
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            _Data : PropTypes.array,
+        }).isRequired
     }
     render() {
-        const {Data} = this.props
+        const Data = this.context.AppStore._Data
         return (
             <div className = "sections">
                  <Container>

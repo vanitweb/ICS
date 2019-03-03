@@ -24,7 +24,6 @@ class Settings extends Component {
   }
 
   render() {
-    console.log(Messages);
     return (
       <div>
         <Button outline color="info" onClick={this.toggle}>{Messages.settings.settingsName}</Button>

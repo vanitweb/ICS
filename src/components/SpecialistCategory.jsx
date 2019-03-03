@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Form, Input, FormGroup, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
 
 import Messages from './../Messages';
 
@@ -12,16 +13,18 @@ import './../../assets/stylesheets/table.css';
 
 
 
-
-class CardCategorySearch extends Component {
-  static propTypes = {
-    prof : PropTypes.string.isRequired,
-    tableSearch : PropTypes.func.isRequired,
-    filterTable : PropTypes.array.isRequired,
-    onChaked : PropTypes.func.isRequired,
-}
+@observer
+class SpecialistCategory extends Component {
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            prof : PropTypes.string,
+            tableSearch : PropTypes.func,
+            filterTable : PropTypes.array,
+            onChaked : PropTypes.func,
+        }).isRequired
+    }
     render(){
-        const { prof, tableSearch, filterTable, onChaked} = this.props;
+        const { prof, tableSearch, filterTable , onChaked} = this.context.AppStore;
         return(
             <Container>
                 <Form className="form_pos mt-5">
@@ -72,4 +75,4 @@ class CardCategorySearch extends Component {
         );
     }
 }
-export default CardCategorySearch
+export default SpecialistCategory

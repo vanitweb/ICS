@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Input, FormGroup, Label, Modal, ModalBody, ModalHeader, ModalFooter, Button, Form} from 'reactstrap';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import './../../../assets/stylesheets/salon.css';
 import Messages from './../../Messages';
 import { observable } from "mobx";
