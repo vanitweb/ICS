@@ -10,6 +10,7 @@ import './../../../assets/stylesheets/salon.css';
 import Settings from './Settings';
 
 import AddCategory from './AddCategori'
+import AddWorker from './SalonUserAddWorker';
 
 @observer
 class SalonUser extends Component {
@@ -71,7 +72,7 @@ class SalonUser extends Component {
 
                                 </React.Fragment>
                             })}
-                        <Button outline color="info"> Ավալացնել աշխատող</Button>
+                        <AddWorker salonName={DataSalon.name} category={item.prof} address={DataSalon.address}/>
                         </Row>
                         
                     </React.Fragment>

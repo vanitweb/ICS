@@ -13,7 +13,8 @@ class AppStore {
         searchType : "name",
         index : "",
         addCategoryName : "",
-        _Data : this.Data
+        _Data : this.Data,
+        information : {},
     }
     constructor(){
         extendObservable(this, this.storeProps)
@@ -79,6 +80,47 @@ class AppStore {
                 item.category.splice(event.target.getAttribute("data-index"), 1)
             }
         })
+    }
+    @action
+    setInputsValue = (event) =>
+    {
+        switch(event.target.previousElementSibling.textContent) {
+            case 'Անուն':
+                this.information.name = event.target.value;
+                break;
+            case 'Ազգանուն':
+                this.information.surname = event.target.value;
+                break;
+            case 'Տարիք':
+                this.information.age = event.target.value;
+                break;
+            case 'Տեղեկատվություն':
+                this.information.textAbout = event.target.value;
+                break;
+            case 'Կապ սոց․ կայքեր':
+                this.information.socialNetwork = event.target.value;
+                break;
+            default:
+                return;
+        }
+    }
+    @action
+    consoleInfo = (event) => {
+      // console.log(event.target.getAttribute("salonName"));//saloni anun
+      // console.log(event.target.getAttribute("category"));//kategoria
+      this.information.salonTitle = event.target.getAttribute("salonName");
+      this.information.salonAddress = event.target.getAttribute("address");
+      this._Data.forEach(item => {
+          if (item.name === event.target.getAttribute("salonName")) {
+              item.category.forEach(item1 => {
+                if (item1.prof === event.target.getAttribute("category")) {
+                    item1.workers.push(this.information)
+                }
+              })
+          }
+    })
+      console.log(this.information);
+      console.log(this.Data[0].category[0].workers);
     }
 }
 
