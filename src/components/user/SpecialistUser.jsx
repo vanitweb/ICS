@@ -2,36 +2,58 @@ import React, { Component } from 'react';
 import {Button,Container, Row, Col, FormGroup, Label, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import Messages from './../Messages';
-import Change from './user/ChangeData'
-import './../../assets/stylesheets/specialist.css';
+import Messages from './../../Messages';
+import Change from './ChangeData'
+import './../../../assets/stylesheets/specialist.css';
 
-class Specialist extends Component {
+class SpecialistUser extends Component {
     static contextTypes = {
         AppStore : PropTypes.shape({
             _Data : PropTypes.array,
         }).isRequired
     }
     render() {
-        const Data = this.context.AppStore._Data
+        const {_Data , deleteWorksImage} = this.context.AppStore;
+        let specialist;
+        _Data.forEach(item => {
+            item.category.forEach(item1 =>{
+                if(item1.prof === this.props.match.params.i){
+                    item1.workers.forEach(item2 => {
+                        if(item2.name === this.props.match.params.k){
+                            specialist = item2;
+                        }
+                    })
+                }
+            })
+        })
+        if(specialist === undefined){
+            _Data[this.props.match.params.i].category.forEach(item => {
+                item.workers.forEach(item1 => {
+                    if(item1.name === this.props.match.params.k){
+                            specialist = item1;
+                        }
+                })
+            })
+        }
         return (
-            <div className = "sections">
+            <div className = "sections mt-5">
                  <Container>
                      <Row>
                         <Col sm="8" >
-                            <h3 className = "textBlue" > {Data[0].category[0].workers[0].name}</h3>
+                            <h3 className = "textBlue" > {specialist.name} {specialist.surname}</h3>
                             <div className="user" >   
-                                <img src={Data[0].category[0].workers[0].img} height = "200px" alt="user image" width="200px" className ="d-inline" /> 
+                                <img src={specialist.img} height = "200px" alt="user image" width="200px" className ="d-inline" /> 
                                 <div className="info">
-                                    <p>{Data[0].category[0].workers[0].textAbout}</p>
+                                    <Change />
+                                    <p>{specialist.textAbout}</p>
                                 </div>
                             </div> 
                             <div> 
                                 <h2 className = "textBlue"> {Messages.specialist.information} </h2>
-                                <p> {Messages.specialist.phoneNumber} {Data[0].phone} </p>
-                                <p> {Messages.specialist.salonName}{Data[0].name}</p>
-                                <p>{Messages.specialist.salonAddress} {Data[0].address}</p>
-                                <p>{Messages.specialist.socialMedia} {Data[0].category[0].workers[0].socialNetwork}  </p>
+                                <p> {Messages.specialist.phoneNumber} {_Data[0].phone} </p>
+                                <p> {Messages.specialist.salonName}{specialist.salonTitle}</p>
+                                <p>{Messages.specialist.salonAddress} {specialist.salonAddress}</p>
+                                <p>{Messages.specialist.socialMedia} {specialist.socialNetwork}  </p>
                             </div> 
                          </Col>
                          <Col sm="4" >
@@ -81,8 +103,10 @@ class Specialist extends Component {
                          </Col>
                      </Row>
                      <h1 className = "textBlue" >{Messages.specialist.myWorkes}</h1>
-                     <Row className = "mt-5">{Data[0].category[0].workers[0].workImgs.map((item, index) => {
+                     <Row className = "mt-5">
+                     {specialist.workImgs.map((item, index) => {
                              return <Col align = "center" key = {index}>
+                                 <Button color="danger" className="delete" onClick = {deleteWorksImage} data-index = {index}>X</Button>
                                  <img src={item} alt="works image" className ="d-inline " />
 
                              </Col>
@@ -94,4 +118,4 @@ class Specialist extends Component {
     }
 }
 
-export default Specialist;
+export default SpecialistUser;

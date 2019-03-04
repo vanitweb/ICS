@@ -29,7 +29,7 @@ class AddCategory extends Component {
         const {salonName} = this.props;
         return(
           <div>
-            <Button onClick={this.toggle} color="info" outline>{Messages.AddCategory.addCat}</Button>
+            <Button onClick={this.toggle}  color="info" outline>{Messages.AddCategory.addCat}</Button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <ModalHeader toggle={this.toggle}>{Messages.AddCategory.AddCat}</ModalHeader>
                         <ModalBody>
@@ -41,7 +41,7 @@ class AddCategory extends Component {
    
                             </Form>
                         </ModalBody>
-                        <ModalFooter>
+                        <ModalFooter onClick = {this.toggle}>
                           <Button color="info"  onClick={addCategory} salon-name = {salonName}>{Messages.AddCategory.confirmChanges}</Button>
                         </ModalFooter>
                     </Modal>

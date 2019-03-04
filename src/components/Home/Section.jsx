@@ -30,7 +30,6 @@ class Section extends Component {
                         {homeConfigs.categorys.map(item =>{
                             return  <React.Fragment key = {item.title}>
                                 <CardCategory 
-                                    cardClick = {cardClick}
                                     img={item.img}
                                     title={item.title}
                                     explaText={item.explaText}

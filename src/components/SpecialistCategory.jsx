@@ -24,7 +24,7 @@ class SpecialistCategory extends Component {
         }).isRequired
     }
     render(){
-        const { prof, tableSearch, filterTable , onChaked} = this.context.AppStore;
+        const {tableSearch , onChaked, _Data, searchType, searchText} = this.context.AppStore;
         return(
             <Container>
                 <Form className="form_pos mt-5">
@@ -55,20 +55,27 @@ class SpecialistCategory extends Component {
                         <Input type="search"  className="input_search" id="exampleSearch" onChange={tableSearch}/>
                 </Form>
                 <div>
-                    <h3 align = "center" className = "mt-5 mb-5">{prof}</h3>
-                    {filterTable.map((item, index) =>{
-                        return <React.Fragment key = {index}>
-                            <CardSearch 
-                                   image = {item.img}
-                                   prof = {item.prof}
-                                   nameSurname = {`${item.name} ${item.surname}`}
-                                   address = {item.salonAddress}
-                                   salonTitle = {item.salonTitle}
-                                   url = {this.props.match.url}
-                                    name = {item.name}
-                                   /> 
-                        </React.Fragment>
-                    })}
+                    <h3 align = "center" className = "mt-5 mb-5">{this.props.match.params.i}</h3>
+                    {_Data.map(item => {
+                        return item.category.map(item1 => {
+                            if(item1.prof === this.props.match.params.i){
+                                    return item1.workers.map((item2, index) => {
+                                        if(item2[`${searchType}`].indexOf(searchText) !== -1){
+                                        return <React.Fragment key = {index}>
+                                                <CardSearch 
+                                                       image = {item2.img}
+                                                       prof = {item2.prof}
+                                                       nameSurname = {`${item2.name} ${item2.surname}`}
+                                                       address = {item2.salonAddress}
+                                                       salonTitle = {item2.salonTitle}
+                                                       url = {this.props.match.url}
+                                                        name = {item2.name}
+                                                       /> 
+                        </React.Fragment>}
+                    })
+                }
+            })
+        })}
                     
                 </div>
             </Container>

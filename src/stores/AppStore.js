@@ -7,8 +7,6 @@ class AppStore {
         extendObservable(this, this.Data);
     }
     storeProps = {
-        arr : [],
-        prof : "",
         searchText : "",
         searchType : "name",
         index : "",
@@ -22,26 +20,6 @@ class AppStore {
     @action
     tableSearch = (event) => {
         this.searchText = event.target.value;
-    }
-    @action
-    cardClick = (event) =>{
-            this.arr = [];
-            this.Data.forEach(item => {
-                return item.category.forEach(item1 => {
-                    if(item1.prof === event.target.parentElement.previousElementSibling.previousElementSibling.textContent){
-                        this.prof = item1.prof;
-                        item1.workers.forEach(item2 => {
-                            this.arr.push(item2);
-                    })
-                }
-            })
-        })
-    }
-    @computed
-    get filterTable(){
-        return this.arr.filter(item => {
-            return item[`${this.searchType}`].indexOf(this.searchText) !== -1
-        });
     }
     @action
     onChaked = (event) =>{
@@ -82,7 +60,7 @@ class AppStore {
         })
     }
     @action
-    setInputsValue = (event) =>
+    AddWorkerInfo = (event) =>
     {
         switch(event.target.previousElementSibling.textContent) {
             case 'Անուն':
@@ -105,22 +83,26 @@ class AppStore {
         }
     }
     @action
-    consoleInfo = (event) => {
-      // console.log(event.target.getAttribute("salonName"));//saloni anun
-      // console.log(event.target.getAttribute("category"));//kategoria
-      this.information.salonTitle = event.target.getAttribute("salonName");
+    AddWorkerData = (event) => {
+      this.information.salonTitle = event.target.getAttribute("salon-name");
       this.information.salonAddress = event.target.getAttribute("address");
       this._Data.forEach(item => {
-          if (item.name === event.target.getAttribute("salonName")) {
-              item.category.forEach(item1 => {
+          if (item.name === event.target.getAttribute("salon-name")) {
+              item.category.map(item1 => {
                 if (item1.prof === event.target.getAttribute("category")) {
                     item1.workers.push(this.information)
                 }
               })
           }
     })
-      console.log(this.information);
-      console.log(this.Data[0].category[0].workers);
+    }
+    @action
+    AddWorkerImg =(event) =>{
+        //hascen sxala talis
+    }
+    @action
+    deleteWorksImage = () =>{
+        
     }
 }
 

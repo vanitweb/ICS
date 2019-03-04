@@ -10,6 +10,7 @@ import Section from './components/Home/Section';
 import Footer from './components/Home/Footer';
 import Salon from './components/Salon'; 
 import SalonUser from './components/user/SalonUser'; 
+import SpecialistUser from './components/user/SpecialistUser'; 
 import Specialist from './components/Specialist'; 
 import SpecialistCategory from './components/SpecialistCategory'; 
 
@@ -45,8 +46,8 @@ class App extends Component {
                             <Route exact path="/" component={Section} />
                             <Route exact path="/Salon/:i" component={SalonUser}/>
                             <Route exact path='/category/:i' component={SpecialistCategory}/>
-                            <Route path='/Salon/:i/:k' component={Specialist}/>
-                            <Route path='/category/:i/:k' component={Specialist}/>
+                            <Route path='/Salon/:i/:k' component={SpecialistUser}/>
+                            <Route path='/category/:i/:k' component={SpecialistUser}/>
                         </Switch>
                     </div>
                 </Router>

@@ -14,7 +14,7 @@ class CardCategory extends Component {
         deleteCard : PropTypes.object,
         title : PropTypes.string,
         explaText : PropTypes.string,
-        cardClick : PropTypes.func.isRequired,
+        cardClick : PropTypes.func,
         CardClass : PropTypes.string,
         buttonText : PropTypes.string.isRequired,
     }
@@ -29,7 +29,7 @@ class CardCategory extends Component {
                         <CardTitle>{title}</CardTitle>
                         <CardText className = {CardClass}>{explaText}</CardText>
                         <Link to={`${url}/${name}`}>
-                            <Button color="info" onClick = {cardClick} >{buttonText}</Button>
+                            <Button color="info" onClick = {cardClick} prof = {name} >{buttonText}</Button>
                         </Link>
                     </CardBody>
                 </Card>

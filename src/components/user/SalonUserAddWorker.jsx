@@ -35,7 +35,7 @@ class AddWorker extends Component {
   }
 
     render(){
-        const {_Data, setInputsValue, consoleInfo, information} = this.context.AppStore;
+        const {_Data, setInputsValue, AddWorkerData, AddWorkerInfo, AddWorkerImg} = this.context.AppStore;
         return(
           <div>
             <Button color="info" outline className="button"  onClick={this.toggle}>{Messages.AddWorker.AddWorker}</Button>
@@ -45,27 +45,29 @@ class AddWorker extends Component {
                             <Form>
                                 <FormGroup>
                                     <Label for="exampleFile">{Messages.AddWorker.image}</Label>
-                                    <Input className="name" type="file" name="file" id="exampleFile"/>
+                                    <Input className="name" type="file" name="file" id="exampleFile"
+                                    onChange = {AddWorkerImg}
+                                        />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.name}</Label>
-                                    <Input onChange={setInputsValue} type="text" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="text" name="Anun"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.surname}</Label>
-                                    <Input onChange={setInputsValue} type="text" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="text" name="Anun"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.age}</Label>
-                                    <Input onChange={setInputsValue} type="number" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="number" name="Anun"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.information}</Label>
-                                    <Input onChange={setInputsValue} type="text" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="text" name="Anun"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.connectionWithSocialMedia}</Label>
-                                    <Input onChange={setInputsValue} type="text" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="text" name="Anun"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleFile">{Messages.AddWorker.AddWorkExample}</Label>
@@ -73,8 +75,8 @@ class AddWorker extends Component {
                                 </FormGroup>
                             </Form>
                         </ModalBody>
-                        <ModalFooter>
-                          <Button  className="modal_button" onClick={consoleInfo} address={this.props.address} salonName={this.props.salonName} category={this.props.category}>{Messages.AddWorker.save}</Button>
+                        <ModalFooter onClick = {this.toggle}>
+                          <Button  className="modal_button" onClick={AddWorkerData} address={this.props.address} salon-name={this.props.salonName} category={this.props.category}>{Messages.AddWorker.save}</Button>
                         </ModalFooter>
                     </Modal>
           </div>

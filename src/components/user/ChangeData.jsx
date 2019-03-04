@@ -60,7 +60,7 @@ class Change extends Component {
 
     render(){
         return(
-          <div>
+          <>
             <Button onClick={this.toggle} color="info" outline>{Messages.AddWorker.modifyData}</Button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <ModalHeader toggle={this.toggle}>{Messages.AddWorker.modifyData}</ModalHeader>
@@ -97,7 +97,7 @@ class Change extends Component {
                           <Button   onClick={this.consoleInfo}>{Messages.AddWorker.confirmChanges}</Button>
                         </ModalFooter>
                     </Modal>
-          </div>
+          </>
         );
     }
 }

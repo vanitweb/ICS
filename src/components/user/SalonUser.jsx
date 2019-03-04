@@ -23,6 +23,7 @@ class SalonUser extends Component {
     }
     render() {
         const {_Data, deleteCard, deleteCategory} = this.context.AppStore;
+        console.log(typeof(this.props.match.params.i))
         const DataSalon = _Data[this.props.match.params.i];
 		return (
             <Container className = "salon-page">
@@ -65,7 +66,7 @@ class SalonUser extends Component {
                                         deleteCard = {<Button color="danger" className="delete" onClick = {deleteCard} data-index ={index1} prof ={item.prof} salon-name = {item1.salonTitle}>X</Button>}
                                         img={item1.img}
                                         title= {`${item1.name} ${item1.surname}`}
-                                        cardClick={()=>{}}
+                                        name = {item1.name}
                                         buttonText = {Messages.table.specialiistButtonText}
                                         url = {this.props.match.url}
                                         />
