@@ -27,12 +27,14 @@ class AppStore {
     }
     @action
     deleteCard = (event) =>{
-        this._Data.forEach(item =>{
-            if(item.name === event.target.getAttribute("salon-name")){
-                item.category.forEach(item1 =>{
-                    if(item1.prof === event.target.getAttribute("prof")){ item1.workers.splice(event.target.getAttribute("data-index"), 1)
-                    }
-                })
+        const id = event.target.getAttribute("specialist-id")
+        const salonIndex = id.split("-")[0];
+        const categoryIndex = id.split("-")[1];
+        let specialistIndex = id.split("-")[2];
+          
+        this._Data[salonIndex].category[categoryIndex].workers.forEach((item, index) =>{
+            if(item.id === id){
+                this._Data[salonIndex].category[categoryIndex].workers.splice(index, 1)
             }
         })
     }
@@ -53,9 +55,11 @@ class AppStore {
     }
     @action
     deleteCategory = (event) =>{
-        this._Data.forEach(item =>{
-            if(item.name === event.target.getAttribute("salon-name")){
-                item.category.splice(event.target.getAttribute("data-index"), 1)
+        const id = event.target.getAttribute("category-id");
+        const salonIndex = id.split("-")[0];
+        this._Data[salonIndex].category.forEach((item, index) =>{
+            if(item.id === id){
+                this._Data[salonIndex].category.splice(index, 1)
             }
         })
     }
@@ -95,14 +99,23 @@ class AppStore {
               })
           }
     })
+      this.information = {};
     }
     @action
     AddWorkerImg =(event) =>{
         //hascen sxala talis
     }
     @action
-    deleteWorksImage = () =>{
-        
+    deleteWorksImage = (event) =>{
+        this._Data.forEach (item => {
+            if(item.salonTitle === event.target.getAttribute("salon-name")){
+                item.category.forEach(item1 =>{
+                    item1.workers.forEach(item2 =>{
+                        item2.worksImgs.splice(event.target.getAttribute("data-index"),1)
+                    })
+                })
+            }
+        })
     }
 }
 

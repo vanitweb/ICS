@@ -14,7 +14,13 @@ class SpecialistUser extends Component {
     }
     render() {
         const {_Data , deleteWorksImage} = this.context.AppStore;
-        let specialist;
+        let specialist,
+            salon;
+        if(this.props.match.params.whichSalon && this.props.match.params.whichSpecialistForSalon){
+            this._Data[this.props.match.params.whichSalon].category.forEach(item => {
+                
+            })
+        }
         _Data.forEach(item => {
             item.category.forEach(item1 =>{
                 if(item1.prof === this.props.match.params.i){
@@ -35,9 +41,13 @@ class SpecialistUser extends Component {
                 })
             })
         }
+        console.log(this.props.match.params.whichSalon)
+        console.log(this.props.match.params.whichCategory)
+        console.log(this.props.match.params.whichSpecialistForSalon)
+        console.log(this.props.match.params.whichSpecialistForCategory)
         return (
             <div className = "sections mt-5">
-                 <Container>
+                 {/*<Container>
                      <Row>
                         <Col sm="8" >
                             <h3 className = "textBlue" > {specialist.name} {specialist.surname}</h3>
@@ -106,13 +116,13 @@ class SpecialistUser extends Component {
                      <Row className = "mt-5">
                      {specialist.workImgs.map((item, index) => {
                              return <Col align = "center" key = {index}>
-                                 <Button color="danger" className="delete" onClick = {deleteWorksImage} data-index = {index}>X</Button>
+                                 <Button color="danger" className="delete" salon-name={specialist.salonTitle}  onClick = {deleteWorksImage} data-index = {index}>X</Button>
                                  <img src={item} alt="works image" className ="d-inline " />
 
                              </Col>
                          })}
                      </Row>
-                </Container>
+                </Container>*/}
             </div>
         );
     }

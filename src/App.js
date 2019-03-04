@@ -44,10 +44,10 @@ class App extends Component {
                         <HeaderUser/>
                         <Switch>
                             <Route exact path="/" component={Section} />
-                            <Route exact path="/Salon/:i" component={SalonUser}/>
-                            <Route exact path='/category/:i' component={SpecialistCategory}/>
-                            <Route path='/Salon/:i/:k' component={SpecialistUser}/>
-                            <Route path='/category/:i/:k' component={SpecialistUser}/>
+                            <Route exact path="/Salon/:whichSalon" component={SalonUser}/>
+                            <Route exact path='/category/:whichCategory' component={SpecialistCategory}/>
+                            <Route path='/Salon/:whichSalon/:whichSpecialistForSalon' component={SpecialistUser}/>
+                            <Route path='/category/:whichCategory/:whichSpecialistForCategory' component={SpecialistUser}/>
                         </Switch>
                     </div>
                 </Router>

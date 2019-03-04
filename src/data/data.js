@@ -19,6 +19,7 @@ import salon6 from './../../assets/images/salon/salon6.jpg';
 class Data {
     salons = [
             {
+                id : 0,
                 name : 'Սյուզի գեղեցկության սրահ',
                 img : salon1,
                 address : "Տիգրան Մեծ 74",
@@ -29,8 +30,10 @@ class Data {
                 category : [
                     {
                         prof : "Վարսահարդարներ",
+                        id : '0-0',
                         workers : [
                             {
+                                id : '0-0-0',
                                 salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user1,
@@ -46,6 +49,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '0-0-1',
                                 salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                             	img : user2,
@@ -61,6 +65,7 @@ class Data {
                                 ],
                             },
                             {
+                                id : '0-0-2',
                                 salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                             	img : user3,
@@ -80,8 +85,10 @@ class Data {
                     },
                     {
                     	prof : "Դիմահարդարներ",
+                        id : '0-1',
                         workers : [
                             {
+                                id : '0-1-0',
                                 salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user4,
@@ -100,8 +107,10 @@ class Data {
                     },
                     {
                     	prof : "Մատնահարդարներ",
+                        id : '0-2',
                         workers : [
                             {
+                                id : '0-2-0',
                                 salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user5,
@@ -120,8 +129,10 @@ class Data {
                     },
                     {
                         prof : "Կոսմետոլոգներ",
+                        id : '0-3',
                         workers : [
                             {
+                                id : '0-3-0',
                                 salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user6,
@@ -137,6 +148,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '0-3-1',
                                 salonTitle : 'Սյուզի գեղեցկության սրահ',
                                 salonAddress : "Տիգրան Մեծ 74",
                                 img : user6,
@@ -157,6 +169,7 @@ class Data {
                 ]
             },
             {
+                id : '1',
             	name : 'Լիլիթ գեղեցկության սրահ',
                 img : salon2,
                 address : "Գր․ Լուսավորիչ 42",
@@ -167,8 +180,10 @@ class Data {
                 category : [
                     {
                         prof : "Վարսահարդարներ",
+                        id : '1-0',
                         workers : [
                             {
+                                id : '1-0-0',
                                 salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                                 img : user7,
@@ -184,6 +199,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '1-0-1',
                                 salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                             	img : user8,
@@ -199,6 +215,7 @@ class Data {
                                 ],
                             },
                             {
+                                id : '1-0-2',
                                 salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                             	img : user1,
@@ -218,8 +235,10 @@ class Data {
                     },
                     {
                     	prof : "Դիմահարդարներ",
+                        id : '1-1',
                         workers : [
                             {
+                                id : '1-1-0',
                                 salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                                 img : user9,
@@ -238,8 +257,10 @@ class Data {
                     },
                     {
                     	prof : "Մատնահարդարներ",
+                        id : '1-2',
                         workers : [
                             {
+                                id : '1-2-0',
                                 salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                                 img : user4,
@@ -258,8 +279,10 @@ class Data {
                     },
                     {
                         prof : "Կոսմետոլոգներ",
+                        id : '1-3',
                         workers : [
                             {
+                                id : '1-3-0',
                                 salonTitle : 'Լիլիթ գեղեցկության սրահ',
                                 salonAddress : "Գր․ Լուսավորիչ 42",
                                 img : user4,
@@ -280,6 +303,7 @@ class Data {
                 ]
             },
             {
+                id : '2',
             	name : 'Փարվանա գեղեցկության սրահ',
                 img : salon3,
                 address : "Նժդեհի 25",
@@ -290,8 +314,10 @@ class Data {
                 category : [
                     {
                         prof : "Վարսահարդարներ",
+                        id : '2-0',
                         workers : [
                             {
+                                id : '2-0-0',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user1,
@@ -311,8 +337,10 @@ class Data {
                     },
                     {
                     	prof : "Դիմահարդարներ",
+                        id : '2-1',
                         workers : [
                             {
+                                id : '2-1-0',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user2,
@@ -328,6 +356,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '2-1-1',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                             	img : user3,
@@ -346,8 +375,10 @@ class Data {
                     },
                     {
                     	prof : "Մատնահարդարներ",
+                        id : '2-2',
                         workers : [
                             {
+                                id : '2-2-0',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user4,
@@ -363,6 +394,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '2-2-1',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                             	img : user5,
@@ -381,8 +413,10 @@ class Data {
                     },
                     {
                         prof : "Կոսմետոլոգներ",
+                        id : '2-3',
                         workers : [
                             {
+                                id : '2-3-0',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user4,
@@ -398,6 +432,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '2-3-1',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user5,
@@ -413,6 +448,7 @@ class Data {
                                 ],
                             },
                             {
+                                id : '2-3-2',
                                 salonTitle : 'Փարվանա գեղեցկության սրահ',
                                 salonAddress : "Նժդեհի 25",
                                 img : user5,
@@ -433,7 +469,9 @@ class Data {
 
                 ]
             },
-            {name : 'Կոկետ գեղեցկության սրահ',
+            {
+                id : '3',
+                name : 'Կոկետ գեղեցկության սրահ',
                 img : salon4,
                 address : "Մյասնիկյան 64",
                 phone : "0322 5 05 81",
@@ -443,8 +481,10 @@ class Data {
                 category : [
                     {
                         prof : "Վարսահարդարներ",
+                        id : '3-0',
                         workers : [
                             {
+                                id : '3-0-0',
                                 salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                             	img : user10,
@@ -464,8 +504,10 @@ class Data {
                     },
                     {
                     	prof : "Դիմահարդարներ",
+                        id : '3-1',
                         workers : [
                             {
+                                id : '3-1-0',
                                 salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                                 img : user6,
@@ -481,6 +523,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '3-1-1',
                                 salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                             	img : user5,
@@ -496,6 +539,7 @@ class Data {
                                 ],
                             },
                             {
+                                id : '3-1-2',
                                 salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                                 img : user4,
@@ -514,8 +558,10 @@ class Data {
                     },
                     {
                     	prof : "Մատնահարդարներ",
+                        id : '3-2',
                         workers : [
                             {
+                                id : '3-2-0',
                                 salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                                 img : user3,
@@ -534,8 +580,10 @@ class Data {
                     },
                     {
                         prof : "Կոսմետոլոգներ",
+                        id : '3-3',
                         workers : [
                             {
+                                id : '3-3-0',
                                 salonTitle : 'Կոկետ գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 64",
                                 img : user5,
@@ -555,6 +603,7 @@ class Data {
                 ]
             },
             {
+                id : '4',
             	name : 'Անժելիկա գեղեցկության սրահ',
                 img : salon5,
                 address : "Մյասնիկյան 26/4",
@@ -565,8 +614,10 @@ class Data {
                 category : [
                     {
                         prof : "Վարսահարդարներ",
+                        id : '4-0',
                         workers : [
                             {
+                                id : '4-0-0',
                                 salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                                 img : user12,
@@ -582,6 +633,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '4-0-1',
                                 salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                             	img : user11,
@@ -601,8 +653,10 @@ class Data {
                     },
                     {
                     	prof : "Դիմահարդարներ",
+                        id : '4-1',
                         workers : [
                             {
+                                id : '4-1-0',
                                 salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                                 img : user3,
@@ -621,8 +675,10 @@ class Data {
                     },
                     {
                     	prof : "Մատնահարդարներ",
+                        id : '4-2',
                         workers : [
                             {
+                                id : '4-2-0',
                                 salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                                 img : user4,
@@ -638,6 +694,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '4-2-1',
                                 salonTitle : 'Անժելիկա գեղեցկության սրահ',
                                 salonAddress : "Մյասնիկյան 26/4",
                             	img : user8,
@@ -657,6 +714,7 @@ class Data {
                 ]
             },
             {
+                id : '5',
             	name : 'Անի գեղեցկության սրահ',
                 img : salon6,
                 address : "Վարդանանց 14",
@@ -667,8 +725,10 @@ class Data {
                 category : [
                     {
                         prof : "Վարսահարդարներ",
+                        id : '5-0',
                         workers : [
                             {
+                                id : '5-0-0',
                                 salonTitle : 'Անի գեղեցկության սրահ',
                                 salonAddress : "Վարդանանց 14",
                                 img : user7,
@@ -684,6 +744,7 @@ class Data {
                                 ],                   
                             },
                             {
+                                id : '5-0-1',
                                 salonTitle : 'Անի գեղեցկության սրահ',
                                 salonAddress : "Վարդանանց 14",
                             	img : user8,
@@ -703,8 +764,10 @@ class Data {
                     },
                     {
                     	prof : "Մատնահարդարներ",
+                        id : '5-2',
                         workers : [
                             {
+                                id : '5-2-0',
                                 salonTitle : 'Անի գեղեցկության սրահ',
                                 salonAddress : "Վարդանանց 14",
                                 img : user2,
@@ -723,8 +786,10 @@ class Data {
                     },
                     {
                         prof : "Կոսմետոլոգներ",
+                        id : '5-3',
                         workers : [
                             {
+                                id : '5-3-0',
                                 salonTitle : 'Անի գեղեցկության սրահ',
                                 salonAddress : "Վարդանանց 14",
                                 img : user3,

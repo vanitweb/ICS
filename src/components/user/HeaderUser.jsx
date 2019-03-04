@@ -55,7 +55,7 @@ class HeaderUser extends Component {
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 {dropdown.map((item,index) =>{
-                                                    return <Link to={`/Salon/${index}`} key = {item.address}>
+                                                    return <Link to={`/Salon/${item.name}-${item.id}`} key = {item.address}>
                                                         <DropdownItem  className="drop_item" >
                                                             {item.name}
                                                         </DropdownItem>

@@ -25,6 +25,8 @@ class SpecialistCategory extends Component {
     }
     render(){
         const {tableSearch , onChaked, _Data, searchType, searchText} = this.context.AppStore;
+        const categoryIndex = this.props.match.params.whichCategory.split("-")[1];
+        const prof = this.props.match.params.whichCategory.split("-")[0];
         return(
             <Container>
                 <Form className="form_pos mt-5">
@@ -55,27 +57,24 @@ class SpecialistCategory extends Component {
                         <Input type="search"  className="input_search" id="exampleSearch" onChange={tableSearch}/>
                 </Form>
                 <div>
-                    <h3 align = "center" className = "mt-5 mb-5">{this.props.match.params.i}</h3>
+                    <h3 align = "center" className = "mt-5 mb-5">{prof}</h3>
                     {_Data.map(item => {
-                        return item.category.map(item1 => {
-                            if(item1.prof === this.props.match.params.i){
-                                    return item1.workers.map((item2, index) => {
-                                        if(item2[`${searchType}`].indexOf(searchText) !== -1){
-                                        return <React.Fragment key = {index}>
-                                                <CardSearch 
-                                                       image = {item2.img}
-                                                       prof = {item2.prof}
-                                                       nameSurname = {`${item2.name} ${item2.surname}`}
-                                                       address = {item2.salonAddress}
-                                                       salonTitle = {item2.salonTitle}
-                                                       url = {this.props.match.url}
-                                                        name = {item2.name}
-                                                       /> 
-                        </React.Fragment>}
-                    })
-                }
-            })
-        })}
+                        return item.category[categoryIndex].workers.map((item1, index) => {  
+                            if(item1[`${searchType}`].indexOf(searchText) !== -1){
+                                return <React.Fragment key = {index}>
+                                    <CardSearch 
+                                       image = {item1.img}
+                                       prof = {item1.prof}
+                                       nameSurname = {`${item1.name} ${item1.surname}`}
+                                       address = {item1.salonAddress}
+                                       salonTitle = {item1.salonTitle}
+                                       url = {this.props.match.url}
+                                        name = {item1.name}
+                                       /> 
+                                </React.Fragment>}
+                            })
+                        })
+                    }
                     
                 </div>
             </Container>

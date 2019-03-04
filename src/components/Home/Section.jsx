@@ -27,7 +27,7 @@ class Section extends Component {
                 </Container>
                 <Container className = "cardSection">
                     <Row>
-                        {homeConfigs.categorys.map(item =>{
+                        {homeConfigs.categorys.map((item ,index) =>{
                             return  <React.Fragment key = {item.title}>
                                 <CardCategory 
                                     img={item.img}
@@ -36,7 +36,7 @@ class Section extends Component {
                                     CardClass = "cardSection1"
                                     buttonText = {Messages.section.homeCardButtonText}
                                     url = {'category'}
-                                    name ={item.title}
+                                    name ={`${item.title}-${index}`}
                                     />
                             </React.Fragment>
                         })}

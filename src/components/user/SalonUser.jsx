@@ -23,8 +23,9 @@ class SalonUser extends Component {
     }
     render() {
         const {_Data, deleteCard, deleteCategory} = this.context.AppStore;
-        console.log(typeof(this.props.match.params.i))
-        const DataSalon = _Data[this.props.match.params.i];
+        const salonIndex = this.props.match.params.whichSalon.split("-")[1];
+        const DataSalon = _Data[salonIndex];
+        
 		return (
             <Container className = "salon-page">
                 <Row>
@@ -50,20 +51,21 @@ class SalonUser extends Component {
 
         		</Row>
         		
-                {DataSalon.category.map((item, index) => {
+                {DataSalon.category.map(item => {
                     return 	<React.Fragment key = {item.prof}>
                         <Row align = "center" className = "mt-5 mb-5">
                             <Col>
                                 <h2>
                                     {item.prof}
-                                    <Button color="danger" className="delete" onClick = {deleteCategory} data-index = {index} salon-name = {DataSalon.name}>X</Button>
+                                    <Button color="danger" className="delete" onClick =  {deleteCategory}
+                                        category-id = {item.id}>X</Button>
                                 </h2>
                             </Col>
                         </Row>
                         <Row>{item.workers.map((item1, index1) => {
                                 return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
-                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteCard} data-index ={index1} prof ={item.prof} salon-name = {item1.salonTitle}>X</Button>}
+                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteCard} specialist-id = {item1.id}>X</Button>}
                                         img={item1.img}
                                         title= {`${item1.name} ${item1.surname}`}
                                         name = {item1.name}
