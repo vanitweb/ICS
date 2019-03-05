@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
-
+import PropTypes from 'prop-types';
 import Messages from './../../Messages'
 
 
@@ -8,6 +8,12 @@ import './../../../assets/stylesheets/setting.css';
 
 
 class Settings extends Component {
+  static contextTypes = {
+    AppStore : PropTypes.shape({
+      changeSalonInfo : PropTypes.func,
+    }).isRequired
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -24,6 +30,8 @@ class Settings extends Component {
   }
 
   render() {
+    const {changeSalonInfo} = this.context.AppStore;
+    const {salonAddress} = this.props;
     return (
       <div>
         <Button outline color="info" onClick={this.toggle}>{Messages.settings.settingsName}</Button>
@@ -43,7 +51,7 @@ class Settings extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label>{Messages.settings.adress}</Label>
-                            <Input type="text" name="email" id="exampleEmail"/>
+                            <Input type="text" name="email" id="exampleEmail" onChange={changeSalonInfo} salon-address = {salonAddress}/>
                         
                     </FormGroup>
                     <FormGroup>
@@ -54,7 +62,7 @@ class Settings extends Component {
                 </Form>
             </ModalBody>
             <ModalFooter>
-                <Button color="info"  onClick={this.toggle}>{Messages.settings.saveChange}</Button>
+                <Button color="info"  onClick={changeSalonInfo} salon-address = {salonAddress}>{Messages.settings.saveChange}</Button>
             </ModalFooter>
         </Modal>
       </div>

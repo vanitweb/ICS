@@ -44,7 +44,7 @@ class SalonUser extends Component {
 						<p>{DataSalon.info}</p>
                         <p>{Messages.beautySalons.beautySalonsAddress}` {DataSalon.address}</p>
                         <p>{Messages.beautySalons.beautySalonsPhone}` {DataSalon.phone}</p>
-                      <Settings />
+                      <Settings salonAddress={DataSalon.id}/>
 
 
 					</Col>

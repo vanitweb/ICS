@@ -117,6 +117,14 @@ class AppStore {
             }
         });
     }
+
+    @action
+    changeSalonInfo = (event) =>{
+        const a = event.target.getAttribute("salon-address");
+        const newAddress = event.target.value;
+        this._Data[a].address = newAddress;
+        
+    }
 }
 
 export default AppStore;
