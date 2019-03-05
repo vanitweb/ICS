@@ -27,7 +27,6 @@
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "7.11.1",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
@@ -128,6 +127,7 @@
   "devDependencies": {
     "babel-install": "2.1.0",
     "css-loader": "^1.0.1",
+    "eslint-plugin-promise": "^4.0.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.19.1"
   }
