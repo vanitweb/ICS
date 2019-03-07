@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import {Link}  from 'react-router-dom';
 
 
-import './../../assets/stylesheets/table.css';
+import './../../../assets/stylesheets/table.css';
 
-import Messages from './../Messages';
+import Messages from './../../Messages';
 
 class CardSearch extends Component {
     static propTypes = {

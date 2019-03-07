@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {Input, FormGroup, Label, Modal, ModalBody, ModalHeader, ModalFooter, Button, Form} from 'reactstrap';
 //import PropTypes from 'prop-types';
-import './../../../assets/stylesheets/salon.css';
-import Messages from './../../Messages';
 import { observable } from "mobx";
 import {observer} from "mobx-react";
 
+import Messages from './../../../Messages';
+
+import './../../../../assets/stylesheets/salon.css'
+
 @observer
-class Change extends Component {
+class ChangeSpecialistInfo extends Component {
 
   //    static propTypes = {
   //
@@ -101,4 +103,4 @@ class Change extends Component {
         );
     }
 }
-export default Change
+export default ChangeSpecialistInfo

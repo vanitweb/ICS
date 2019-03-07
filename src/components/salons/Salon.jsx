@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 import Messages from './../../Messages';
-import CardCategory from './../CardCategory';
-import notification from './../../../assets/images/salon/notification.png';
-import './../../../assets/stylesheets/salon.css';
-import Settings from './Settings';
+import CardCategory from './../cards/CardCategory';
+import ChangeSalonInfo from './modals/ChangeSalonInfo';
+import AddCategory from './modals/AddCategori'
+import SalonAddWorker from './modals/SalonAddWorker';
 
-import AddCategory from './AddCategori'
-import AddWorker from './SalonUserAddWorker';
+import notification from './../../../assets/images/salon/notification.png';
+
+import './../../../assets/stylesheets/salon.css';
 
 @observer
 class SalonUser extends Component {
@@ -18,11 +19,12 @@ class SalonUser extends Component {
         AppStore : PropTypes.shape({
             _Data : PropTypes.array,
             deleteCategory : PropTypes.func,
-            deleteCard : PropTypes.func,
+            deleteWorker : PropTypes.func,
+            isUser : PropTypes.string,
         }).isRequired
     }
     render() {
-        const {_Data, deleteCard, deleteCategory} = this.context.AppStore;
+        const {_Data, deleteWorker, deleteCategory, isUser} = this.context.AppStore;
         const salonIndex = this.props.match.params.whichSalon.split("-")[1];
         const DataSalon = _Data[salonIndex];
         
@@ -44,7 +46,9 @@ class SalonUser extends Component {
 						<p>{DataSalon.info}</p>
                         <p>{Messages.beautySalons.beautySalonsAddress}` {DataSalon.address}</p>
                         <p>{Messages.beautySalons.beautySalonsPhone}` {DataSalon.phone}</p>
-                      <Settings salonAddress={DataSalon.id}/>
+                      {isUser === 'salon' && <ChangeSalonInfo
+                             salonId={DataSalon.id}
+                             />}
 
 
 					</Col>
@@ -57,32 +61,39 @@ class SalonUser extends Component {
                             <Col>
                                 <h2>
                                     {item.prof}
-                                    <Button color="danger" className="delete" onClick =  {deleteCategory}
-                                        category-id = {item.id}>X</Button>
+                                    {isUser === 'salon' && <Button color="danger" className="delete" onClick =  {deleteCategory}
+                                        category-id = {item.id}>X</Button>}
                                 </h2>
                             </Col>
                         </Row>
                         <Row>{item.workers.map((item1, index1) => {
                                 return <React.Fragment key = {item1.surname}>
+                                    {(isUser === 'salon')?
                                     <CardCategory 
-                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteCard} specialist-id = {item1.id}>X</Button>}
+                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteWorker} specialist-id = {item1.id}>X</Button>}
                                         img={item1.img}
                                         title= {`${item1.name} ${item1.surname}`}
-                                        name = {item1.name}
+                                        name = {item1.id}
                                         buttonText = {Messages.table.specialiistButtonText}
                                         url = {this.props.match.url}
-                                        />
+                                        />: 
+                                    <CardCategory 
+                                        img={item1.img}
+                                        title= {`${item1.name} ${item1.surname}`}
+                                        name = {item1.id}
+                                        buttonText = {Messages.table.specialiistButtonText}
+                                        url = {this.props.match.url}
+                                        />}
 
                                 </React.Fragment>
                             })}
-                        <AddWorker salonName={DataSalon.name} category={item.prof} address={DataSalon.address}/>
+                            {isUser === 'salon' && <SalonAddWorker categoryId={item.id}/>}
                         </Row>
                         
                     </React.Fragment>
                 })}
-                <Row align = "center" className = "mt-5 mb-5">
-                     
-                   <AddCategory salonName = {DataSalon.name}/>
+                <Row align = "center" className = "mt-5 mb-5">  
+                   {isUser === 'salon' && <AddCategory salonIndex = {salonIndex}/>}
                 </Row>
 			</Container>
 		);

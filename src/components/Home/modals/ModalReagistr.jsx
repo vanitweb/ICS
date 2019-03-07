@@ -1,8 +1,8 @@
 import React, { Component }  from 'react';
 import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
-import Messages from './../../Messages';
+import Messages from './../../../Messages';
 
-import './../../../assets/stylesheets/header.css';
+import './../../../../assets/stylesheets/header.css';
 
 class ModalRegister extends Component {
     constructor(props) {

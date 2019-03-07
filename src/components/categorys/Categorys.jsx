@@ -3,18 +3,15 @@ import {Container, Form, Input, FormGroup, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
-import Messages from './../Messages';
+import Messages from './../../Messages';
+import {homeConfigs} from './../../config/categoryConfig';
 
-import CardSearch from './CardSearch'
+import CardSearch from './../cards/CardSearch'
 
-import './../../assets/stylesheets/table.css';
-
-
-
-
+import './../../../assets/stylesheets/table.css';
 
 @observer
-class SpecialistCategory extends Component {
+class Categorys extends Component {
     static contextTypes = {
         AppStore : PropTypes.shape({
             prof : PropTypes.string,
@@ -25,8 +22,9 @@ class SpecialistCategory extends Component {
     }
     render(){
         const {tableSearch , onChaked, _Data, searchType, searchText} = this.context.AppStore;
-        const categoryIndex = this.props.match.params.whichCategory.split("-")[1];
-        const prof = this.props.match.params.whichCategory.split("-")[0];
+        const path = this.props.match.params.whichCategory.split("-");
+        const categoryIndex = path[1];
+        const prof = homeConfigs.categorys[categoryIndex].title;
         return(
             <Container>
                 <Form className="form_pos mt-5">
@@ -59,20 +57,22 @@ class SpecialistCategory extends Component {
                 <div>
                     <h3 align = "center" className = "mt-5 mb-5">{prof}</h3>
                     {_Data.map(item => {
-                        return item.category[categoryIndex].workers.map((item1, index) => {  
-                            if(item1[`${searchType}`].indexOf(searchText) !== -1){
-                                return <React.Fragment key = {index}>
-                                    <CardSearch 
-                                       image = {item1.img}
-                                       prof = {item1.prof}
-                                       nameSurname = {`${item1.name} ${item1.surname}`}
-                                       address = {item1.salonAddress}
-                                       salonTitle = {item1.salonTitle}
-                                       url = {this.props.match.url}
-                                        name = {item1.name}
-                                       /> 
-                                </React.Fragment>}
-                            })
+                        if(item.category[categoryIndex]){
+                            return item.category[categoryIndex].workers.map((item1, index) => {  
+                                if(item1[`${searchType}`].indexOf(searchText) !== -1){
+                                    return <React.Fragment key = {index}>
+                                        <CardSearch 
+                                           image = {item1.img}
+                                           prof = {item1.prof}
+                                           nameSurname = {`${item1.name} ${item1.surname}`}
+                                           address = {item1.salonAddress}
+                                           salonTitle = {item1.salonTitle}
+                                           url = {this.props.match.url}
+                                            name = {item1.id}
+                                           /> 
+                                    </React.Fragment>}
+                                })
+                            }
                         })
                     }
                     
@@ -81,4 +81,4 @@ class SpecialistCategory extends Component {
         );
     }
 }
-export default SpecialistCategory
+export default Categorys

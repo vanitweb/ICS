@@ -2,9 +2,9 @@ import React, { Component }  from 'react';
 import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 //import PropTypes from 'prop-types';
 
-import Messages from './../../Messages'
+import Messages from './../../../Messages'
 
-import './../../../assets/stylesheets/header.css';
+import './../../../../assets/stylesheets/header.css';
 
 
 class ModalLogin extends Component {

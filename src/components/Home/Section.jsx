@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react'
 
 import Carusel from './Carusel';
-import CardCategory from './../CardCategory';
+import CardCategory from './../cards/CardCategory';
 
 import Messages from './../../Messages';
 import {homeConfigs} from './../../config/categoryConfig';
@@ -27,7 +27,7 @@ class Section extends Component {
                 </Container>
                 <Container className = "cardSection">
                     <Row>
-                        {homeConfigs.categorys.map((item ,index) =>{
+                        {homeConfigs.categorys.map(item => {
                             return  <React.Fragment key = {item.title}>
                                 <CardCategory 
                                     img={item.img}
@@ -36,7 +36,7 @@ class Section extends Component {
                                     CardClass = "cardSection1"
                                     buttonText = {Messages.section.homeCardButtonText}
                                     url = {'category'}
-                                    name ={`${item.title}-${index}`}
+                                    name ={`${item.title}-${item.id}`}
                                     />
                             </React.Fragment>
                         })}

@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import {Link}  from 'react-router-dom';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand,
-        Nav, NavItem, UncontrolledDropdown, DropdownToggle,
-        DropdownMenu, DropdownItem , Container} from 'reactstrap';
+        Nav, UncontrolledDropdown, DropdownToggle,
+        DropdownMenu, DropdownItem , Container,Button, NavItem} from 'reactstrap';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
 
-import ModalLogin from './ModalLogin';
+import ModalLogin from './modals/ModalLogin';
+import ModalRegister from './modals/ModalReagistr';
+
 import Messages from './../../Messages';
-import ModalRegister from './ModalReagistr';
 
 import logo from './../../../assets/images/header/logo.png';
 
 import './../../../assets/stylesheets/header.css';
 
-class Header extends Component {
+@observer
+class HeaderUser extends Component {
     static contextTypes = {
         AppStore : PropTypes.shape({
-            Data : PropTypes.array.isRequired,  
+            _Data : PropTypes.array.isRequired,  
+            isUser : PropTypes.string,
         }).isRequired
     }
     constructor(props) {
@@ -32,7 +36,7 @@ class Header extends Component {
         });
     }
     render() {
-        const dropdown = this.context.AppStore.Data;
+        const {_Data, isUser} = this.context.AppStore;
         return (
             <div >
                 <Container>
@@ -48,29 +52,41 @@ class Header extends Component {
                                 />
                                 <span className="title">{Messages.header.title}</span>
                             </NavbarBrand>
-                            <NavbarToggler onClick={this.toggle} />
+                            <NavbarToggler onClick={this.toggle}/>
                                 <Collapse isOpen={this.state.isOpen} navbar>
-                                    <Nav className="ml-auto" navbar> 
-                                        <UncontrolledDropdown nav inNavbar>
+                                    <Nav className="ml-auto dropd" navbar> 
+                                        <UncontrolledDropdown nav inNavbar >
                                             <DropdownToggle nav className="drop" caret>
                                                 {Messages.header.dropDown}
                                             </DropdownToggle>
                                             <DropdownMenu right>
-                                                {dropdown.map((item,index) =>{
-                                                    return <Link to={`/Salon/${index}`} key = {item.address}>
-                                                        <DropdownItem  className="drop_item">
+                                                {_Data.map((item,index) =>{
+                                                    return <Link to={`/Salon/${item.name}-${item.id}`} key = {item.address}>
+                                                        <DropdownItem  className="drop_item" >
                                                             {item.name}
                                                         </DropdownItem>
                                                     </Link>
                                                 })} 
                                             </DropdownMenu>
                                         </UncontrolledDropdown>
-                                        <NavItem>
-                                            <ModalLogin/> 
-                                        </NavItem>
-                                        <NavItem>
-                                            <ModalRegister/>
-                                        </NavItem>
+                                        {(isUser === 'salon' || isUser === 'user')?
+                                        <>
+                                            <NavItem>
+                                                <Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button>
+                                            </NavItem>
+                                            <NavItem>
+                                                <Button className="ml-auto mod_btn"  color="link">{Messages.header.LogOut}</Button>
+                                            </NavItem>
+                                        </>:
+                                            <>
+                                                <NavItem>
+                                                    <ModalLogin/> 
+                                                </NavItem>
+                                                <NavItem>
+                                                    <ModalRegister/>
+                                                </NavItem>
+                                            </>
+                                        }
                                     </Nav>
                             </Collapse>
                         </Navbar>
@@ -80,4 +96,4 @@ class Header extends Component {
         );
     }
 }
-export default Header
+export default HeaderUser

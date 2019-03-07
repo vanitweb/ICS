@@ -33,11 +33,13 @@ const Messages = {
     },
     settings : {
         settingsName : 'Փոխել տվյալները',
+        name : 'Անուն',
         adress : 'Հասցե',
         phone : 'Հեռախոսահամար',
         ourSet : 'Մեր մասին',
         insertImg : 'Տեղադրել նկար',
-        saveChange : 'Հաստատել'
+        saveChange : 'Հաստատել',
+        category : 'Կատեգորիա '
     },
     footer : {
         footerEmail : 'Mail: butySaolns@mail.ru',

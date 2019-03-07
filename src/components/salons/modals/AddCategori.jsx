@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import {Input, FormGroup, Label, Modal, ModalBody, ModalHeader, ModalFooter, Button, Form} from 'reactstrap';
 import PropTypes from 'prop-types';
-import './../../../assets/stylesheets/salon.css';
-import Messages from './../../Messages';
+import {homeConfigs} from './../../../config/categoryConfig';
+
+import './../../../../assets/stylesheets/salon.css';
+import Messages from './../../../Messages';
 
 
 class AddCategory extends Component {
       static contextTypes = {
            AppStore : PropTypes.shape({
+               _Data : PropTypes.array,
                addCategory : PropTypes.func,
-               addCategorychange : PropTypes.func,
+               addCategoryChange : PropTypes.func,
            }).isRequired
       }
   constructor(props) {
@@ -25,8 +28,8 @@ class AddCategory extends Component {
       }));
   }
     render(){
-        const {addCategory, addCategorychange} = this.context.AppStore;
-        const {salonName} = this.props;
+        const {addCategory, addCategoryChange, _Data} = this.context.AppStore;
+        const {salonIndex} = this.props;
         return(
           <div>
             <Button onClick={this.toggle}  color="info" outline>{Messages.AddCategory.addCat}</Button>
@@ -35,14 +38,14 @@ class AddCategory extends Component {
                         <ModalBody>
                             <Form>
                                 <FormGroup>
-                                    <Label for="exampleAnun">{Messages.AddCategory.nameCategory}</Label>
-                                    <Input onChange={addCategorychange} type="text" name="Anun"/>
+                                    <Label for="examplenName">{Messages.AddCategory.nameCategory}</Label>
+                                    <Input type="text"  id="examplenName" onChange = {addCategoryChange}/>
                                 </FormGroup>
    
                             </Form>
                         </ModalBody>
                         <ModalFooter onClick = {this.toggle}>
-                          <Button color="info"  onClick={addCategory} salon-name = {salonName}>{Messages.AddCategory.confirmChanges}</Button>
+                          <Button color="info"  onClick={addCategory} salon-index = {salonIndex}>{Messages.AddCategory.confirmChanges}</Button>
                         </ModalFooter>
                     </Modal>
           </div>

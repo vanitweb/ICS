@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
 import {Input, FormGroup, Label, Modal, ModalBody, ModalHeader, ModalFooter, Button, Form} from 'reactstrap';
 import PropTypes from 'prop-types';
-import './../../../assets/stylesheets/salon.css';
-import Messages from './../../Messages';
+import './../../../../assets/stylesheets/salon.css';
+import Messages from './../../../Messages';
 import { observable } from "mobx";
 import {observer} from "mobx-react";
-import Data from './../../data/data.js';
+import Data from './../../../data/data.js';
 
 @observer
-class AddWorker extends Component {
+class SalonAddWorker extends Component {
 
     static contextTypes = {
         AppStore : PropTypes.shape({
             _Data : PropTypes.array,
             consoleInfo : PropTypes.func,
             setInputsValue : PropTypes.func,
+            AddWorkerImg : PropTypes.func,
         }).isRequired
     }
 
@@ -35,18 +36,21 @@ class AddWorker extends Component {
   }
 
     render(){
-        const {_Data, setInputsValue, AddWorkerData, AddWorkerInfo, AddWorkerImg} = this.context.AppStore;
+        const {_Data, setInputsValue, AddWorker, AddWorkerInfo, AddWorkerImg, l} = this.context.AppStore;
+        const {categoryId} =this.props;
         return(
           <div>
             <Button color="info" outline className="button"  onClick={this.toggle}>{Messages.AddWorker.AddWorker}</Button>
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle}>
                         <ModalHeader toggle={this.toggle}>{Messages.AddWorker.AddWorker}</ModalHeader>
                         <ModalBody>
+                            <img id="target" src={l}/>
+
                             <Form>
                                 <FormGroup>
                                     <Label for="exampleFile">{Messages.AddWorker.image}</Label>
                                     <Input className="name" type="file" name="file" id="exampleFile"
-                                    onChange = {AddWorkerImg}
+                                    onChange={AddWorkerImg}
                                         />
                                 </FormGroup>
                                 <FormGroup>
@@ -76,11 +80,12 @@ class AddWorker extends Component {
                             </Form>
                         </ModalBody>
                         <ModalFooter onClick = {this.toggle}>
-                          <Button  className="modal_button" onClick={AddWorkerData} address={this.props.address} salon-name={this.props.salonName} category={this.props.category}>{Messages.AddWorker.save}</Button>
+                          <Button  className="modal_button" onClick={AddWorker}
+                              category-id={categoryId}>{Messages.AddWorker.save}</Button>
                         </ModalFooter>
                     </Modal>
           </div>
         );
     }
 }
-export default AddWorker
+export default SalonAddWorker

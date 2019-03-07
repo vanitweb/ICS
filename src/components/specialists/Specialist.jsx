@@ -1,72 +1,50 @@
 import React, { Component } from 'react';
 import {Button,Container, Row, Col, FormGroup, Label, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
 
 import Messages from './../../Messages';
-import Change from './ChangeData'
+import ChangeSpecialistInfo from './modals/ChangeSpecialistInfo'
 import './../../../assets/stylesheets/specialist.css';
 
+@observer
 class SpecialistUser extends Component {
     static contextTypes = {
         AppStore : PropTypes.shape({
             _Data : PropTypes.array,
+            isUser : PropTypes.string,
+            deleteWorksImage : PropTypes.func,
         }).isRequired
     }
     render() {
-        const {_Data , deleteWorksImage} = this.context.AppStore;
-        let specialist,
-            salon;
-        if(this.props.match.params.whichSalon && this.props.match.params.whichSpecialistForSalon){
-            this._Data[this.props.match.params.whichSalon].category.forEach(item => {
-                
-            })
-        }
-        _Data.forEach(item => {
-            item.category.forEach(item1 =>{
-                if(item1.prof === this.props.match.params.i){
-                    item1.workers.forEach(item2 => {
-                        if(item2.name === this.props.match.params.k){
-                            specialist = item2;
-                        }
-                    })
-                }
-            })
-        })
-        if(specialist === undefined){
-            _Data[this.props.match.params.i].category.forEach(item => {
-                item.workers.forEach(item1 => {
-                    if(item1.name === this.props.match.params.k){
-                            specialist = item1;
-                        }
-                })
-            })
-        }
-        console.log(this.props.match.params.whichSalon)
-        console.log(this.props.match.params.whichCategory)
-        console.log(this.props.match.params.whichSpecialistForSalon)
-        console.log(this.props.match.params.whichSpecialistForCategory)
+        const {_Data , deleteWorksImage, isUser} = this.context.AppStore;
+        const paths = this.props.match.params.whichSpecialist.split('/');
+        const path = paths[paths.length - 1].split('-');
+        const salonIndex = path[0];
+        const categoryIndex = path[1];
+        const specialist = _Data[salonIndex].category[categoryIndex].workers[path[2]];
         return (
             <div className = "sections mt-5">
-                 {/*<Container>
+                 <Container>
                      <Row>
                         <Col sm="8" >
                             <h3 className = "textBlue" > {specialist.name} {specialist.surname}</h3>
                             <div className="user" >   
                                 <img src={specialist.img} height = "200px" alt="user image" width="200px" className ="d-inline" /> 
                                 <div className="info">
-                                    <Change />
+                                    {isUser === 'salon' && <ChangeSpecialistInfo />}
                                     <p>{specialist.textAbout}</p>
                                 </div>
                             </div> 
                             <div> 
                                 <h2 className = "textBlue"> {Messages.specialist.information} </h2>
-                                <p> {Messages.specialist.phoneNumber} {_Data[0].phone} </p>
+                                <p> {Messages.specialist.phoneNumber} {_Data[salonIndex].phone} </p>
                                 <p> {Messages.specialist.salonName}{specialist.salonTitle}</p>
                                 <p>{Messages.specialist.salonAddress} {specialist.salonAddress}</p>
                                 <p>{Messages.specialist.socialMedia} {specialist.socialNetwork}  </p>
                             </div> 
                          </Col>
-                         <Col sm="4" >
+                         {isUser === 'user' && <Col sm="4" >
                              <h3 className = "textBlue"> {Messages.registered}</h3>
                              <div>
                                  <FormGroup tag="fieldset"> 
@@ -110,19 +88,25 @@ class SpecialistUser extends Component {
                              </div>
                              <Button type = "submit" color="info" > {Messages.specialist.confirmed} </Button>
                              
-                         </Col>
+                         </Col>}
                      </Row>
                      <h1 className = "textBlue" >{Messages.specialist.myWorkes}</h1>
                      <Row className = "mt-5">
                      {specialist.workImgs.map((item, index) => {
-                             return <Col align = "center" key = {index}>
-                                 <Button color="danger" className="delete" salon-name={specialist.salonTitle}  onClick = {deleteWorksImage} data-index = {index}>X</Button>
-                                 <img src={item} alt="works image" className ="d-inline " />
-
-                             </Col>
+                             return <React.Fragment key = {index}>
+                             {(isUser === 'salon') ?
+                                     <Col align = "center">
+                                         <Button color="danger" className="delete" salon-name={specialist.salonTitle}  onClick = {deleteWorksImage} data-index = {index}>X</Button>
+                                         <img src={item} alt="works image" className ="d-inline " />
+                                     </Col>:
+                                     <Col align = "center">
+                                         <img src={item} alt="works image" className ="d-inline " />
+                                     </Col>
+                             }
+                             </React.Fragment>
                          })}
                      </Row>
-                </Container>*/}
+                </Container>
             </div>
         );
     }

@@ -4,18 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {observer} from 'mobx-react'
 import PropTypes from 'prop-types';
 
-import Header from './components/Home/Header';
-import HeaderUser from './components/user/HeaderUser';
-import Section from './components/Home/Section';
-import Footer from './components/Home/Footer';
-import Salon from './components/Salon'; 
-import SalonUser from './components/user/SalonUser'; 
-import SpecialistUser from './components/user/SpecialistUser'; 
-import Specialist from './components/Specialist'; 
-import SpecialistCategory from './components/SpecialistCategory'; 
+import Header from './components/home/Header';
+import Section from './components/home/Section';
+import Footer from './components/home/Footer';
+import Salon from './components/salons/Salon'; 
+import Specialist from './components/specialists/Specialist';  
+import Categorys from './components/categorys/Categorys'; 
 
 import UIStore from './stores/UIStore';
 import AppStore from './stores/AppStore';
+import NotFound from './NotFound'; 
 
 import './../assets/stylesheets/App.css';
 
@@ -41,14 +39,14 @@ class App extends Component {
             <div className = "App">
                 <Router>
                     <div>
-                        <HeaderUser/>
+                        <Header/>
                         <Switch>
                             <Route exact path="/" component={Section} />
-                            <Route exact path="/Salon/:whichSalon" component={SalonUser}/>
-                            <Route exact path='/category/:whichCategory' component={SpecialistCategory}/>
-                            <Route path='/Salon/:whichSalon/:whichSpecialistForSalon' component={SpecialistUser}/>
-                            <Route path='/category/:whichCategory/:whichSpecialistForCategory' component={SpecialistUser}/>
-                            <Route/>
+                            <Route exact path="/Salon/:whichSalon" component={Salon}/>
+                            <Route exact path='/category/:whichCategory' component={Categorys}/>
+                            <Route path='/Salon/:whichSalon/:whichSpecialist' component={Specialist}/>
+                            <Route path='/category/:whichCategory/:whichSpecialist' component={Specialist}/>
+                            <Route component={NotFound} />
                         </Switch>
                     </div>
                 </Router>

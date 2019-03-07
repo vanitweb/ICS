@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {Link}  from 'react-router-dom';
 import {observer} from 'mobx-react';
 
-import './../../assets/stylesheets/card.css'
+import './../../../assets/stylesheets/card.css'
 
 @observer
 class CardCategory extends Component {
@@ -24,7 +24,7 @@ class CardCategory extends Component {
             <Col lg = {3} md={6} sm = {6} xs = {8} className="cardOne">
                 <Card>
                     {deleteCard}
-                    <CardImg variant="top" src={img} heigth = "200px" width = "200px"/>
+                    <CardImg variant="top" src={img} />
                     <CardBody>
                         <CardTitle>{title}</CardTitle>
                         <CardText className = {CardClass}>{explaText}</CardText>

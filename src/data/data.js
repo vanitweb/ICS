@@ -758,10 +758,10 @@ class Data {
                 },
                 {
                     prof : 'Մատնահարդարներ',
-                    id : '5-2',
+                    id : '5-1',
                     workers : [
                         {
-                            id : '5-2-0',
+                            id : '5-1-0',
                             salonTitle : 'Անի գեղեցկության սրահ',
                             salonAddress : 'Վարդանանց 14',
                             img : user2,
@@ -780,10 +780,10 @@ class Data {
                 },
                 {
                     prof : 'Կոսմետոլոգներ',
-                    id : '5-3',
+                    id : '5-2',
                     workers : [
                         {
-                            id : '5-3-0',
+                            id : '5-2-0',
                             salonTitle : 'Անի գեղեցկության սրահ',
                             salonAddress : 'Վարդանանց 14',
                             img : user3,
