@@ -48,6 +48,7 @@ class App extends Component {
                             <Route exact path='/category/:whichCategory' component={SpecialistCategory}/>
                             <Route path='/Salon/:whichSalon/:whichSpecialistForSalon' component={SpecialistUser}/>
                             <Route path='/category/:whichCategory/:whichSpecialistForCategory' component={SpecialistUser}/>
+                            <Route/>
                         </Switch>
                     </div>
                 </Router>
