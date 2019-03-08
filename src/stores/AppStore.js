@@ -3,9 +3,9 @@ import {extendObservable, action} from 'mobx';
 
 import {homeConfigs} from './../config/categoryConfig';
 
-import user7 from './../../assets/images/specialist/user7.png';
 
-class AppStore { 
+
+class AppStore {
     Data = new Data().salons;
     initData = () => {
         extendObservable(this, this.Data);
@@ -17,13 +17,13 @@ class AppStore {
         addCategoryName : '',
         _Data : this.Data,
         information : {
-            img : user7,
+            img : '/static/assets/images/users/specialist.png',
             name : 'Անուն',
             surname : 'Ազգանուն',
             age : 'Տարիք',
             textAbout : 'Տեղեկատվություն',
             socialNetwork : 'Կապ սոց․ կայքեր',
-        }, 
+        },
         changeSalon : {
             name : '',
             info : '',
@@ -31,6 +31,13 @@ class AppStore {
             phone : '',
             prof : '',
             profSelected : '',
+        },
+        changeSpecialistInfo : {
+            name : '',
+            surname : '',
+            age : '',
+            info : '',
+            mail : '',
         },
         isUser : 'salon',
         id : {
@@ -63,7 +70,7 @@ class AppStore {
                 this.id.salonIndex = idArr[0];
                 this.id.categoryIndex = idArr[1];
                 this.id.specialistIndex = idArr[2];
-                
+
         }
     }
     //category
@@ -123,14 +130,14 @@ class AppStore {
         this.information.workImgs = [];
         const category = this._Data[salonIndex].category[categoryIndex];
         if(category.workers.length === 0){
-            this.id.specialistIndex = 0; 
+            this.id.specialistIndex = 0;
         }else{
             this.id.specialistIndex = this._Data[salonIndex].category[categoryIndex].workers.length;
         }//nkar chi vercnum
         this.information.id = `${salonIndex}-${categoryIndex}-${this.id.specialistIndex}`
         category.workers.push(this.information)
         this.information = {
-            img : user7,
+            img : '/static/assets/images/users/specialist.png',
             name : 'Անուն',
             surname : 'Ազգանուն',
             age : 'Տարիք',
@@ -144,7 +151,7 @@ class AppStore {
     }
     @action
     addCategory = (event) => {
-        const salonIndex = event.target.getAttribute('salon-index'); 
+        const salonIndex = event.target.getAttribute('salon-index');
         if(this._Data[salonIndex].category.length === 0){
             this.id.categoryIndex = 0;
         }else{
@@ -159,7 +166,7 @@ class AppStore {
     @action
     deleteCategory = (event) => {
         const id = event.target.getAttribute('category-id');
-        this.filterId(id); 
+        this.filterId(id);
         const {salonIndex, categoryIndex} = this.id;
         this._Data[salonIndex].category.forEach((item, index) => {
             if(item.id === id){
@@ -195,7 +202,7 @@ class AppStore {
             default:
                 return;
         }
-        
+
     }
     @action
     changeSalonSubmit = (event) =>{//nkar chi vercnum
@@ -212,6 +219,40 @@ class AppStore {
     }
     //specialist
     @action
+    changeSpeciaistInfo = (event) =>{
+        switch(event.target.getAttribute("name")){
+            case 'name':
+            this.changeSpecialistInfo.name = event.target.value;
+                break;
+            case 'surname':
+            this.changeSpecialistInfo.surname = event.target.value;
+                break;
+            case 'age':
+                this.changeSpecialistInfo.age = event.target.value;
+                break;
+            case 'info':
+                this.changeSpecialistInfo.info = event.target.value;
+                break;
+            case 'mail':
+                this.changeSpecialistInfo.mail = event.target.value;
+                break;
+            default:
+                return;
+        }
+    }
+    @action
+    changeSpecialistSubmit = (event) =>{
+        const id = event.target.getAttribute('specialist-id');
+        const idSalon = id.split('-')[0];
+        const idCategory = id.split('-')[1];
+        const idSpecialist = id.split('-')[2];
+        this._Data[idSalon].category[idCategory].workers[idSpecialist].name = this.changeSpecialistInfo.name;
+        this._Data[idSalon].category[idCategory].workers[idSpecialist].surname = this.changeSpecialistInfo.surname;
+        this._Data[idSalon].category[idCategory].workers[idSpecialist].age = this.changeSpecialistInfo.age;
+        this._Data[idSalon].category[idCategory].workers[idSpecialist].textAbout = this.changeSpecialistInfo.info;
+        this._Data[idSalon].category[idCategory].workers[idSpecialist].socialNetwork = this.changeSpecialistInfo.mail;
+    }
+    @action
     AddWorkerImg =(event) => {
          if (event.target.files && event.target.files[0]) {
         this.l = URL.createObjectURL(event.target.files[0])
@@ -220,15 +261,10 @@ class AppStore {
     }
     @action
     deleteWorksImage = (event) => {//?
-        this._Data.forEach (item => {
-            if(item.salonTitle === event.target.getAttribute('salon-name')){
-                item.category.forEach(item1 => {
-                    item1.workers.forEach(item2 => {
-                        item2.worksImgs.splice(event.target.getAttribute('data-index'),1);
-                    });
-                });
-            }
-        });
+        this.filterId(event.target.getAttribute('specialist-id'))
+        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        console.log(salonIndex, categoryIndex, specialistIndex)
+        this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs.splice(event.target.getAttribute('data-index'),1);
     }
 }
 

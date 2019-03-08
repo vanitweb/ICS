@@ -11,15 +11,13 @@ import ModalRegister from './modals/ModalReagistr';
 
 import Messages from './../../Messages';
 
-import logo from './../../../assets/images/header/logo.png';
-
 import './../../../assets/stylesheets/header.css';
 
 @observer
 class HeaderUser extends Component {
     static contextTypes = {
         AppStore : PropTypes.shape({
-            _Data : PropTypes.array.isRequired,  
+            _Data : PropTypes.array.isRequired,
             isUser : PropTypes.string,
         }).isRequired
     }
@@ -42,9 +40,9 @@ class HeaderUser extends Component {
                 <Container>
                     <div className = "header_design">
                         <Navbar  light expand="md">
-                            <NavbarBrand href="/">                        
+                            <NavbarBrand href="/">
                                 <img
-                                    src= {logo}
+                                    src= 'static/assets/images/header/logo.png'
                                     width="50"
                                     height="50"
                                     className="d-inline-block align-top"
@@ -54,7 +52,7 @@ class HeaderUser extends Component {
                             </NavbarBrand>
                             <NavbarToggler onClick={this.toggle}/>
                                 <Collapse isOpen={this.state.isOpen} navbar>
-                                    <Nav className="ml-auto dropd" navbar> 
+                                    <Nav className="ml-auto dropd" navbar>
                                         <UncontrolledDropdown nav inNavbar >
                                             <DropdownToggle nav className="drop" caret>
                                                 {Messages.header.dropDown}
@@ -66,7 +64,7 @@ class HeaderUser extends Component {
                                                             {item.name}
                                                         </DropdownItem>
                                                     </Link>
-                                                })} 
+                                                })}
                                             </DropdownMenu>
                                         </UncontrolledDropdown>
                                         {(isUser === 'salon' || isUser === 'user')?
@@ -80,7 +78,7 @@ class HeaderUser extends Component {
                                         </>:
                                             <>
                                                 <NavItem>
-                                                    <ModalLogin/> 
+                                                    <ModalLogin/>
                                                 </NavItem>
                                                 <NavItem>
                                                     <ModalRegister/>

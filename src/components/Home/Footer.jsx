@@ -4,10 +4,7 @@ import Messages from './../../Messages';
 
 import './../../../assets/stylesheets/footer.css';
 
-import facebook from './../../../assets/images/footer/facebook.png';
-import instagram from './../../../assets/images/footer/instagram.png';
-import twitter from './../../../assets/images/footer/twitter.png';
-import youtube from './../../../assets/images/footer/youtube.png';
+
 
 class Footer extends Component {
 	render() {
@@ -34,10 +31,10 @@ class Footer extends Component {
 						<Col md={4}  sm={8}  xs={8} >
 							<ul>
 								<li>
-									<a href="https://www.facebook.com/" target = "blank"><img src={facebook} alt="Facebook.com"  className="icon_width"/></a>
-									<a href="https://www.instagram.com/" target = "blank"><img src={instagram} alt="instagram"  className="icon_width"/></a>
-									<a href="https://twitter.com/" target = "blank"><img src={twitter} alt="twitter"  className="icon_width"/></a>
-									<a href="https://www.youtube.com/" target = "blank"><img src={youtube} alt="youtube"  className="icon_width"/></a>
+									<a href="https://www.facebook.com/" target = "blank"><img src="static/assets/images/footer/facebook.png" alt="Facebook.com"  className="icon_width"/></a>
+									<a href="https://www.instagram.com/" target = "blank"><img src="static/assets/images/footer/instagram.png" alt="instagram"  className="icon_width"/></a>
+									<a href="https://twitter.com/" target = "blank"><img src="static/assets/images/footer/twitter.png" alt="twitter"  className="icon_width"/></a>
+									<a href="https://www.youtube.com/" target = "blank"><img src="static/assets/images/footer/youtube.png" alt="youtube"  className="icon_width"/></a>
 								</li>
 							</ul>
 						</Col>

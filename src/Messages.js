@@ -3,7 +3,7 @@ const Messages = {
         title : 'Ոճի Զգացմունք',
         dropDown : 'Գեղեցկության սրահներ',
         UserPage : 'Անձնական էջ',
-        LogOut : 'Դուրս գալ', 
+        LogOut : 'Դուրս գալ',
         signIn : {
             signIn : 'Մուտք',
             signInTitle : 'Մուտք',
@@ -77,7 +77,9 @@ const Messages = {
         chooseWork : 'Ընտրել աշխատանքը',
         chooseClock : 'Ընտրել ժամ',
         confirmed : 'Հաստատել',
-        myWorkes: 'Իմ աշխատանքներ'
+        myWorkes : 'Իմ աշխատանքներ',
+        age : 'Տարիք',
+        prof : 'Մասնագիտություն',
     },
 
     AddWorker : {
@@ -97,6 +99,23 @@ const Messages = {
         addCat : 'Ավալացնել կատեգորիա',
         nameCategory : 'Նշել կատեգորիայի անուն',
         confirmChanges : 'Հաստատել '
-    }
+    },
+    AcountUser : {
+         acountName : "Անուն:",
+         acountSurname : "Ազգանուն:",
+         acountPhoneNumber : "Հեռախոսահամար:",
+         acountChangeData : "Փոխել Տվյաները",
+         acountChangeDataSave : "Հաստատել",
+         acuntVisits : "Այցելություններ",
+         acountNameSetting : "Անուն",
+         acountSurnameSetting : "Ազգանուն",
+         acountPhoneNumberSetting : "Հեռախոսահամար",
+         acountNameVisits : "Անուն:",
+         acountSurnameVisits : "Ազգանուն:",
+         acountPhoneNumberVisits : "Հեռախոսահամար:",
+         acountBeuthySalonName : "Գեղեցկության սրահ:",
+         aountVisitsData : "Օր:",
+         acountVisitsHours : "Ժամ:",
+     }
 };
 export default Messages;

@@ -1,27 +1,9 @@
-import user1 from './../../assets/images/specialist/user1.jpg';
-import user2 from './../../assets/images/specialist/user2.png';
-import user3 from './../../assets/images/specialist/user3.png';
-import user4 from './../../assets/images/specialist/user4.png';
-import user5 from './../../assets/images/specialist/user5.png';
-import user6 from './../../assets/images/specialist/user6.png';
-import user7 from './../../assets/images/specialist/user7.png';
-import user8 from './../../assets/images/specialist/user8.png';
-import user9 from './../../assets/images/specialist/user9.png';
-import user10 from './../../assets/images/specialist/user10.png';
-import user11 from './../../assets/images/specialist/user11.jpg';
-import user12 from './../../assets/images/specialist/user12.png';
-import salon1 from './../../assets/images/salon/salon1.jpg';
-import salon2 from './../../assets/images/salon/salon2.jpg';
-import salon3 from './../../assets/images/salon/salon3.jpg';
-import salon4 from './../../assets/images/salon/salon4.jpg';
-import salon5 from './../../assets/images/salon/salon5.jpg';
-import salon6 from './../../assets/images/salon/salon6.jpg';
 class Data {
     salons = [
         {
             id : 0,
             name : 'Սյուզի գեղեցկության սրահ',
-            img : salon1,
+            img : '/static/assets/images/salon/salon1.jpg',
             address : 'Տիգրան Մեծ 74',
             phone : '+374 98 52 64 78',
             info :`Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
@@ -36,7 +18,7 @@ class Data {
                             id : '0-0-0',
                             salonTitle : 'Սյուզի գեղեցկության սրահ',
                             salonAddress : 'Տիգրան Մեծ 74',
-                            img : user1,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Լիլիթ',
                             surname : 'Կարապետյան',
                             age : '34',
@@ -46,13 +28,13 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                   
+                            ]
                         },
                         {
                             id : '0-0-1',
                             salonTitle : 'Սյուզի գեղեցկության սրահ',
                             salonAddress : 'Տիգրան Մեծ 74',
-                            img : user2,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Անուշ',
                             surname : 'Վարդանյան',
                             age : '32',
@@ -68,7 +50,7 @@ class Data {
                             id : '0-0-2',
                             salonTitle : 'Սյուզի գեղեցկության սրահ',
                             salonAddress : 'Տիգրան Մեծ 74',
-                            img : user3,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Հասմիկ ',
                             surname : 'Չիլինգարյան',
                             age : '24',
@@ -91,7 +73,7 @@ class Data {
                             id : '0-1-0',
                             salonTitle : 'Սյուզի գեղեցկության սրահ',
                             salonAddress : 'Տիգրան Մեծ 74',
-                            img : user4,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Հայկուհի',
                             surname : 'Կարապետյան',
                             age : '34',
@@ -101,7 +83,7 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                  
+                            ]
                         }
                     ]
                 },
@@ -113,7 +95,7 @@ class Data {
                             id : '0-2-0',
                             salonTitle : 'Սյուզի գեղեցկության սրահ',
                             salonAddress : 'Տիգրան Մեծ 74',
-                            img : user5,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Սիրարփի',
                             surname : 'Հայրապետյան',
                             age : '25',
@@ -135,7 +117,7 @@ class Data {
                             id : '0-3-0',
                             salonTitle : 'Սյուզի գեղեցկության սրահ',
                             salonAddress : 'Տիգրան Մեծ 74',
-                            img : user6,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Մանե',
                             surname : 'Իսահակյան',
                             age : '28',
@@ -145,13 +127,13 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                   
+                            ]
                         },
                         {
                             id : '0-3-1',
                             salonTitle : 'Սյուզի գեղեցկության սրահ',
                             salonAddress : 'Տիգրան Մեծ 74',
-                            img : user6,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Աննա',
                             surname : 'Հարությունյան',
                             age : '32',
@@ -161,7 +143,7 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                
+                            ]
                         }
                     ]
                 }
@@ -170,7 +152,7 @@ class Data {
         {
             id : '1',
             name : 'Լիլիթ գեղեցկության սրահ',
-            img : salon2,
+            img : '/static/assets/images/salon/salon2.jpg',
             address : 'Գր․ Լուսավորիչ 42',
             phone : '+374 43 50 10 24',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
@@ -185,7 +167,7 @@ class Data {
                             id : '1-0-0',
                             salonTitle : 'Լիլիթ գեղեցկության սրահ',
                             salonAddress : 'Գր․ Լուսավորիչ 42',
-                            img : user7,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Հակոբ',
                             surname : 'Աբաղյան',
                             age : '34',
@@ -195,13 +177,13 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                  
+                            ]
                         },
                         {
                             id : '1-0-1',
                             salonTitle : 'Լիլիթ գեղեցկության սրահ',
                             salonAddress : 'Գր․ Լուսավորիչ 42',
-                            img : user8,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Հրաչիկ',
                             surname : 'Հովսեփյան',
                             age : '29',
@@ -217,7 +199,7 @@ class Data {
                             id : '1-0-2',
                             salonTitle : 'Լիլիթ գեղեցկության սրահ',
                             salonAddress : 'Գր․ Լուսավորիչ 42',
-                            img : user1,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Հասմիկ ',
                             surname : 'Չիլինգարյան',
                             age : '24',
@@ -240,7 +222,7 @@ class Data {
                             id : '1-1-0',
                             salonTitle : 'Լիլիթ գեղեցկության սրահ',
                             salonAddress : 'Գր․ Լուսավորիչ 42',
-                            img : user9,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Սիրակ',
                             surname : 'Կարապետյան',
                             age : '34',
@@ -250,7 +232,7 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                  
+                            ]
                         }
                     ]
                 },
@@ -262,7 +244,7 @@ class Data {
                             id : '1-2-0',
                             salonTitle : 'Լիլիթ գեղեցկության սրահ',
                             salonAddress : 'Գր․ Լուսավորիչ 42',
-                            img : user4,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Անի',
                             surname : 'Մամուլյան',
                             age : '25',
@@ -272,7 +254,7 @@ class Data {
                                 'work3',
                                 'work2',
                                 'work1'
-                            ]                  
+                            ]
                         }
                     ]
                 },
@@ -284,7 +266,7 @@ class Data {
                             id : '1-3-0',
                             salonTitle : 'Լիլիթ գեղեցկության սրահ',
                             salonAddress : 'Գր․ Լուսավորիչ 42',
-                            img : user4,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Անաստասիա',
                             surname : 'Մամուլյան',
                             age : '29',
@@ -294,7 +276,7 @@ class Data {
                                 'work3',
                                 'work2',
                                 'work1'
-                            ]          
+                            ]
                         }
                     ]
                 }
@@ -304,7 +286,7 @@ class Data {
         {
             id : '2',
             name : 'Փարվանա գեղեցկության սրահ',
-            img : salon3,
+            img : '/static/assets/images/salon/salon3.jpg',
             address : 'Նժդեհի 25',
             phone : '0322 4 35 25',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2000թ-ից ։
@@ -319,7 +301,7 @@ class Data {
                             id : '2-0-0',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user1,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Աննա',
                             surname : 'Կարապետյան',
                             age : '34',
@@ -329,7 +311,7 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                 
+                            ]
                         }
                     ]
 
@@ -342,7 +324,7 @@ class Data {
                             id : '2-1-0',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user2,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Նունե',
                             surname : 'Խաչատրյան',
                             age : '34',
@@ -352,13 +334,13 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                  
+                            ]
                         },
                         {
                             id : '2-1-1',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user3,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Վարդուհի',
                             surname : 'Ղազարյան',
                             age : '24',
@@ -380,7 +362,7 @@ class Data {
                             id : '2-2-0',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user4,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Գոհար',
                             surname : 'Բաբելյան',
                             age : '25',
@@ -390,13 +372,13 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]             
+                            ]
                         },
                         {
                             id : '2-2-1',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user5,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Մարիամ',
                             surname : 'Պապյան',
                             age : '32',
@@ -418,7 +400,7 @@ class Data {
                             id : '2-3-0',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user4,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Արմինե',
                             surname : 'Բաբայան',
                             age : '27',
@@ -434,7 +416,7 @@ class Data {
                             id : '2-3-1',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user5,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Արմինե',
                             surname : 'Հովսեփյան',
                             age : '35',
@@ -450,7 +432,7 @@ class Data {
                             id : '2-3-2',
                             salonTitle : 'Փարվանա գեղեցկության սրահ',
                             salonAddress : 'Նժդեհի 25',
-                            img : user5,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Կարինե',
                             surname : 'Մուրադյան',
                             age : '29',
@@ -469,7 +451,7 @@ class Data {
         {
             id : '3',
             name : 'Կոկետ գեղեցկության սրահ',
-            img : salon4,
+            img : '/static/assets/images/salon/salon4.jpg',
             address : 'Մյասնիկյան 64',
             phone : '0322 5 05 81',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
@@ -484,7 +466,7 @@ class Data {
                             id : '3-0-0',
                             salonTitle : 'Կոկետ գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 64',
-                            img : user10,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Կարապետ',
                             surname : 'Հովակիմյան',
                             age : '24',
@@ -506,7 +488,7 @@ class Data {
                             id : '3-1-0',
                             salonTitle : 'Կոկետ գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 64',
-                            img : user6,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Լուսինե',
                             surname : 'Խաչատրյան',
                             age : '44',
@@ -522,7 +504,7 @@ class Data {
                             id : '3-1-1',
                             salonTitle : 'Կոկետ գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 64',
-                            img : user5,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Էմա',
                             surname : 'Ադամյան',
                             age : '32',
@@ -538,7 +520,7 @@ class Data {
                             id : '3-1-2',
                             salonTitle : 'Կոկետ գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 64',
-                            img : user4,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Մերի',
                             surname : 'Խառատյան',
                             age : '39',
@@ -560,7 +542,7 @@ class Data {
                             id : '3-2-0',
                             salonTitle : 'Կոկետ գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 64',
-                            img : user3,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Աշխեն',
                             surname : 'Խաչիկյան',
                             age : '30',
@@ -570,7 +552,7 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                   
+                            ]
                         }
                     ]
                 },
@@ -582,7 +564,7 @@ class Data {
                             id : '3-3-0',
                             salonTitle : 'Կոկետ գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 64',
-                            img : user5,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Կարինե',
                             surname : 'Հարությունյան',
                             age : '25',
@@ -601,7 +583,7 @@ class Data {
         {
             id : '4',
             name : 'Անժելիկա գեղեցկության սրահ',
-            img : salon5,
+            img : '/static/assets/images/salon/salon5.jpg',
             address : 'Մյասնիկյան 26/4',
             phone : '0322 4 74 55',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
@@ -616,7 +598,7 @@ class Data {
                             id : '4-0-0',
                             salonTitle : 'Անժելիկա գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 26/4',
-                            img : user12,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Տիգրան',
                             surname : 'Քոչինյան',
                             age : '23',
@@ -632,7 +614,7 @@ class Data {
                             id : '4-0-1',
                             salonTitle : 'Անժելիկա գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 26/4',
-                            img : user11,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Գարիկ ',
                             surname : 'Իսկանդարյան',
                             age : '31',
@@ -654,7 +636,7 @@ class Data {
                             id : '4-1-0',
                             salonTitle : 'Անժելիկա գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 26/4',
-                            img : user3,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Անահիտ',
                             surname : 'Կառյան',
                             age : '23',
@@ -676,7 +658,7 @@ class Data {
                             id : '4-2-0',
                             salonTitle : 'Անժելիկա գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 26/4',
-                            img : user4,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Ինեսա',
                             surname : 'Մկրտչյան',
                             age : '29',
@@ -692,7 +674,7 @@ class Data {
                             id : '4-2-1',
                             salonTitle : 'Անժելիկա գեղեցկության սրահ',
                             salonAddress : 'Մյասնիկյան 26/4',
-                            img : user8,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Էրիկ ',
                             surname : 'Պապյան',
                             age : '32',
@@ -711,7 +693,7 @@ class Data {
         {
             id : '5',
             name : 'Անի գեղեցկության սրահ',
-            img : salon6,
+            img : '/static/assets/images/salon/salon6.jpg',
             address : 'Վարդանանց 14',
             phone : '0322 2 56 83',
             info : ` Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
@@ -726,7 +708,7 @@ class Data {
                             id : '5-0-0',
                             salonTitle : 'Անի գեղեցկության սրահ',
                             salonAddress : 'Վարդանանց 14',
-                            img : user7,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Կարեն',
                             surname : 'Կարապետյան',
                             age : '34',
@@ -742,7 +724,7 @@ class Data {
                             id : '5-0-1',
                             salonTitle : 'Անի գեղեցկության սրահ',
                             salonAddress : 'Վարդանանց 14',
-                            img : user8,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Գոռ',
                             surname : 'Վարդանյան',
                             age : '32',
@@ -764,7 +746,7 @@ class Data {
                             id : '5-1-0',
                             salonTitle : 'Անի գեղեցկության սրահ',
                             salonAddress : 'Վարդանանց 14',
-                            img : user2,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Ամալյա',
                             surname : 'Կիրակոսյան',
                             age : '25',
@@ -786,7 +768,7 @@ class Data {
                             id : '5-2-0',
                             salonTitle : 'Անի գեղեցկության սրահ',
                             salonAddress : 'Վարդանանց 14',
-                            img : user3,
+                            img : '/static/assets/images/users/specialist.png',
                             name : 'Նունե',
                             surname : 'Հայրապետյան',
                             age : '25',
@@ -796,12 +778,12 @@ class Data {
                                 'work1',
                                 'work2',
                                 'work3'
-                            ]                   
+                            ]
                         }
                     ]
                 }
             ]
-        }   
+        }
     ];
 }
 

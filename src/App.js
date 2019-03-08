@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {observer} from 'mobx-react'
 import PropTypes from 'prop-types';
 
-import Header from './components/home/Header';
-import Section from './components/home/Section';
-import Footer from './components/home/Footer';
+import Header from './components/Home/Header';
+import Section from './components/Home/Section';
+import Footer from './components/Home/Footer';
 import Salon from './components/salons/Salon'; 
 import Specialist from './components/specialists/Specialist';  
 import Categorys from './components/categorys/Categorys'; 
