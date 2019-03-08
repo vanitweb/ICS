@@ -14,15 +14,21 @@ class SpecialistUser extends Component {
             _Data : PropTypes.array,
             isUser : PropTypes.string,
             deleteWorksImage : PropTypes.func,
+            filterId : PropTypes.func,
+            id : PropTypes.object,
         }).isRequired
+    };
+    componentWillMount(){
+        const paths = this.props.match.params.whichSpecialist.split('/');
+        const path = paths[paths.length - 1];
+        this.context.AppStore.filterId(path)
     }
     render() {
-        const {_Data , deleteWorksImage, isUser} = this.context.AppStore;
-        const paths = this.props.match.params.whichSpecialist.split('/');
-        const path = paths[paths.length - 1].split('-');
-        const salonIndex = path[0];
-        const categoryIndex = path[1];
-        const specialist = _Data[salonIndex].category[categoryIndex].workers[path[2]];
+        const {_Data , deleteWorksImage, isUser, filterId, id} = this.context.AppStore;
+        const {salonIndex, categoryIndex, specialistIndex} = id;
+        const salon = _Data[salonIndex];
+        const category =  _Data[salonIndex].category[categoryIndex];
+        const specialist =  _Data[salonIndex].category[categoryIndex].workers[categoryIndex]
         return (
             <div className = "sections mt-5">
                  <Container>

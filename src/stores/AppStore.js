@@ -1,6 +1,9 @@
 import Data from './../data/data.js';
 import {extendObservable, action} from 'mobx';
+
 import {homeConfigs} from './../config/categoryConfig';
+
+import user7 from './../../assets/images/specialist/user7.png';
 
 class AppStore { 
     Data = new Data().salons;
@@ -13,7 +16,14 @@ class AppStore {
         index : '',
         addCategoryName : '',
         _Data : this.Data,
-        information : {}, 
+        information : {
+            img : user7,
+            name : 'Անուն',
+            surname : 'Ազգանուն',
+            age : 'Տարիք',
+            textAbout : 'Տեղեկատվություն',
+            socialNetwork : 'Կապ սոց․ կայքեր',
+        }, 
         changeSalon : {
             name : '',
             info : '',
@@ -36,9 +46,9 @@ class AppStore {
     @action
     filterId(id){
         this.id = {
-            salonIndex : "",
-            categoryIndex : "",
-            specialistIndex : "",
+            salonIndex : '',
+            categoryIndex : '',
+            specialistIndex : '',
         };
         const idArr = id.split('-');
         switch(idArr.length){
@@ -80,7 +90,7 @@ class AppStore {
             item.id = `${salonIndex}-${categoryIndex}-${index}`;
         })
     }
-        @action
+    @action
     AddWorkerInfo = (event) =>
     {
         switch(event.target.previousElementSibling.textContent) {
@@ -119,7 +129,14 @@ class AppStore {
         }//nkar chi vercnum
         this.information.id = `${salonIndex}-${categoryIndex}-${this.id.specialistIndex}`
         category.workers.push(this.information)
-        this.information = {}
+        this.information = {
+            img : user7,
+            name : 'Անուն',
+            surname : 'Ազգանուն',
+            age : 'Տարիք',
+            textAbout : 'Տեղեկատվություն',
+            socialNetwork : 'Կապ սոց․ կայքեր',
+        };
     }
     @action
     addCategoryChange = (event) => {
@@ -152,6 +169,9 @@ class AppStore {
         this._Data[salonIndex].category.forEach((item, index) => {
             item.id = `${salonIndex}-${index}`
         });
+        this._Data[salonIndex].category[categoryIndex].workers.forEach((item, index) => {
+            item.id = `${salonIndex}-${categoryIndex}-${index}`
+        })
         console.log(this._Data[salonIndex].category)
     }
     @action
