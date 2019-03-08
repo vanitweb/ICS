@@ -10,7 +10,7 @@ import Messages from './../../Messages';
 
 class CardSearch extends Component {
     static propTypes = {
-        cardClick : PropTypes.func,//isRequired
+
     }
     render() {
         const { image, nameSurname, address, salonTitle, url, name} = this.props;
@@ -18,7 +18,7 @@ class CardSearch extends Component {
             <Card className = "Card_top">
                     <Media className = "text">
                         <Media left href="#">
-                            <img src={image} alt = "specialistImg" width = "150px" height = "150px"/>
+                            <img src={image} alt = "specialistImg" className = "img_size"/>
                         </Media>
                         <Media body className="full_text">
                         <Media heading className="name_title">

@@ -61,7 +61,7 @@ class SalonUser extends Component {
                             <Col>
                                 <h2>
                                     {item.prof}
-                                    {isUser === 'salon' && <Button color="danger" className="delete" onClick =  {deleteCategory}
+                                    {isUser === 'salon' && <Button color="danger"  onClick =  {deleteCategory}
                                         category-id = {item.id}>X</Button>}
                                 </h2>
                             </Col>

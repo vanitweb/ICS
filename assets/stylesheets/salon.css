@@ -8,13 +8,10 @@ h2 {
 .salon-page {
 	padding-top: 1.5%;
 }
-p
-{
-	margin-top:210;
-}
+
 .button{
-	width:220px;
-	height: 420px;
+    margin-top: 2%;
+    margin: 0 auto;
 }
 .name {
   color: transparent;
@@ -47,3 +44,4 @@ p
 .name:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+

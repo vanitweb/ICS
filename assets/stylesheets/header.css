@@ -51,12 +51,14 @@ span {
 
 }
 .header_design {
-	border-bottom: 1px solid #3a6877;
+	
     border-radius: 10px;
     box-shadow: 6px 8px 17px #1C8393;
 }
  
-.modal_op {
-    overflow-x: scroll;
-    overflow-y: scroll;
+
+@media only screen and (max-width: 992px) {
+  	.title {
+    	font-size: 1em;
+  	}
 }

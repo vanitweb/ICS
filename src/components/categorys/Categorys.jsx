@@ -55,7 +55,7 @@ class Categorys extends Component {
                         <Input type="search"  className="input_search" id="exampleSearch" onChange={tableSearch}/>
                 </Form>
                 <div>
-                    <h3 align = "center" className = "mt-5 mb-5">{prof}</h3>
+                    <h3 align = "center" className = "mt-5 mb-5 text_color">{prof}</h3>
                     {_Data.map(item => {
                         if(item.category[categoryIndex]){
                             return item.category[categoryIndex].workers.map((item1, index) => {  
