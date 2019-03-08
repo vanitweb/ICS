@@ -14,6 +14,8 @@ class ChangeSalonInfo extends Component {
 	  changeSalonInfo : PropTypes.func,
 	  changeSalonSubmit : PropTypes.func,
 	  _Data : PropTypes.array,
+	  AddWorkerImg : PropTypes.func,
+	  defaultSpecialistImage : PropTypes.string
 	}).isRequired
   }
 
@@ -38,10 +40,11 @@ class ChangeSalonInfo extends Component {
         changeSalon.info = salon.info;
         changeSalon.address = salon.address;
         changeSalon.phone = salon.phone;
+        changeSalon.img = salon.img;
     }
   }
   render() {
-	const {changeSalonInfo, changeSalonSubmit, _Data, changeSalon} = this.context.AppStore;
+	const {changeSalonInfo, changeSalonSubmit, _Data, changeSalon, AddWorkerImg} = this.context.AppStore;
 	const {salonId} = this.props;
     const salon = _Data[salonId];
 	return (
@@ -53,7 +56,10 @@ class ChangeSalonInfo extends Component {
 				<Form >
 					<FormGroup>
 						<Label for = "exampleFile">{Messages.settings.insertImg}</Label> 
-							<Input type="file" name="file"  accept="image/png, image/jpeg" id="exampleFile" className="name"/>
+							<Input className="name" width="100px" type="file" name="file" id="exampleFile"
+                                    onChange={changeSalonInfo}
+                                        />
+                            <img id="target" src={changeSalon.img} width="250px" height="250px"/>
 						  
 					</FormGroup>
 					<FormGroup>

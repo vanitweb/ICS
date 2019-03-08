@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import {Input, FormGroup, Label, Modal, ModalBody, ModalHeader, ModalFooter, Button, Form} from 'reactstrap';
 import PropTypes from 'prop-types';
-import './../../../../assets/stylesheets/salon.css';
-import Messages from './../../../Messages';
 import { observable } from "mobx";
 import {observer} from "mobx-react";
+import {Input, FormGroup, Label, Modal, ModalBody, ModalHeader, ModalFooter, Button, Form} from 'reactstrap';
+
 import Data from './../../../data/data.js';
+import Messages from './../../../Messages';
+
+import './../../../../assets/stylesheets/salon.css';
 
 @observer
 class SalonAddWorker extends Component {
@@ -16,6 +18,7 @@ class SalonAddWorker extends Component {
             consoleInfo : PropTypes.func,
             setInputsValue : PropTypes.func,
             AddWorkerImg : PropTypes.func,
+            defaultSpecialistImage : PropTypes.string
         }).isRequired
     }
 
@@ -36,7 +39,7 @@ class SalonAddWorker extends Component {
   }
 
     render(){
-        const {_Data, setInputsValue, AddWorker, AddWorkerInfo, AddWorkerImg, l} = this.context.AppStore;
+        const {_Data, setInputsValue, AddWorker, AddWorkerInfo, AddWorkerImg, information} = this.context.AppStore;
         const {categoryId} =this.props;
         return(
           <div>
@@ -44,14 +47,13 @@ class SalonAddWorker extends Component {
                     <Modal isOpen={this.state.modal} toggle={this.toggle}>
                         <ModalHeader toggle={this.toggle}>{Messages.AddWorker.AddWorker}</ModalHeader>
                         <ModalBody>
-                            <img id="target" src={l}/>
-
                             <Form>
                                 <FormGroup>
                                     <Label for="exampleFile">{Messages.AddWorker.image}</Label>
-                                    <Input className="name" type="file" name="file" id="exampleFile"
-                                    onChange={AddWorkerImg}
+                                    <Input className="name" width="100px" type="file" name="file" id="exampleFile"
+                                    onChange={AddWorkerInfo}
                                         />
+                                    <img id="target" src={information.img} width="250px" height="250px"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.name}</Label>

@@ -10,6 +10,7 @@ class AppStore {
     initData = () => {
         extendObservable(this, this.Data);
     }
+    defaultSpecialistImage = '/static/assets/images/users/specialist.png';
     storeProps = {
         searchText : '',
         searchType : 'name',
@@ -17,7 +18,7 @@ class AppStore {
         addCategoryName : '',
         _Data : this.Data,
         information : {
-            img : '/static/assets/images/users/specialist.png',
+            img : this.defaultSpecialistImage,
             name : 'Անուն',
             surname : 'Ազգանուն',
             age : 'Տարիք',
@@ -25,6 +26,7 @@ class AppStore {
             socialNetwork : 'Կապ սոց․ կայքեր',
         },
         changeSalon : {
+            img : this.defaultSpecialistImage,
             name : '',
             info : '',
         	address : '',
@@ -33,19 +35,19 @@ class AppStore {
             profSelected : '',
         },
         changeSpecialistInfo : {
+            img : this.defaultSpecialistImage,
             name : '',
             surname : '',
             age : '',
             info : '',
             mail : '',
         },
-        isUser : 'salon',
+        isUser : 'user',
         id : {
             salonIndex : "",
             categoryIndex : "",
             specialistIndex : "",
         },
-        l:''
     }
     constructor(){
         extendObservable(this, this.storeProps);
@@ -101,6 +103,11 @@ class AppStore {
     AddWorkerInfo = (event) =>
     {
         switch(event.target.previousElementSibling.textContent) {
+            case 'Նկար':
+                if (event.target.files && event.target.files[0]) {
+                    this.information.img = URL.createObjectURL(event.target.files[0])
+                }
+                break;
             case 'Անուն':
                 this.information.name = event.target.value;
                 break;
@@ -137,7 +144,7 @@ class AppStore {
         this.information.id = `${salonIndex}-${categoryIndex}-${this.id.specialistIndex}`
         category.workers.push(this.information)
         this.information = {
-            img : '/static/assets/images/users/specialist.png',
+            img : this.defaultSpecialistImage,
             name : 'Անուն',
             surname : 'Ազգանուն',
             age : 'Տարիք',
@@ -176,14 +183,22 @@ class AppStore {
         this._Data[salonIndex].category.forEach((item, index) => {
             item.id = `${salonIndex}-${index}`
         });
-        this._Data[salonIndex].category[categoryIndex].workers.forEach((item, index) => {
-            item.id = `${salonIndex}-${categoryIndex}-${index}`
-        })
-        console.log(this._Data[salonIndex].category)
+        if (this._Data[salonIndex].category.length !== 0) {
+            this._Data[salonIndex].category[categoryIndex].workers.forEach((item, index) => {
+                item.id = `${salonIndex}-${categoryIndex}-${index}`
+            })
+            console.log(this._Data[salonIndex].category)
+        }
+        
     }
     @action
     changeSalonInfo = (event) =>{//nkar chi vercnum
         switch(event.target.getAttribute("name")){
+            case 'file':
+                if (event.target.files && event.target.files[0]) {
+                    this.changeSalon.img = URL.createObjectURL(event.target.files[0])
+                }
+                break;
             case 'name':
             this.changeSalon.name = event.target.value;
                 break;
@@ -207,11 +222,13 @@ class AppStore {
     @action
     changeSalonSubmit = (event) =>{//nkar chi vercnum
         const id = event.target.getAttribute('salon-id');
-        this._Data[id].name = this.changeSalon.name;
-        this._Data[id].info = this.changeSalon.info;
-        this._Data[id].address = this.changeSalon.address;
-        this._Data[id].phone = this.changeSalon.phone;
-        this._Data[id].category.forEach((item, index) => {
+        const item = this._Data[id];
+        item.name = this.changeSalon.name;
+        item.info = this.changeSalon.info;
+        item.address = this.changeSalon.address;
+        item.phone = this.changeSalon.phone;
+        item.img = this.changeSalon.img;
+        item.category.forEach((item, index) => {
             if(item.prof === this.changeSalon.profSelected){
                 item.prof = this.changeSalon.prof
             }
@@ -221,6 +238,11 @@ class AppStore {
     @action
     changeSpeciaistInfo = (event) =>{
         switch(event.target.getAttribute("name")){
+            case 'file':
+                if (event.target.files && event.target.files[0]) {
+                    this.changeSpecialistInfo.img = URL.createObjectURL(event.target.files[0])
+                }
+                break;
             case 'name':
             this.changeSpecialistInfo.name = event.target.value;
                 break;
@@ -243,28 +265,44 @@ class AppStore {
     @action
     changeSpecialistSubmit = (event) =>{
         const id = event.target.getAttribute('specialist-id');
-        const idSalon = id.split('-')[0];
-        const idCategory = id.split('-')[1];
-        const idSpecialist = id.split('-')[2];
-        this._Data[idSalon].category[idCategory].workers[idSpecialist].name = this.changeSpecialistInfo.name;
-        this._Data[idSalon].category[idCategory].workers[idSpecialist].surname = this.changeSpecialistInfo.surname;
-        this._Data[idSalon].category[idCategory].workers[idSpecialist].age = this.changeSpecialistInfo.age;
-        this._Data[idSalon].category[idCategory].workers[idSpecialist].textAbout = this.changeSpecialistInfo.info;
-        this._Data[idSalon].category[idCategory].workers[idSpecialist].socialNetwork = this.changeSpecialistInfo.mail;
+        this.filterId(id);
+        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        const item = this._Data[salonIndex].category[categoryIndex].workers[specialistIndex];
+        item.img = this.changeSpecialistInfo.img;
+        item.name = this.changeSpecialistInfo.name;
+        item.surname = this.changeSpecialistInfo.surname;
+        item.age = this.changeSpecialistInfo.age;
+        item.textAbout = this.changeSpecialistInfo.info;
+        item.socialNetwork = this.changeSpecialistInfo.mail;
     }
     @action
     AddWorkerImg =(event) => {
-         if (event.target.files && event.target.files[0]) {
-        this.l = URL.createObjectURL(event.target.files[0])
-    }
-        //hascen sxala talis
+        if (event.target.files && event.target.files[0]) {
+            this.defaultSpecialistImage = URL.createObjectURL(event.target.files[0])
+        }
     }
     @action
     deleteWorksImage = (event) => {//?
         this.filterId(event.target.getAttribute('specialist-id'))
         const {salonIndex, categoryIndex, specialistIndex} = this.id;
-        console.log(salonIndex, categoryIndex, specialistIndex)
         this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs.splice(event.target.getAttribute('data-index'),1);
+    }
+    @action
+    changeSpeciaistWorkImages = (event) => {
+        this.filterId(event.target.getAttribute('specialist-id'));
+        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        const imageIndex = event.target.getAttribute('index');
+        if (event.target.files && event.target.files[0]) {
+            this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs[imageIndex] = URL.createObjectURL(event.target.files[0])
+        }
+    }
+    @action
+    addSpeciaistWorkImages = (event) => {
+        this.filterId(event.target.getAttribute('specialist-id'));
+        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        if (event.target.files && event.target.files[0]) {
+            this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs.push(URL.createObjectURL(event.target.files[0]));
+        }
     }
 }
 

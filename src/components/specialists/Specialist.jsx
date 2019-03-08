@@ -5,6 +5,8 @@ import {observer} from 'mobx-react';
 
 import Messages from './../../Messages';
 import ChangeSpecialistInfo from './modals/ChangeSpecialistInfo'
+import DateHours from './Booking/DateHourse';
+
 import './../../../assets/stylesheets/specialist.css';
 
 @observer
@@ -16,6 +18,7 @@ class SpecialistUser extends Component {
             deleteWorksImage : PropTypes.func,
             filterId : PropTypes.func,
             id : PropTypes.object,
+
         }).isRequired
     };
     componentWillMount(){
@@ -24,7 +27,7 @@ class SpecialistUser extends Component {
         this.context.AppStore.filterId(path)
     }
     render() {
-        const {_Data , deleteWorksImage, isUser, filterId, id} = this.context.AppStore;
+        const {_Data , deleteWorksImage, isUser, filterId, id, defaultSpecialistImage, changeSpeciaistInfo, changeSpeciaistWorkImages, addSpeciaistWorkImages} = this.context.AppStore;
         const {salonIndex, categoryIndex, specialistIndex} = id;
         const salon = _Data[salonIndex];
         const category =  _Data[salonIndex].category[categoryIndex];
@@ -52,61 +55,25 @@ class SpecialistUser extends Component {
                                 <a href="#">{Messages.specialist.socialMedia} {specialist.socialNetwork}  </a>
                             </div>
                          </Col>
-                         {isUser === 'user' && <Col sm="4" >
-                             <h3 className = "textBlue"> {Messages.registered}</h3>
-                             <div>
-                                 <FormGroup tag="fieldset">
-                                     <legend>{Messages.specialist.chooseWork}</legend>
-                                     <FormGroup check>
-                                         <Label check>
-                                             <Input type="checkbox" />Կտրվածք (sa el petq e dataic lini)
-                                         </Label>
-                                     </FormGroup >
-                                     <FormGroup check>
-                                         <Label check>
-                                             <Input type="checkbox" />Սանրվածք (sa el petq e dataic lini)
-                                         </Label>
-                                     </FormGroup >
-                                     <FormGroup check>
-                                         <Label check>
-                                             <Input type="checkbox" />Ներկում (sa el petq e dataic lini)
-                                         </Label>
-                                     </FormGroup>
-                                 </FormGroup>
-                             </div>
-                             <div>
-                                 <FormGroup tag="fieldset">
-                                     <legend>{Messages.specialist.chooseClock}</legend>
-                                     <FormGroup check>
-                                         <Label check>
-                                             <Input type="radio" name="radio1" />09։00 (sa el chigitem vonc e linelu)
-                                         </Label>
-                                     </FormGroup>
-                                     <FormGroup check>
-                                         <Label check>
-                                             <Input type="radio" name="radio1" />12։ 30  (sa el chigitem vonc e linelu)
-                                         </Label>
-                                     </FormGroup>
-                                     <FormGroup check disabled>
-                                         <Label check>
-                                             <Input type="radio" name="radio1"  />15։15  (sa el chigitem vonc e linelu)
-                                         </Label>
-                                     </FormGroup>
-                                 </FormGroup>
-                             </div>
-                             <Button type = "submit" color="info" > {Messages.specialist.confirmed} </Button>
-
-                         </Col>}
+                         {isUser === 'user' && <DateHours />
+                             }
                      </Row>
                      <h1 className = "textBlue" >{Messages.specialist.myWorkes}</h1>
                      <Row className = "mt-5">
+                     {isUser === 'salon' && <Input className="name" width="100px" type="file" name="file" id="exampleFile" specialist-id={specialist.id}
+                                            onChange={addSpeciaistWorkImages}
+                                            /> }
                      {specialist.workImgs.map((item, index) => {
                              return <React.Fragment key = {index}>
                              {(isUser === 'salon') ?
                                      <Col align = "center">
                                          <Button color="danger" className="delete" salon-name={specialist.salonTitle}  onClick = {deleteWorksImage} data-index = {index} specialist-id ={specialist.id}>X</Button>
                                          <img src={item} alt="works image" className ="d-inline " />
-                                     </Col>:
+                                         
+                                          <Input className="name" width="100px" type="file" name="file" id="exampleFile" index={index} specialist-id={specialist.id}
+                                            onChange={changeSpeciaistWorkImages}
+                                            />  
+                                     </Col> :
                                      <Col align = "center">
                                          <img src={item} alt="works image" className ="d-inline " />
                                      </Col>

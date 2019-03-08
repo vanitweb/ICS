@@ -16,6 +16,9 @@ class ChangeSpecialistInfo extends Component {
             changeSpeciaistInfo : PropTypes.func,
             changeSpecialistSubmit : PropTypes.func,
             _Data : PropTypes.array,
+            defaultSpecialistImage : PropTypes.string,
+            AddWorkerImg : PropTypes.func
+
         }).isRequired
     }
     constructor(props) {
@@ -41,11 +44,12 @@ class ChangeSpecialistInfo extends Component {
         changeSpecialistInfo.age = specialist.age;
         changeSpecialistInfo.info = specialist.textAbout;
         changeSpecialistInfo.mail = specialist.socialNetwork;
+        changeSpecialistInfo.img = specialist.img;
     }
     }
 
     render(){
-        const {changeSpecialistSubmit, changeSpeciaistInfo, changeSpecialistInfo} = this.context.AppStore;
+        const {changeSpecialistSubmit, changeSpeciaistInfo, changeSpecialistInfo, defaultSpecialistImage, AddWorkerImg} = this.context.AppStore;
         const {specialistId} = this.props;
         return(
             <>
@@ -56,7 +60,10 @@ class ChangeSpecialistInfo extends Component {
                                 <Form>
                                     <FormGroup>
                                         <Label for="exampleFile">{Messages.AddWorker.image}</Label>
-                                        <Input className="name" type="file" name="file" id="exampleFile"/>
+                                        <Input className="name" width="100px" type="file" name="file" id="exampleFile"
+                                            onChange={changeSpeciaistInfo}
+                                        />
+                                        <img id="target" src={changeSpecialistInfo.img} width="250px" height="250px"/>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleName">{Messages.AddWorker.name}</Label>
@@ -72,7 +79,7 @@ class ChangeSpecialistInfo extends Component {
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleInfo">{Messages.AddWorker.information}</Label>
-                                        <Input onChange={changeSpeciaistInfo} type="text" name="info" id="exampleInfo" value={changeSpecialistInfo.info}/>
+                                        <Input onChange={changeSpeciaistInfo} type="textarea" name="info" id="exampleInfo" value={changeSpecialistInfo.info}/>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleEmail">{Messages.AddWorker.connectionWithSocialMedia}</Label>
