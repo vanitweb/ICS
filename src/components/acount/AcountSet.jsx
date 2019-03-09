@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
 
 import Messages from './../../Messages'
 
@@ -8,13 +9,14 @@ import AppStor from './../../stores/AppStore.js';
 import UserData from './../../data/userData';
 
 import './../../../assets/stylesheets/setting.css';
-
+@observer
 class AcountSetting extends Component {
 
   static contextTypes = {
       AppStore : PropTypes.shape({
           _UserData : PropTypes.array,
-          changeAcount: PropTypes.func,
+          changeUserInfo: PropTypes.func,
+          changeUserSubmit: PropTypes.func,
       }).isRequired
   }
 
@@ -27,21 +29,22 @@ class AcountSetting extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
-        if(event.target.textContent === Messages.AcountUser.acountName){
-          const {_UserData, ChangeUser} = this.context.AppStore;
-          const user = _UserData[this.props];
-          ChangeUser.name = user.name;
-          ChangeUser.surname = user.surname;
-          ChangeUser.phone = user.phone;
-        }
-        this.setState(prevState => ({
+  toggle(event) {
+    this.setState(prevState => ({
           modal: !prevState.modal
         }));
+    if(event.target.textContent === Messages.AcountUser.acountChangeData){
+        const {_UserData, changeUser} = this.context.AppStore;
+        const user = _UserData[this.props.userId];
+        changeUser.name = user.name;
+        changeUser.surname = user.surname;
+        changeUser.phone = user.phoneNumber;
+    }   
   }
 
   render() {
-    const UserData = this.context.AppStore._UserData;
+    const {changeUserSubmit, changeUserInfo, changeUser} = this.context.AppStore;
+    const {userId} = this.props;
     return (
       <div>
         <Button outline color="info" onClick={this.toggle}>{Messages.AcountUser.acountChangeData}</Button>
@@ -55,20 +58,20 @@ class AcountSetting extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label>{Messages.AcountUser.acountNameSetting}</Label>
-                        <Input type="text" name="name" id="exampleEmail"/>
+                        <Input onChange={changeUserInfo} type="text" name="name" id="exampleEmail" value={changeUser.name}/>
                     </FormGroup>
                     <FormGroup>
                         <Label>{Messages.AcountUser.acountSurnameSetting}</Label>
-                        <Input type="text" name="surname" id="exampleEmail"/>
+                        <Input onChange={changeUserInfo} type="text" name="surname" id="exampleEmail" value={changeUser.surname}/>
                     </FormGroup>
                     <FormGroup>
                         <Label>{Messages.AcountUser.acountPhoneNumberSetting}</Label>
-                        <Input type="text" name="phone" id="exampleEmail"/>
+                        <Input onChange={changeUserInfo} type="text" name="phone" id="exampleEmail" value={changeUser.phone}/>
                     </FormGroup>
                 </Form>
             </ModalBody>
-            <ModalFooter>
-                <Button color="info"  onClick={this.toggle}>{Messages.AcountUser.acountChangeDataSave}</Button>
+            <ModalFooter onClick={this.toggle}>
+                <Button onClick={changeUserSubmit} color="info" user-id={userId}>{Messages.AcountUser.acountChangeDataSave}</Button>
             </ModalFooter>
         </Modal>
       </div>

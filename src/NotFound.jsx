@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Not from './../../assets/images/NotFound/404.png'
+import Not from './../assets/images/404Not.png'
 
 class NotFound extends Component{
 	
@@ -10,8 +10,7 @@ class NotFound extends Component{
 		}
 		return(
             <>
-            <h1>404</h1>
-			{/*<img src={Not} style={notStyle}/>*/}
+			<img src={Not} style={notStyle}/>
             </>
 		);
 	}

@@ -11,31 +11,31 @@ import AcountSetting from './AcountSet';
 import AcountVisits from './Visits';
 
 import './../../../assets/stylesheets/acount.css';
-import AppStor from './../../stores/AppStore.js';
-import UserData from './../../data/userData';
 
+@observer
 class Acount extends Component {
-  static contextTypes = {
-      AppStore : PropTypes.shape({
-          _UserData : PropTypes.array,
-      }).isRequired
-  }
-    render() {
+    static contextTypes = {
+        AppStore : PropTypes.shape({
+            _UserData : PropTypes.array,
+        }).isRequired
+    }
 
-      const UserData = this.context.AppStore._UserData;
-      console.log(UserData.name);
+    render() {
+        const {_UserData} = this.context.AppStore;
+        const id = 0;
+        const UserData = _UserData.users[id];
 		return (
             <Container>
                 <Row>
                     <Col lg = "12"  md = "12" sm = "12" className = "d_flex">
                         <div className = "d_inline">
                             <div className = "text_design user">
-                                <img src={UserData[0].image} alt="User Image" />
+                                <img src={UserData.image} alt="User Image" />
                                 <div className="info" >
-                                    <p>{Messages.AcountUser.acountName} {UserData[0].name}</p>
-                                    <p>{Messages.AcountUser.acountSurname} {UserData[0].surname}</p>
-                                    <p>{Messages.AcountUser.acountPhoneNumber} {UserData[0].phoneNumber}</p>
-                                    <AcountSetting />
+                                    <p>{Messages.AcountUser.acountName} {UserData.name}</p>
+                                    <p>{Messages.AcountUser.acountSurname} {UserData.surname}</p>
+                                    <p>{Messages.AcountUser.acountPhoneNumber} {UserData.phoneNumber}</p>
+                                    <AcountSetting  userId={id}/>
                                 </div>
                             </div>
                         </div>

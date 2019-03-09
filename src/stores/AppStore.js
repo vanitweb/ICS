@@ -1,4 +1,5 @@
 import Data from './../data/data.js';
+import UserData from './../data/userData.js'
 import {extendObservable, action} from 'mobx';
 
 import {homeConfigs} from './../config/categoryConfig';
@@ -7,8 +8,12 @@ import {homeConfigs} from './../config/categoryConfig';
 
 class AppStore {
     Data = new Data().salons;
+    UserData = new UserData();
     initData = () => {
         extendObservable(this, this.Data);
+    }
+    initUserData = () => {
+        extendObservable(this, this.UserData);        
     }
     defaultSpecialistImage = '/static/assets/images/users/specialist.png';
     storeProps = {
@@ -17,6 +22,8 @@ class AppStore {
         index : '',
         addCategoryName : '',
         _Data : this.Data,
+        _UserData : this.UserData,
+        isUser : 'salon',
         information : {
             img : this.defaultSpecialistImage,
             name : 'Անուն',
@@ -42,7 +49,11 @@ class AppStore {
             info : '',
             mail : '',
         },
-        isUser : 'user',
+        changeUser : {
+            name : '',
+            surname : '',
+            phone : '',
+        },
         id : {
             salonIndex : "",
             categoryIndex : "",
@@ -303,6 +314,35 @@ class AppStore {
         if (event.target.files && event.target.files[0]) {
             this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs.push(URL.createObjectURL(event.target.files[0]));
         }
+    }
+    //acaunt
+    @action
+    changeUserInfo = (event) =>{
+        switch(event.target.getAttribute("name")){
+            case 'name':
+                this.changeUser.name = event.target.value;
+                break;
+            case 'surname':
+                this.changeUser.surname = event.target.value;
+                break;
+            case 'phone':
+                this.changeUser.phone = event.target.value;
+                break;
+            default:
+                return;
+        }        
+    }
+
+    @action
+    changeUserSubmit = (event) =>{
+        console.log(11111);
+        const id = event.target.getAttribute('user-id');
+        console.log(this._UserData[id].name);
+        this._UserData[id].name = this.changeUser.name;
+        this._UserData[id].surname = this.changeUser.surname;
+        this._UserData[id].phoneNumber = this.changeUser.phone;
+        console.log(this._UserData[id].name);
+        console.log(2);
     }
 }
 

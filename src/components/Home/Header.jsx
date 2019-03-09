@@ -69,8 +69,10 @@ class HeaderUser extends Component {
                                         </UncontrolledDropdown>
                                         {(isUser === 'salon' || isUser === 'user')?
                                         <>
-                                            <NavItem>
-                                                <Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button>
+                                            <NavItem>{(isUser === 'salon')?<Link to={`/Salon/${_Data[0].name}-${_Data[0].id}`}><Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button></Link>:
+                                            <Link to={'/Acount'}><Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button></Link>}
+                                                
+                                            
                                             </NavItem>
                                             <NavItem>
                                                 <Button className="ml-auto mod_btn"  color="link">{Messages.header.LogOut}</Button>
