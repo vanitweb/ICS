@@ -23,11 +23,16 @@ class Data {
                             surname : 'Կարապետյան',
                             age : '34',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -39,11 +44,20 @@ class Data {
                             surname : 'Վարդանյան',
                             age : '32',
                             textAbout : 'Ունեմ 2 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                },
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -55,11 +69,24 @@ class Data {
                             surname : 'Չիլինգարյան',
                             age : '24',
                             textAbout : 'Ունեմ 2 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Պեկինում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                },
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                },
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -78,11 +105,16 @@ class Data {
                             surname : 'Կարապետյան',
                             age : '34',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ ԱՄՆ-ում ',
-                            socialNetwork : 'facebook - https://www.facebook.com/Haykuhi5616156',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -100,11 +132,16 @@ class Data {
                             surname : 'Հայրապետյան',
                             age : '25',
                             textAbout : 'Ունեմ 3 տարվա աշխատանքային փորձ,վերապատրաստվել եմ Երևանում ',
-                            socialNetwork : 'instagram -https://www.instagram.com/245454 ',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -122,11 +159,20 @@ class Data {
                             surname : 'Իսահակյան',
                             age : '28',
                             textAbout : 'Ունեմ 5 տարվա աշխատանքային փորձ,վերապատրաստվել եմ Վրաստանում ',
-                            socialNetwork : 'instagram -https://www.instagram.com/245454 ',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                },
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -138,11 +184,16 @@ class Data {
                             surname : 'Հարությունյան',
                             age : '32',
                             textAbout : 'Ունեմ 8 տարվա աշխատանքային փորձ,վերապատրաստվել եմ Իտալիայում',
-                            socialNetwork : 'instagram -https://www.instagram.com/245454 ',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -172,11 +223,11 @@ class Data {
                             surname : 'Աբաղյան',
                             age : '34',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -188,11 +239,20 @@ class Data {
                             surname : 'Հովսեփյան',
                             age : '29',
                             textAbout : 'Ունեմ 5 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Երևանում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                },
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -204,11 +264,20 @@ class Data {
                             surname : 'Չիլինգարյան',
                             age : '24',
                             textAbout : 'Ունեմ 2 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                },
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -227,11 +296,16 @@ class Data {
                             surname : 'Կարապետյան',
                             age : '34',
                             textAbout : 'Ունեմ 8 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -249,11 +323,16 @@ class Data {
                             surname : 'Մամուլյան',
                             age : '25',
                             textAbout : 'վերապատրաստվել եմ Մոսկվայում ',
-                            socialNetwork : 'nstagram -https://www.instagram.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work3',
-                                'work2',
-                                'work1'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -271,11 +350,17 @@ class Data {
                             surname : 'Մամուլյան',
                             age : '29',
                             textAbout : 'ՈՒնեմ 4 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'nstagram -https://www.instagram.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+
+                            ],
                             workImgs : [
-                                'work3',
-                                'work2',
-                                'work1'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -306,11 +391,16 @@ class Data {
                             surname : 'Կարապետյան',
                             age : '34',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Ալժիրում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -329,11 +419,20 @@ class Data {
                             surname : 'Խաչատրյան',
                             age : '34',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'nstagram -https://www.instagram.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                },
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -345,11 +444,20 @@ class Data {
                             surname : 'Ղազարյան',
                             age : '24',
                             textAbout : 'Ունեմ 3 տարվա աշխատանքային փորձ, վերապատրաստվել եմ ԱՄՆ-ում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Twitter',
+                                  url : 'https://www.twitter.com'
+                                },
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -367,11 +475,20 @@ class Data {
                             surname : 'Բաբելյան',
                             age : '25',
                             textAbout : 'Ունեմ 4 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                {
+                                  socialMediaName : 'Facebook',
+                                  url : 'https://www.facebook.com'
+                                },
+                                {
+                                  socialMediaName : 'Instagram',
+                                  url : 'https://www.instagram.com'
+                                }
+                            ] ,
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -383,11 +500,24 @@ class Data {
                             surname : 'Պապյան',
                             age : '32',
                             textAbout : 'Ունեմ 9 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -405,11 +535,16 @@ class Data {
                             surname : 'Բաբայան',
                             age : '27',
                             textAbout : 'Ունեմ 4 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Հունաստանում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -421,11 +556,16 @@ class Data {
                             surname : 'Հովսեփյան',
                             age : '35',
                             textAbout : 'Ունեմ 11 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մեծ Բրիտանիայում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -437,11 +577,16 @@ class Data {
                             surname : 'Մուրադյան',
                             age : '29',
                             textAbout : 'Ունեմ 6 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Իսպանիայում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -471,11 +616,24 @@ class Data {
                             surname : 'Հովակիմյան',
                             age : '24',
                             textAbout : 'Ունեմ 1 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Հնդկաստանում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -493,11 +651,20 @@ class Data {
                             surname : 'Խաչատրյան',
                             age : '44',
                             textAbout : 'Ունեմ 15 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Գերմանիայում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -509,11 +676,16 @@ class Data {
                             surname : 'Ադամյան',
                             age : '32',
                             textAbout : 'վերապատրաստվել եմ Անգորայում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -525,11 +697,16 @@ class Data {
                             surname : 'Խառատյան',
                             age : '39',
                             textAbout : 'Ունեմ 15 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Ավստրիայում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -547,11 +724,16 @@ class Data {
                             surname : 'Խաչիկյան',
                             age : '30',
                             textAbout : 'Ունեմ 5 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Բրազիլիայում ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -569,11 +751,16 @@ class Data {
                             surname : 'Հարությունյան',
                             age : '25',
                             textAbout : 'Ունեմ 3 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -603,11 +790,24 @@ class Data {
                             surname : 'Քոչինյան',
                             age : '23',
                             textAbout : 'Վերապատրաստվել եմ Գվինեայում',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -619,11 +819,16 @@ class Data {
                             surname : 'Իսկանդարյան',
                             age : '31',
                             textAbout : 'Ունեմ 8 տարվա աշխատանքային փորձ',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -641,11 +846,16 @@ class Data {
                             surname : 'Կառյան',
                             age : '23',
                             textAbout : 'Ունեմ 1 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Աֆրիկայում ',
-                            socialNetwork : 'facebook - https://www.facebook.com/Lilit.Karapetyan5616156',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -663,11 +873,24 @@ class Data {
                             surname : 'Մկրտչյան',
                             age : '29',
                             textAbout : 'Ունեմ 8 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Բելգիա',
-                            socialNetwork : 'facebook - https://www.facebook.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -679,11 +902,24 @@ class Data {
                             surname : 'Պապյան',
                             age : '32',
                             textAbout : 'Ունեմ 8 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Թալիանդում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -713,11 +949,20 @@ class Data {
                             surname : 'Կարապետյան',
                             age : '34',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Ինդոնեզիայում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         },
                         {
@@ -729,11 +974,16 @@ class Data {
                             surname : 'Վարդանյան',
                             age : '32',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Իրանում ',
-                            socialNetwork : 'facebook - https://www.facebook.com՞',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -751,11 +1001,20 @@ class Data {
                             surname : 'Կիրակոսյան',
                             age : '25',
                             textAbout : 'Ունեմ 10 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Մոսկվայում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Twitter',
+                                      url : 'https://www.twitter.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]
@@ -773,11 +1032,20 @@ class Data {
                             surname : 'Հայրապետյան',
                             age : '25',
                             textAbout : 'Ունեմ 3 տարվա աշխատանքային փորձ, վերապատրաստվել եմ Երևանում ',
-                            socialNetwork : 'instagram -https://www.instagram.com',
+                            socialNetwork : [
+                                  {
+                                      socialMediaName : 'Facebook',
+                                      url : 'https://www.facebook.com'
+                                  },
+                                  {
+                                      socialMediaName : 'Instagram',
+                                      url : 'https://www.instagram.com'
+                                  }
+                            ],
                             workImgs : [
-                                'work1',
-                                'work2',
-                                'work3'
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg',
+                              '/static/assets/images/works/work.jpg'
                             ]
                         }
                     ]

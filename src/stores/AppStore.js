@@ -8,7 +8,7 @@ import {homeConfigs} from './../config/categoryConfig';
 
 class AppStore {
     Data = new Data().salons;
-    UserData = new UserData();
+    UserData = new UserData().users;//aranc users a exel harceri depqum Inesi het
     initData = () => {
         extendObservable(this, this.Data);
     }
@@ -23,7 +23,12 @@ class AppStore {
         addCategoryName : '',
         _Data : this.Data,
         _UserData : this.UserData,
-        isUser : 'salon',
+
+
+        isUser : '',
+
+
+
         information : {
             img : this.defaultSpecialistImage,
             name : 'Անուն',
@@ -59,6 +64,13 @@ class AppStore {
             categoryIndex : "",
             specialistIndex : "",
         },
+        Registr : {
+            name:'',
+            surname:'',
+            EmailAdress:'',
+            nickName:'',
+            password:''
+        }
     }
     constructor(){
         extendObservable(this, this.storeProps);
@@ -192,18 +204,18 @@ class AppStore {
             }
         });
         this._Data[salonIndex].category.forEach((item, index) => {
-            item.id = `${salonIndex}-${index}`
+            this.id.categoryIndex = index;
+            item.id = `${salonIndex}-${index}`;
         });
         if (this._Data[salonIndex].category.length !== 0) {
-            this._Data[salonIndex].category[categoryIndex].workers.forEach((item, index) => {
-                item.id = `${salonIndex}-${categoryIndex}-${index}`
+            this._Data[salonIndex].category[this.id.categoryIndex].workers.forEach((item, index) => {
+                item.id = `${salonIndex}-${this.id.categoryIndex}-${index}`
             })
-            console.log(this._Data[salonIndex].category)
         }
         
     }
     @action
-    changeSalonInfo = (event) =>{//nkar chi vercnum
+    changeSalonInfo = (event) =>{
         switch(event.target.getAttribute("name")){
             case 'file':
                 if (event.target.files && event.target.files[0]) {
@@ -344,6 +356,37 @@ class AppStore {
         console.log(this._UserData[id].name);
         console.log(2);
     }
+
+    @action
+    InfoRegister = (event) => {
+        switch(event.target.previousElementSibling.textContent) {
+            case 'Անուն':
+                this.Registr.name = event.target.value;
+                break;
+            case 'Ազգանուն':
+                this.Registr.surname = event.target.value;
+                break;
+            case 'Էլ. փոստ':
+                this.Registr.EmailAdress = event.target.value;
+                break;
+            case 'Մուտքանուն':
+                this.Registr.nickName = event.target.value;
+                break;
+            case 'Գաղտնաբառ':
+                this.Registr.password = event.target.value;
+                break;
+            default:
+                return;
+        }
+    }
+
+    @action
+    SaveValues = () => {
+        this._UserData.push(this.Registr);
+        console.log(this._UserData);
+    }
+
+    
 }
 
 export default AppStore;

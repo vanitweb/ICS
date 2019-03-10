@@ -4,14 +4,17 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 import Messages from './../../Messages';
-import CardCategory from './../cards/CardCategory';
+import CardCategory from './cards/CardCategory';
+import ChangeSalonInfo from './acount/modals/ChangeSalonInfo';
+import AddCategory from './acount/modals/AddCategori'
+import SalonAddWorker from './acount/modals/SalonAddWorker';
 
 import notification from './../../../assets/images/salon/notification.png';
 
 import './../../../assets/stylesheets/salon.css';
 
 @observer
-class Salon extends Component {
+class SalonUser extends Component {
     static contextTypes = {
         AppStore : PropTypes.shape({
             _Data : PropTypes.array,
@@ -22,7 +25,7 @@ class Salon extends Component {
     
     
     render() {
-        const {_Data, deleteWorker, deleteCategory, isUser} = this.context.AppStore;
+        const {_Data, deleteWorker, deleteCategory} = this.context.AppStore;
         const salonIndex = this.props.match.params.whichSalon;
         const DataSalon = _Data[salonIndex];
         
@@ -44,9 +47,9 @@ class Salon extends Component {
 						<p>{DataSalon.info}</p>
                         <p>{Messages.beautySalons.beautySalonsAddress}` {DataSalon.address}</p>
                         <p>{Messages.beautySalons.beautySalonsPhone}` {DataSalon.phone}</p>
-                      
-
-
+                        <ChangeSalonInfo
+                            salonId={DataSalon.id}
+                            />
 					</Col>
 
         		</Row>
@@ -55,29 +58,35 @@ class Salon extends Component {
                     return 	<React.Fragment key = {item.prof}>
                         <Row align = "center" className = "mt-5 mb-5">
                             <Col>
-                                <h2>{item.prof}</h2>
+                                <h2>
+                                    {item.prof}
+                                    <Button color="danger"  onClick =  {deleteCategory} category-id = {item.id}>X</Button>
+                                </h2>
                             </Col>
                         </Row>
                         <Row>{item.workers.map((item1, index1) => {
-                                return <React.Fragment key = {item1.surname}>     
+                                return <React.Fragment key = {item1.surname}>
                                     <CardCategory 
+                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteWorker} specialist-id = {item1.id}>X</Button>}
                                         img={item1.img}
                                         title= {`${item1.name} ${item1.surname}`}
                                         name = {item1.id}
                                         buttonText = {Messages.table.specialiistButtonText}
                                         url = {this.props.match.url}
-                                        />
+                                        /> 
                                 </React.Fragment>
                             })}
+                            <SalonAddWorker categoryId={item.id}/>
                         </Row>
                         
                     </React.Fragment>
                 })}
                 <Row align = "center" className = "mt-5 mb-5">  
+                  <AddCategory salonIndex = {salonIndex}/>
                 </Row>
 			</Container>
 		);
 	}
 }
 
-export default Salon;
+export default SalonUser;

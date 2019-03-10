@@ -59,7 +59,7 @@ class HeaderUser extends Component {
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 {_Data.map((item,index) =>{
-                                                    return <Link to={`/Salon/${item.name}-${item.id}`} key = {item.address}>
+                                                    return <Link to={`/Salon/${item.id}`} key = {item.address}>
                                                         <DropdownItem  className="drop_item" >
                                                             {item.name}
                                                         </DropdownItem>
@@ -69,8 +69,13 @@ class HeaderUser extends Component {
                                         </UncontrolledDropdown>
                                         {(isUser === 'salon' || isUser === 'user')?
                                         <>
-                                            <NavItem>{(isUser === 'salon')?<Link to={`/Salon/${_Data[0].name}-${_Data[0].id}`}><Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button></Link>:
-                                            <Link to={'/Acount'}><Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button></Link>}
+                                            <NavItem>{(isUser === 'salon')?
+                                                <Link to={`/AcountSalon/${_Data[0].id}`}>
+                                                    <Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button>
+                                                </Link>:
+                                                <Link to={'/Acount'}>
+                                                    <Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button>
+                                                </Link>}
                                                 
                                             
                                             </NavItem>

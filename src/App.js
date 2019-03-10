@@ -8,6 +8,7 @@ import Header from './components/Home/Header';
 import Section from './components/Home/Section';
 import Footer from './components/Home/Footer';
 import Salon from './components/salons/Salon'; 
+import SalonUser from './components/acount/SalonUser'; 
 import Specialist from './components/specialists/Specialist';  
 import Categorys from './components/categorys/Categorys'; 
 import Acount from './components/acount/Acount'
@@ -47,7 +48,7 @@ class App extends Component {
                             <Route exact path='/category/:whichCategory' component={Categorys}/>
                             <Route path='/Salon/:whichSalon/:whichSpecialist' component={Specialist}/>
                             <Route path='/category/:whichCategory/:whichSpecialist' component={Specialist}/>
-                            {this.AppStore.isUser === 'salon' && <Route exact path="/Salon/:whichSalon" component={Salon}/>}
+                            {this.AppStore.isUser === 'salon' && <Route exact path="/AcountSalon/:whichSalon" component={SalonUser}/>}
                             {this.AppStore.isUser === 'user' && <Route exact path="/Acount" component={Acount}/>}
                             <Route component={NotFound} />
                         </Switch>
