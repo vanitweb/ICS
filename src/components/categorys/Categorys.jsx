@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Form, Input, FormGroup, Label } from 'reactstrap';
+import {Container, Form, Input, FormGroup, Label, Button, ButtonGroup, ButtonToolbar } from 'reactstrap';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {Link}  from 'react-router-dom';
@@ -25,22 +25,29 @@ class Categorys extends Component {
         }).isRequired
     }
     
-    render(){
-        const {tableSearch , onChaked, _Data, searchType, searchText} = this.context.AppStore;
-        const categoryIndex = this.props.match.params.whichCategory;
-        let prof;
+    componentDidMount() {
+        this.context.AppStore.isPath({categoryIndex : this.props.match.params.whichCategory},'category');        
+    }
 
-        if(homeConfigs.categorys[categoryIndex]){
+    render(){
+        const {tableSearch , onChaked, _Data, searchType, searchText, isPagePath, isPath} = this.context.AppStore;
+        let categoryIndex, prof;
+        if (isPagePath) {
+            categoryIndex = this.props.match.params.whichCategory;
             prof = homeConfigs.categorys[categoryIndex].title;
-        }else{
-            prof = false
         }
-        
-        console.log(prof)
         return(
             <Container>
-              {(prof)? <>
-                <Form className="form_pos mt-5">
+              {(isPagePath)? <>
+                <ButtonToolbar className="mt-5">
+                    <ButtonGroup>
+                        <Link to={`/Category/0`} ><Button>{homeConfigs.categorys[0].title}</Button></Link>
+                        <Link to={`/Category/1`} ><Button>{homeConfigs.categorys[1].title}</Button></Link>
+                        <Link to={`/Category/2`} ><Button>{homeConfigs.categorys[2].title}</Button></Link>
+                        <Link to={`/Category/3`} ><Button>{homeConfigs.categorys[3].title}</Button></Link>
+                    </ButtonGroup>
+                </ButtonToolbar>
+                <Form className="form_pos mt-2">
                 <Label><b>{Messages.table.searchFor}</b></Label>
                 <FormGroup check inline >
                         <FormGroup check>
@@ -67,15 +74,6 @@ class Categorys extends Component {
                         </FormGroup>
                         <Input type="search"  className="input_search" id="exampleSearch" onChange={tableSearch}/>
                 </Form>
-                  <Link to={`/Category/1`} >
-                      <button color="info">sexmi</button>
-                  </Link>
-                  <Link to={`/Category/2`}>
-                      <button color="info">sexmi</button>
-                  </Link>
-                  <Link to={`/Category/3`}>
-                      <button color="info">sexmi</button>
-                  </Link>
                 <div>
                     <h3 align = "center" className = "mt-5 mb-5 text_color">{prof}</h3>
                     {_Data.map((item, salonIndex) => {

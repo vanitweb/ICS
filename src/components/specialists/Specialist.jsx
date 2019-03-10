@@ -6,6 +6,7 @@ import {observer} from 'mobx-react';
 import Messages from './../../Messages';
 import ChangeSpecialistInfo from './modals/ChangeSpecialistInfo'
 import './../../../assets/stylesheets/specialist.css';
+import NotFound from './../../NotFound'; 
 
 @observer
 class SpecialistUser extends Component {
@@ -17,18 +18,33 @@ class SpecialistUser extends Component {
             filterId : PropTypes.func,
         }).isRequired
     };
+
+    componentDidMount() {
+        this.context.AppStore.isPath({
+            whichSalon : this.props.match.params.whichSalon,
+            salonIndex : this.props.match.params.salonIndex,
+            categoryIndex : this.props.match.params.categoryIndex,
+            specialistIndex : this.props.match.params.specialistIndex
+        },'specialist');        
+    }
+
     render() {
+        const whichSalon = this.props.match.params.whichSalon;
         const salonIndex = this.props.match.params.salonIndex;
         const categoryIndex = this.props.match.params.categoryIndex;
         const specialistIndex = this.props.match.params.specialistIndex;
+        const {_Data , deleteWorksImage, isUser, id, filterId, isPagePath, isPath} = this.context.AppStore;
+        
+        let salon, category, specialist;
+        if (isPagePath) {
+            salon = _Data[salonIndex];
+            category =  _Data[salonIndex].category[categoryIndex];
+            specialist =  _Data[salonIndex].category[categoryIndex].workers[specialistIndex];
+        }
 
-        console.log(salonIndex, categoryIndex, specialistIndex)
-        const {_Data , deleteWorksImage, isUser, filterId} = this.context.AppStore;
-        const salon = _Data[salonIndex];
-        const category =  _Data[salonIndex].category[categoryIndex];
-        const specialist =  _Data[salonIndex].category[categoryIndex].workers[specialistIndex]
         return (
             <div className = "sections mt-5">
+                {(isPagePath)?
                  <Container className="mb-5">
                      <Row>
                         <Col sm="8" >
@@ -117,7 +133,9 @@ class SpecialistUser extends Component {
                              </React.Fragment>
                          })}
                      </Row>
-                </Container>
+                }
+                </Container>: <NotFound/>
+            }
             </div>
         );
     }

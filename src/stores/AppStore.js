@@ -1,6 +1,7 @@
 import Data from './../data/data.js';
 import UserData from './../data/userData.js'
 import {extendObservable, action} from 'mobx';
+import {homeConfigs} from './../config/categoryConfig';
 
 
 
@@ -23,7 +24,7 @@ class AppStore {
         _UserData : this.UserData,
 
 
-        isUser : 'salon',
+        isUser : '',
 
 
 
@@ -58,10 +59,11 @@ class AppStore {
             phone : '',
         },
         id : {
-            salonIndex : "",
-            categoryIndex : "",
-            specialistIndex : "",
+            salonIndex : 0,
+            categoryIndex : 0,
+            specialistIndex : 0,
         },
+        isPagePath : false,
         Registr : {
             name:'',
             surname:'',
@@ -69,6 +71,10 @@ class AppStore {
             nickName:'',
             password:''
         },
+        Login : {
+          email : '',
+          password : ''
+        }
     }
     constructor(){
         extendObservable(this, this.storeProps);
@@ -94,6 +100,25 @@ class AppStore {
                 this.id.categoryIndex = idArr[1];
                 this.id.specialistIndex = idArr[2];
 
+        }
+    }
+    @action
+    isPath = (whichIndex, whichPage) => {
+        if(whichPage === 'salon'){
+            if(this._Data[whichIndex.salonIndex]){
+                this.isPagePath = true;
+            }
+        }else if(whichPage === 'category'){
+            if (homeConfigs.categorys[whichIndex.categoryIndex]) {
+                this.isPagePath = true;
+            }
+        }else if(whichPage === 'specialist'){
+            if(this._Data[whichIndex.salonIndex] 
+                && whichIndex.salonIndex === whichIndex.whichSalon 
+                && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex]
+                && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex].workers[whichIndex.specialistIndex]){
+                    this.isPagePath = true;
+            }
         }
     }
     //category
@@ -389,6 +414,30 @@ class AppStore {
             password:''
         }
         console.log(this._UserData.users);
+    }
+    @action
+    InfoLogIn = (event) => {
+        switch(event.target.previousElementSibling.textContent) {
+            case 'Էլ. փոստ':
+                this.Login.email = event.target.value;
+                break;
+            case 'Գաղտնաբառ':
+                this.Login.password = event.target.value;
+                break;
+            default:
+                return;
+        }
+    }
+    @action
+    LogInTest = () =>{
+      this._UserData.users.forEach((item, index) => {
+            if(item.email === this.Login.email && item.password === this.Login.password){
+                console.log(true);
+            }
+            else{
+                console.log(false);
+            }
+        });
     }
 
     

@@ -29,7 +29,7 @@ const homeConfigs = {
             explaText : 'Գեղեցիկն աստվածային է, վեհը՝ մարդկային: Լեսինգ',
             img : 'static/assets/images/section/spa.jpg'
         }
-    ],
+        ],
     slideItems : [
         {
             id: 1,
