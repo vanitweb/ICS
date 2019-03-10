@@ -28,7 +28,7 @@ class CardCategory extends Component {
                     <CardBody>
                         <CardTitle>{title}</CardTitle>
                         <CardText className = {CardClass}>{explaText}</CardText>
-                        <Link to={`${url}/${name}`}>
+                        <Link to={`${url}/${name}`} >
                             <Button color="info" onClick = {cardClick} prof = {name} >{buttonText}</Button>
                         </Link>
                     </CardBody>

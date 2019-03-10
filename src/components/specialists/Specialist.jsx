@@ -15,17 +15,15 @@ class SpecialistUser extends Component {
             isUser : PropTypes.string,
             deleteWorksImage : PropTypes.func,
             filterId : PropTypes.func,
-            id : PropTypes.object,
         }).isRequired
     };
-    componentWillMount(){
-        const paths = this.props.match.params.whichSpecialist.split('/');
-        const path = paths[paths.length - 1];
-        this.context.AppStore.filterId(path)
-    }
     render() {
-        const {_Data , deleteWorksImage, isUser, filterId, id} = this.context.AppStore;
-        const {salonIndex, categoryIndex, specialistIndex} = id;
+        const salonIndex = this.props.match.params.salonIndex;
+        const categoryIndex = this.props.match.params.categoryIndex;
+        const specialistIndex = this.props.match.params.specialistIndex;
+
+        console.log(salonIndex, categoryIndex, specialistIndex)
+        const {_Data , deleteWorksImage, isUser, filterId} = this.context.AppStore;
         const salon = _Data[salonIndex];
         const category =  _Data[salonIndex].category[categoryIndex];
         const specialist =  _Data[salonIndex].category[categoryIndex].workers[specialistIndex]

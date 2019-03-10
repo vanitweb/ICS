@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 import Messages from './../../Messages';
-import CardCategory from './cards/CardCategory';
-import ChangeSalonInfo from './acount/modals/ChangeSalonInfo';
-import AddCategory from './acount/modals/AddCategori'
-import SalonAddWorker from './acount/modals/SalonAddWorker';
+import CardCategory from './../cards/CardCategory';
+import ChangeSalonInfo from './modals/ChangeSalonInfo';
+import AddCategory from './modals/AddCategori'
+import SalonAddWorker from './modals/SalonAddWorker';
 
 import notification from './../../../assets/images/salon/notification.png';
 

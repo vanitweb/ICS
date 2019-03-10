@@ -2,13 +2,11 @@ import Data from './../data/data.js';
 import UserData from './../data/userData.js'
 import {extendObservable, action} from 'mobx';
 
-import {homeConfigs} from './../config/categoryConfig';
-
 
 
 class AppStore {
     Data = new Data().salons;
-    UserData = new UserData().users;//aranc users a exel harceri depqum Inesi het
+    UserData = new UserData();
     initData = () => {
         extendObservable(this, this.Data);
     }
@@ -25,7 +23,7 @@ class AppStore {
         _UserData : this.UserData,
 
 
-        isUser : '',
+        isUser : 'salon',
 
 
 
@@ -70,7 +68,7 @@ class AppStore {
             EmailAdress:'',
             nickName:'',
             password:''
-        }
+        },
     }
     constructor(){
         extendObservable(this, this.storeProps);
@@ -78,9 +76,9 @@ class AppStore {
     @action
     filterId(id){
         this.id = {
-            salonIndex : '',
-            categoryIndex : '',
-            specialistIndex : '',
+            salonIndex : 0,
+            categoryIndex : 0,
+            specialistIndex : 0,
         };
         const idArr = id.split('-');
         switch(idArr.length){
@@ -243,7 +241,7 @@ class AppStore {
 
     }
     @action
-    changeSalonSubmit = (event) =>{//nkar chi vercnum
+    changeSalonSubmit = (event) =>{
         const id = event.target.getAttribute('salon-id');
         const item = this._Data[id];
         item.name = this.changeSalon.name;
@@ -350,9 +348,9 @@ class AppStore {
         console.log(11111);
         const id = event.target.getAttribute('user-id');
         console.log(this._UserData[id].name);
-        this._UserData[id].name = this.changeUser.name;
-        this._UserData[id].surname = this.changeUser.surname;
-        this._UserData[id].phoneNumber = this.changeUser.phone;
+        this._UserData.users[id].name = this.changeUser.name;
+        this._UserData.users[id].surname = this.changeUser.surname;
+        this._UserData.users[id].phoneNumber = this.changeUser.phone;
         console.log(this._UserData[id].name);
         console.log(2);
     }
@@ -382,8 +380,15 @@ class AppStore {
 
     @action
     SaveValues = () => {
-        this._UserData.push(this.Registr);
-        console.log(this._UserData);
+        this._UserData.users.push(this.Registr);
+        this.Registr = {
+            name:'',
+            surname:'',
+            EmailAdress:'',
+            nickName:'',
+            password:''
+        }
+        console.log(this._UserData.users);
     }
 
     

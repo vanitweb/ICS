@@ -35,8 +35,8 @@ class Section extends Component {
                                     explaText={item.explaText}
                                     CardClass = "cardSection1"
                                     buttonText = {Messages.section.homeCardButtonText}
-                                    url = {'category'}
-                                    name ={`${item.title}-${item.id}`}
+                                    url = {'Category'}
+                                    name ={`${item.id}`}
                                     />
                             </React.Fragment>
                         })}
