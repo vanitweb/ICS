@@ -6,7 +6,9 @@ import {observer} from "mobx-react";
 
 import Messages from './../../../Messages';
 
-import './../../../../assets/stylesheets/salon.css'
+import Validator from './../../../stores/validator';
+
+import './../../../../assets/stylesheets/salon.css';
 
 @observer
 class ChangeSpecialistInfo extends Component {
@@ -48,8 +50,15 @@ class ChangeSpecialistInfo extends Component {
     }
     }
 
+    Validator = new Validator();
+
+    handleUserInput = (event) => {
+         this.context.AppStore.changeSpeciaistInfo(event);
+         this.Validator.informationSpecialistInfo.fieldName = event.target.name;
+         this.Validator.informationSpecialistInfo.value = event.target.value;       
+    }
     render(){
-        const {changeSpecialistSubmit, changeSpeciaistInfo, changeSpecialistInfo, defaultSpecialistImage, AddWorkerImg} = this.context.AppStore;
+        const {changeSpecialistSubmit,changeSpecialistInfo, defaultSpecialistImage, AddWorkerImg} = this.context.AppStore;
         const {specialistId} = this.props;
         return(
             <>
@@ -61,29 +70,35 @@ class ChangeSpecialistInfo extends Component {
                                     <FormGroup>
                                         <Label for="exampleFile">{Messages.AddWorker.image}</Label>
                                         <Input className="name" width="100px" type="file" name="file" id="exampleFile"
-                                            onChange={changeSpeciaistInfo}
+                                            onChange={changeSpecialistInfo}
                                         />
                                         <img id="target" src={changeSpecialistInfo.img} width="250px" height="250px"/>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleName">{Messages.AddWorker.name}</Label>
-                                        <Input onChange={changeSpeciaistInfo} type="text" name="name" id="exampleName" value={changeSpecialistInfo.name}/>
+                                        <Input onChange={this.handleUserInput} type="text" name="name" id="exampleName" value={changeSpecialistInfo.name}/>
+                                        <p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'name' && this.Validator.validateSpecialistInfo}</p>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleSurname">{Messages.AddWorker.surname}</Label>
-                                        <Input onChange={changeSpeciaistInfo} type="text" name="surname" id="exampleSurname" value={changeSpecialistInfo.surname}/>
+                                        <Input onChange={this.handleUserInput} type="text" name="surname" id="exampleSurname" value={changeSpecialistInfo.surname}/>
+                                        <p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'surname' && this.Validator.validateSpecialistInfo}</p>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleAge">{Messages.AddWorker.age}</Label>
-                                        <Input onChange={changeSpeciaistInfo} type="text" name="age" id="exampleAge" value={changeSpecialistInfo.age}/>
+                                        <Input onChange={this.handleUserInput} type="text" name="age" id="exampleAge" value={changeSpecialistInfo.age}/>
+                                        <p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'age' && this.Validator.validateSpecialistInfo}</p>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleInfo">{Messages.AddWorker.information}</Label>
-                                        <Input onChange={changeSpeciaistInfo} type="textarea" name="info" id="exampleInfo" value={changeSpecialistInfo.info}/>
+                                        <Input onChange={this.handleUserInput} type="textarea" name="info" id="exampleInfo" value={changeSpecialistInfo.info}/>
+                                        <p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'info' && this.Validator.validateSpecialistInfo}</p>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleEmail">{Messages.AddWorker.connectionWithSocialMedia}</Label>
-                                        <Input onChange={changeSpeciaistInfo} type="text" name="mail" id="exampleEmail" value={changeSpecialistInfo.mail}/>
+                                        <Input onChange={this.handleUserInput} type="text" name="mail" id="exampleEmail" value={changeSpecialistInfo.mail}/>
+                                       // <p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'mail' && this.Validator.validateSpecialistInfo}</p>
+                                        //sa der arvac che
                                     </FormGroup>
                                     
                                 </Form>
@@ -96,4 +111,7 @@ class ChangeSpecialistInfo extends Component {
         );
     }
 }
-export default ChangeSpecialistInfo
+export default ChangeSpecialistInfo;
+// disabled={!this.Validator.informationSpecialistInfo.formValid}  sa petqa dneinq bayc sxala talis
+//sranq registri u logini mej el petqa avelacvi
+

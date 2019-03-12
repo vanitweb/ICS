@@ -22,7 +22,7 @@ class CardCategory extends Component {
         const {deleteCard, img, title, explaText, cardClick, CardClass, buttonText, url, name} = this.props;
 		return(
             <Col lg = {3} md={6} sm = {6} xs = {8} className="cardOne">
-                <Card>
+                <Card className = "card_design">
                     {deleteCard}
                     <CardImg variant="top" src={img} />
                     <CardBody>

@@ -34,27 +34,29 @@ class Salon extends Component {
         if (isPagePath) {
             salonIndex = this.props.match.params.whichSalon;
         }
+        const DataSalon = _Data[salonIndex];
+        
 		return (
              <Container className = "salon-page">
                 {(isPagePath)? <>
                 <Row>
                     <Col >
-                        <h1 className='varsAnun'>{_Data[salonIndex].name}</h1>
+                        <h1 className='varsAnun'>{DataSalon.name}</h1>
                     </Col>
                     <img src={notification} alt=""  align="right" width = "50px" height = "50px"/>
 
 				</Row>
 				<Row className = "salon-page">
 					<Col md="6" >
-						<img src={_Data[salonIndex].img} alt="" className="logoSal" width = "100%" height = "370vh"/>
+						<img src={DataSalon.img} alt="" className="logoSal" width = "100%" height = "370vh"/>
 					</Col>
 					<Col md="6">
 						<h2>{Messages.beautySalons.beautySalonsAbout}</h2>
-						<p>{_Data[salonIndex].info}</p>
-                        <p>{Messages.beautySalons.beautySalonsAddress}` {_Data[salonIndex].address}</p>
-                        <p>{Messages.beautySalons.beautySalonsPhone}` {_Data[salonIndex].phone}</p>
+						<p>{DataSalon.info}</p>
+                        <p>{Messages.beautySalons.beautySalonsAddress}` {DataSalon.address}</p>
+                        <p>{Messages.beautySalons.beautySalonsPhone}` {DataSalon.phone}</p>
                         {isUser === 'salon' && <ChangeSalonInfo
-                            salonId={_Data[salonIndex].id}
+                            salonId={DataSalon.id}
                             />}
 
 
@@ -62,7 +64,7 @@ class Salon extends Component {
 
         		</Row>
         		
-                {_Data[salonIndex].category.map((item, index) => {
+                {DataSalon.category.map((item, index) => {
                     return 	<React.Fragment key = {item.prof}>
                         <Row align = "center" className = "mt-5 mb-5">
                             <Col>
@@ -92,6 +94,7 @@ class Salon extends Component {
                                         />}
                                 </React.Fragment>
                             })}
+                            <SalonAddWorker categoryId={item.id}/>
                         </Row>
                         
                     </React.Fragment>

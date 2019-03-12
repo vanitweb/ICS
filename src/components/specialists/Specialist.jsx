@@ -6,6 +6,7 @@ import {observer} from 'mobx-react';
 import Messages from './../../Messages';
 import ChangeSpecialistInfo from './modals/ChangeSpecialistInfo'
 import './../../../assets/stylesheets/specialist.css';
+
 import NotFound from './../../NotFound'; 
 
 @observer
@@ -18,14 +19,15 @@ class SpecialistUser extends Component {
             filterId : PropTypes.func,
         }).isRequired
     };
-
     componentDidMount() {
         this.context.AppStore.isPath({
             whichSalon : this.props.match.params.whichSalon,
+            whichCategory : this.props.match.params.whichCategory,
             salonIndex : this.props.match.params.salonIndex,
             categoryIndex : this.props.match.params.categoryIndex,
-            specialistIndex : this.props.match.params.specialistIndex
-        },'specialist');        
+            specialistIndex : this.props.match.params.specialistIndex,
+            ee : this.props.match
+        },'specialist');
     }
 
     render() {
@@ -41,7 +43,6 @@ class SpecialistUser extends Component {
             category =  _Data[salonIndex].category[categoryIndex];
             specialist =  _Data[salonIndex].category[categoryIndex].workers[specialistIndex];
         }
-
         return (
             <div className = "sections mt-5">
                 {(isPagePath)?
@@ -122,18 +123,19 @@ class SpecialistUser extends Component {
                      {specialist.workImgs.map((item, index) => {
                              return <React.Fragment key = {index}>
                              {(isUser === 'salon') ?
-                                     <Col align = "center">
-                                         <Button color="danger" className="delete" salon-name={specialist.salonTitle}  onClick = {deleteWorksImage} data-index = {index} specialist-id ={specialist.id}>X</Button>
-                                         <img src={item} alt="works image" className ="d-inline " />
-                                     </Col>:
-                                     <Col align = "center">
-                                         <img src={item} alt="works image" className ="d-inline " />
-                                     </Col>
+                                    <Col align = "center">
+                                    <div className = "change_spec_img">
+                                        <Button color="danger" className="delete" salon-name={specialist.salonTitle}  onClick = {deleteWorksImage} data-index = {index} specialist-id ={specialist.id}>X</Button>
+                                        <img src={item} alt="works image" className ="d-inline " />
+                                    </div>
+                                    </Col>:
+                                    <Col align = "center">
+                                        <img src={item} alt="works image" className ="d-inline " />
+                                    </Col>
                              }
                              </React.Fragment>
                          })}
                      </Row>
-                }
                 </Container>: <NotFound/>
             }
             </div>

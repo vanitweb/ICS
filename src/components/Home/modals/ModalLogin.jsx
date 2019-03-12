@@ -3,6 +3,7 @@ import {Modal, ModalHeader, ModalBody,ModalFooter, Form, FormGroup, Label, Input
 import PropTypes from 'prop-types';
 
 import Messages from './../../../Messages';
+import Validator from './../../../stores/validator';
 
 import './../../../../assets/stylesheets/header.css';
 
@@ -31,8 +32,15 @@ class ModalLogin extends Component {
         modal: !prevState.modal
         }));
     }
+
+    Validator = new Validator();
+    handleUserInput = (event) => {
+         this.context.AppStore.InfoLogin(event);
+         this.Validator.informationModalLogin.fieldName = event.target.name;
+         this.Validator.informationModalLogin.value = event.target.value;       
+    }
     render(){
-      const {_Data, InfoLogIn, Login, LogInTest} = this.context.AppStore;
+      const {_Data,Login, LoginTest} = this.context.AppStore;
 		return(
 			<div>
           <Button className="ml-auto mod_btn" outline color="link" onClick={this.toggle}>{this.props.buttonLabel}{Messages.header.signIn.signIn}</Button>
@@ -42,16 +50,18 @@ class ModalLogin extends Component {
                   <Form>
                       <FormGroup>
                           <Label for="exampleEmail">{Messages.header.signIn.signInEmail}</Label>
-                          <Input type="email" onChange={InfoLogIn} name="email" id="exampleEmail" placeholder={Messages.header.signIn.signInEmailPlaceholder} />
+                          <Input type="email" onChange={this.handleUserInput} name="emailLogin" id="exampleEmail" placeholder={Messages.header.signIn.signInEmailPlaceholder} />
+                           <p className="has-error">{this.Validator.informationModalLogin.fieldName === 'emailLogin' && this.Validator.validateModalLogin}</p>
                       </FormGroup>
                       <FormGroup>
                           <Label for="examplePassword">{Messages.header.signIn.signInPassword}</Label>
-                          <Input type="password" onChange={InfoLogIn} name="password" id="examplePassword" placeholder={Messages.header.signIn.signInPasswordPlaceholder} />
+                          <Input type="password" onChange={this.handleUserInput} name="passwordLogin" id="examplePassword" placeholder={Messages.header.signIn.signInPasswordPlaceholder} />
+                           <p className="has-error">{this.Validator.informationModalLogin.fieldName === 'passwordLogin' && this.Validator.validateModalLogin}</p>
                       </FormGroup>
                   </Form>
               </ModalBody>
               <ModalFooter onClick={this.toggle}>
-                  <Button onClick={LogInTest} className="modal_button">{Messages.header.signIn.signInButton}</Button>
+                  <Button onClick={LoginTest} className="modal_button">{Messages.header.signIn.signInButton}</Button>
               </ModalFooter>
 
 

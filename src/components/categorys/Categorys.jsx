@@ -24,7 +24,6 @@ class Categorys extends Component {
             onChaked : PropTypes.func,
         }).isRequired
     }
-    
     componentDidMount() {
         this.context.AppStore.isPath({categoryIndex : this.props.match.params.whichCategory},'category');        
     }
@@ -36,18 +35,19 @@ class Categorys extends Component {
             categoryIndex = this.props.match.params.whichCategory;
             prof = homeConfigs.categorys[categoryIndex].title;
         }
+        
         return(
             <Container>
               {(isPagePath)? <>
                 <ButtonToolbar className="mt-5">
-                    <ButtonGroup>
-                        <Link to={`/Category/0`} ><Button>{homeConfigs.categorys[0].title}</Button></Link>
-                        <Link to={`/Category/1`} ><Button>{homeConfigs.categorys[1].title}</Button></Link>
-                        <Link to={`/Category/2`} ><Button>{homeConfigs.categorys[2].title}</Button></Link>
-                        <Link to={`/Category/3`} ><Button>{homeConfigs.categorys[3].title}</Button></Link>
+                    <ButtonGroup className = "group">
+                        <Link to={`/Category/0`} ><Button className = "category_button" color = "info">{homeConfigs.categorys[0].title}</Button></Link>
+                        <Link to={`/Category/1`} ><Button className = "category_button" color = "info">{homeConfigs.categorys[1].title}</Button></Link>
+                        <Link to={`/Category/2`} ><Button className = "category_button" color = "info">{homeConfigs.categorys[2].title}</Button></Link>
+                        <Link to={`/Category/3`} ><Button className = "category_button" color = "info">{homeConfigs.categorys[3].title}</Button></Link>
                     </ButtonGroup>
                 </ButtonToolbar>
-                <Form className="form_pos mt-2">
+                <Form className="form_pos mt-5">
                 <Label><b>{Messages.table.searchFor}</b></Label>
                 <FormGroup check inline >
                         <FormGroup check>

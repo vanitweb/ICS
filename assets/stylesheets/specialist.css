@@ -22,3 +22,11 @@ p {
 span {
 	font-size: 1em;
 }
+.change_spec_img {
+	display: -webkit-box;
+}
+@media only screen and (max-width: 409px) {
+    .info {
+        font-size: 0.9em;
+  }
+}

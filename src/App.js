@@ -47,7 +47,7 @@ class App extends Component {
                             <Route exact path="/Salon/:whichSalon" component={Salon}/>
                             <Route exact path='/Category/:whichCategory' component={Categorys}/>
                             <Route exact path='/Salon/:whichSalon/:salonIndex/:categoryIndex/:specialistIndex' component={Specialist}/>
-                            <Route exact path='/category/:whichCategory/:whichSpecialist' component={Specialist}/>
+                            <Route exact path='/Category/:whichCategory/:salonIndex/:categoryIndex/:specialistIndex' component={Specialist}/>
                             {this.AppStore.isUser === 'salon' && <Route exact path="/AcountSalon/:whichSalon" component={Salon}/>}
                             {this.AppStore.isUser === 'user' && <Route exact path="/Acount" component={Acount}/>}
                             <Route component={NotFound} />

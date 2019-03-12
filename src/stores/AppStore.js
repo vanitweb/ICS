@@ -1,6 +1,7 @@
 import Data from './../data/data.js';
 import UserData from './../data/userData.js'
 import {extendObservable, action} from 'mobx';
+
 import {homeConfigs} from './../config/categoryConfig';
 
 
@@ -24,7 +25,7 @@ class AppStore {
         _UserData : this.UserData,
 
 
-        isUser : '',
+        isUser : 'user',
 
 
 
@@ -34,7 +35,7 @@ class AppStore {
             surname : 'Ազգանուն',
             age : 'Տարիք',
             textAbout : 'Տեղեկատվություն',
-            socialNetwork : 'Կապ սոց․ կայքեր',
+            socialNetwork : [],//Eroooooooooooooooooooooooooooooooooo
         },
         changeSalon : {
             img : this.defaultSpecialistImage,
@@ -59,21 +60,30 @@ class AppStore {
             phone : '',
         },
         id : {
-            salonIndex : 0,
-            categoryIndex : 0,
-            specialistIndex : 0,
+            salonIndex : "",
+            categoryIndex : "",
+            specialistIndex : "",
         },
         isPagePath : false,
         Registr : {
             name:'',
             surname:'',
             EmailAdress:'',
-            nickName:'',
-            password:''
+            phone:'',
+            password:'',
+            repeatPassword: ''
         },
         Login : {
           email : '',
           password : ''
+        },
+        AccountInfo : {
+          image:'',
+          name: '',
+          surname: '',
+          email: '',
+          phoneNumber: '',
+          password: ''
         }
     }
     constructor(){
@@ -110,17 +120,31 @@ class AppStore {
             }
         }else if(whichPage === 'category'){
             if (homeConfigs.categorys[whichIndex.categoryIndex]) {
+                //console.log(homeConfigs.categorys[whichIndex.categoryIndex])
                 this.isPagePath = true;
             }
         }else if(whichPage === 'specialist'){
-            if(this._Data[whichIndex.salonIndex] 
-                && whichIndex.salonIndex === whichIndex.whichSalon 
-                && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex]
-                && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex].workers[whichIndex.specialistIndex]){
-                    this.isPagePath = true;
+            if (whichIndex.ee.path.split('/')[1] === 'Salon') {
+                console.log(whichIndex.ee.path.split('/')[1])//Salon
+                if(this._Data[whichIndex.salonIndex]
+                    && whichIndex.salonIndex === whichIndex.whichSalon 
+                    && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex]
+                    && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex].workers[whichIndex.specialistIndex]){
+                        this.isPagePath = true;
+                }
+            }else if(whichIndex.ee.path.split('/')[1] === 'Category'){
+                // console.log(whichIndex.ee.path.split('/')[1])//Category
+                // console.log(whichIndex)
+                if(whichIndex.categoryIndex === whichIndex.whichCategory
+                    && this._Data[whichIndex.salonIndex]
+                    && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex]
+                    && this._Data[whichIndex.salonIndex].category[whichIndex.categoryIndex].workers[whichIndex.specialistIndex]){
+                        console.log(45)
+                        this.isPagePath = true;
+                }
             }
         }
-    }
+    }    
     //category
     @action
     tableSearch = (event) => {
@@ -167,7 +191,7 @@ class AppStore {
                 this.information.textAbout = event.target.value;
                 break;
             case 'Կապ սոց․ կայքեր':
-                this.information.socialNetwork = event.target.value;
+                // this.information.socialNetwork = event.target.value;//Erooooooooooooooo
                 break;
             default:
                 return;
@@ -195,7 +219,7 @@ class AppStore {
             surname : 'Ազգանուն',
             age : 'Տարիք',
             textAbout : 'Տեղեկատվություն',
-            socialNetwork : 'Կապ սոց․ կայքեր',
+            socialNetwork : [],
         };
     }
     @action
@@ -238,8 +262,8 @@ class AppStore {
         
     }
     @action
-    changeSalonInfo = (event) =>{
-        switch(event.target.getAttribute("name")){
+    changeSalonInfo = (name) =>{
+        switch(name){
             case 'file':
                 if (event.target.files && event.target.files[0]) {
                     this.changeSalon.img = URL.createObjectURL(event.target.files[0])
@@ -319,7 +343,7 @@ class AppStore {
         item.surname = this.changeSpecialistInfo.surname;
         item.age = this.changeSpecialistInfo.age;
         item.textAbout = this.changeSpecialistInfo.info;
-        item.socialNetwork = this.changeSpecialistInfo.mail;
+        // item.socialNetwork = this.changeSpecialistInfo.mail;//Eroooooooooooooooo
     }
     @action
     AddWorkerImg =(event) => {
@@ -392,8 +416,8 @@ class AppStore {
             case 'Էլ. փոստ':
                 this.Registr.EmailAdress = event.target.value;
                 break;
-            case 'Մուտքանուն':
-                this.Registr.nickName = event.target.value;
+            case 'Հեռախոս':
+                this.Registr.phone = event.target.value;
                 break;
             case 'Գաղտնաբառ':
                 this.Registr.password = event.target.value;
@@ -416,7 +440,7 @@ class AppStore {
         console.log(this._UserData.users);
     }
     @action
-    InfoLogIn = (event) => {
+    InfoLogin = (event) => {
         switch(event.target.previousElementSibling.textContent) {
             case 'Էլ. փոստ':
                 this.Login.email = event.target.value;
@@ -428,17 +452,120 @@ class AppStore {
                 return;
         }
     }
+
+    
+    @action  //cookie e avelacnum
+    setCookie = (cname, cvalue, exdays) => {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          var expires = "expires="+ d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
     @action
-    LogInTest = () =>{
+    getCookie = (cname) => {  //mer tvac nameov cookin e veradardznum
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              // console.log(c.substring(name.length, c.length));
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    @action
+    LoginTest = () => {
       this._UserData.users.forEach((item, index) => {
             if(item.email === this.Login.email && item.password === this.Login.password){
-                console.log(true);
-            }
-            else{
-                console.log(false);
+                console.log(item);
+                this.AccountInfo.name = item.name;
+                this.AccountInfo.image = item.image;
+                this.AccountInfo.surname = item.surname;
+                this.AccountInfo.email = item.email;
+                this.AccountInfo.phoneNumber = item.phoneNumber;
+                this.AccountInfo.password = item.password;
+                this.setCookie('Login.mail', item.email, "12.02.2020");
+                this.setCookie('Login.password', item.password, "12.02.2020");
+                this.isUser = 'user';
+                this.getCookie('Login.mail') ==="";
+                this.getCookie('Login.password')==="";
+
             }
         });
+        if( this.getCookie('Registr.mail') === this.Login.email  && this.getCookie('Registr.password') === this.Login.password){
+
+            this.AccountInfo.name = "Նոր ստեղծված էջ";
+            this.AccountInfo.image = "Նոր ստեղծված էջ";
+            this.AccountInfo.surname = "Նոր ստեղծված էջ";
+            this.AccountInfo.email = this.getCookie('Registr.mail');
+            this.AccountInfo.phoneNumber = "Նոր ստեղծված էջ";
+            this.AccountInfo.password = this.getCookie('Registr.password');
+            this.setCookie('Login.mail', this.getCookie('Registr.mail') , "12.02.2020");
+            this.setCookie('Login.password', this.getCookie('Registr.password'), "12.02.2020");
+            this.isUser = 'user';
+        }
     }
+    @action
+    FuncForCookie = () => {
+        if (this.getCookie('Login.mail'))
+        {
+            this._UserData.users.forEach((item, index) => {
+              if(item.email === this.getCookie('Login.mail') && item.password === this.getCookie('Login.password')){
+                  console.log(item);
+                  this.AccountInfo.name = item.name;
+                  this.AccountInfo.image = item.image;
+                  this.AccountInfo.surname = item.surname;
+                  this.AccountInfo.email = item.email;
+                  this.AccountInfo.phoneNumber = item.phoneNumber;
+                  this.AccountInfo.password = item.password;
+                  this.isUser = 'user';
+              }
+              else{
+                  return;
+              }
+          });
+        }
+        if(this.getCookie('Registr.mail'))
+        {
+            if (this.getCookie('Registr.mail') === this.getCookie('Login.mail') && this.getCookie('Registr.password') === this.getCookie('Login.password')) {
+            this.AccountInfo.name = "Նոր ստեղծված էջ";
+            this.AccountInfo.image = "Նոր ստեղծված էջ";
+            this.AccountInfo.surname = "Նոր ստեղծված էջ";
+            this.AccountInfo.email = this.getCookie('Registr.mail');
+            this.AccountInfo.phoneNumber = "Նոր ստեղծված էջ";
+            this.AccountInfo.password = this.getCookie('Registr.password');
+            this.isUser = 'user';
+          }
+        }
+          
+    }
+    @action
+    LogOut = () => {
+        this.isUser = '';
+        this.AccountInfo.name = "";
+        this.AccountInfo.image = "";
+        this.AccountInfo.surname = "";
+        this.AccountInfo.email = "";
+        this.AccountInfo.phoneNumber = "";
+        this.AccountInfo.password = "";
+        this.setCookie('Login.mail', "", "12.02.2020");
+        this.setCookie('Login.password', "", "12.02.2020");
+    }
+
+    @action
+    SaveValues = () => {
+        this._UserData.users.push(this.Registr);
+
+        this.setCookie('Registr.mail', this.Registr.EmailAdress , "12.02.2020");
+        this.setCookie('Registr.password', this.Registr.password , "12.02.2020");
+        // console.log(this._UserData.users);
+    }
+    
 
     
 }

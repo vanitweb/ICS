@@ -6,7 +6,7 @@ class UserData {
           surname: 'Իսահակյան',
           email: 'ArmineIsahakyan@mail.ru',
           phoneNumber: '+37477655899',
-          password: 'asdf123'
+          password: 'asdf1234'
       },
       {
           image:'/static/assets/images/users/user.png',

@@ -19,6 +19,7 @@ class HeaderUser extends Component {
         AppStore : PropTypes.shape({
             _Data : PropTypes.array.isRequired,
             isUser : PropTypes.string,
+            LogOut : PropTypes.func,
         }).isRequired
     }
     constructor(props) {
@@ -34,7 +35,7 @@ class HeaderUser extends Component {
         });
     }
     render() {
-        const {_Data, isUser} = this.context.AppStore;
+        const {_Data, isUser, LogOut} = this.context.AppStore;
         return (
             <div >
                 <Container>
@@ -42,7 +43,7 @@ class HeaderUser extends Component {
                         <Navbar  light expand="md">
                             <NavbarBrand href="/">
                                 <img
-                                    src= 'static/assets/images/header/logo.png'
+                                    src= '/static/assets/images/header/logo.png'
                                     width="50"
                                     height="50"
                                     className="d-inline-block align-top"
@@ -76,11 +77,11 @@ class HeaderUser extends Component {
                                                 <Link to={'/Acount'}>
                                                     <Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button>
                                                 </Link>}
-                                                
-                                            
+
+
                                             </NavItem>
                                             <NavItem>
-                                                <Button className="ml-auto mod_btn"  color="link">{Messages.header.LogOut}</Button>
+                                                <Button className="ml-auto mod_btn" onClick={LogOut} color="link">{Messages.header.LogOut}</Button>
                                             </NavItem>
                                         </>:
                                             <>

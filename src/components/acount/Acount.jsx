@@ -17,11 +17,17 @@ class Acount extends Component {
     static contextTypes = {
         AppStore : PropTypes.shape({
             _UserData : PropTypes.array,
+            AccountInfo : PropTypes.object,
+            FuncForCookie : PropTypes.func,
         }).isRequired
     }
 
+    componentDidMount(){
+          this.context.AppStore.FuncForCookie();
+        
+    }
     render() {
-        const {_UserData} = this.context.AppStore;
+        const {_UserData, AccountInfo} = this.context.AppStore;
         const id = 0;
         const UserData = _UserData.users[id];
 		return (
@@ -30,11 +36,11 @@ class Acount extends Component {
                     <Col lg = "12"  md = "12" sm = "12" className = "d_flex">
                         <div className = "d_inline">
                             <div className = "text_design user">
-                                <img src={UserData.image} alt="User Image" />
+                                <img src={AccountInfo.image} alt="User Image" />
                                 <div className="info" >
-                                    <p>{Messages.AcountUser.acountName} {UserData.name}</p>
-                                    <p>{Messages.AcountUser.acountSurname} {UserData.surname}</p>
-                                    <p>{Messages.AcountUser.acountPhoneNumber} {UserData.phoneNumber}</p>
+                                    <p>{Messages.AcountUser.acountName} {AccountInfo.name}</p>
+                                    <p>{Messages.AcountUser.acountSurname} {AccountInfo.surname}</p>
+                                    <p>{Messages.AcountUser.acountPhoneNumber} {AccountInfo.phoneNumber}</p>
                                     <AcountSetting  userId={id}/>
                                 </div>
                             </div>
