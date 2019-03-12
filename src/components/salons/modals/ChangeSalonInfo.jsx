@@ -34,16 +34,14 @@ class ChangeSalonInfo extends Component {
 	this.setState(prevState => ({
 	  modal: !prevState.modal
 	}));
-    if(event.target.textContent === Messages.settings.settingsName){
-        const {_Data, changeSalon} = this.context.AppStore;
-        const {salonId} = this.props;
-        const salon = _Data[salonId];
-        changeSalon.name = salon.name;
-        changeSalon.info = salon.info;
-        changeSalon.address = salon.address;
-        changeSalon.phone = salon.phone;
-        changeSalon.img = salon.img;
-    }
+    const {_Data, changeSalon} = this.context.AppStore;
+    const {salonindex} = this.props;
+    const salon = _Data[salonindex];
+    changeSalon.name = salon.name;
+    changeSalon.info = salon.info;
+    changeSalon.address = salon.address;
+    changeSalon.phone = salon.phone;
+    changeSalon.img = salon.img;
   }
     Validator = new Validator();
     handleUserInput = (event) => {
@@ -55,8 +53,8 @@ class ChangeSalonInfo extends Component {
 
   render() {
 	const {changeSalonSubmit, _Data, changeSalon, AddWorkerImg} = this.context.AppStore;
-	const {salonId} = this.props;
-    const salon = _Data[salonId];
+	const {salonindex} = this.props;
+    const salon = _Data[salonindex];
    
 	return (
 	  <div>
@@ -109,7 +107,7 @@ class ChangeSalonInfo extends Component {
 				</Form>
 			</ModalBody>
 			<ModalFooter onClick = {this.toggle}>
-				<Button color="info"  onClick={changeSalonSubmit} salon-id = {salonId}>{Messages.settings.saveChange}</Button>
+				<Button color="info"  onClick={changeSalonSubmit} salon-index = {salonindex}>{Messages.settings.saveChange}</Button>
 			</ModalFooter>
 		</Modal>
 	  </div>

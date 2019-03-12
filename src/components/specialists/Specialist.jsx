@@ -19,7 +19,6 @@ class SpecialistUser extends Component {
             _Data : PropTypes.array,
             isUser : PropTypes.string,
             deleteWorksImage : PropTypes.func,
-            filterId : PropTypes.func,
         }).isRequired
     };
     componentDidMount() {
@@ -38,7 +37,7 @@ class SpecialistUser extends Component {
         const salonIndex = this.props.match.params.salonIndex;
         const categoryIndex = this.props.match.params.categoryIndex;
         const specialistIndex = this.props.match.params.specialistIndex;
-        const {_Data , deleteWorksImage, isUser, id, filterId, isPagePath, isPath} = this.context.AppStore;
+        const {_Data , deleteWorksImage, isUser, id, isPagePath, isPath} = this.context.AppStore;
         
         let salon, category, specialist;
         if (isPagePath) {

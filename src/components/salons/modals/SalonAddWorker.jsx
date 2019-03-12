@@ -40,7 +40,7 @@ class SalonAddWorker extends Component {
 
     render(){
         const {_Data, setInputsValue, AddWorker, AddWorkerInfo, AddWorkerImg, information} = this.context.AppStore;
-        const {categoryId} =this.props;
+        const {salonIndex, categoryIndex} =this.props;
         return(
           <div>
             <Button color="info" outline className="button"  onClick={this.toggle}>{Messages.AddWorker.AddWorker}</Button>
@@ -83,7 +83,7 @@ class SalonAddWorker extends Component {
                         </ModalBody>
                         <ModalFooter onClick = {this.toggle}>
                           <Button  className="modal_button" onClick={AddWorker}
-                              category-id={categoryId}>{Messages.AddWorker.save}</Button>
+                              salon-index = {salonIndex} category-index = {categoryIndex}>{Messages.AddWorker.save}</Button>
                         </ModalFooter>
                     </Modal>
           </div>

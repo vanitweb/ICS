@@ -56,7 +56,7 @@ class Salon extends Component {
                         <p>{Messages.beautySalons.beautySalonsAddress}` {DataSalon.address}</p>
                         <p>{Messages.beautySalons.beautySalonsPhone}` {DataSalon.phone}</p>
                         {isUser === 'salon' && <ChangeSalonInfo
-                            salonId={DataSalon.id}
+                            salonindex={salonIndex}
                             />}
 
 
@@ -64,37 +64,37 @@ class Salon extends Component {
 
         		</Row>
         		
-                {DataSalon.category.map((item, index) => {
-                    return 	<React.Fragment key = {item.prof}>
+                {DataSalon.category.map((categoryItem, categotyIndex) => {
+                    return 	<React.Fragment key = {categoryItem.prof}>
                         <Row align = "center" className = "mt-5 mb-5">
                             <Col>
                                 <h2>
-                                    {item.prof}
-                                    {isUser === 'salon' && <Button color="danger"  onClick =  {deleteCategory} category-id = {item.id}>X</Button>}
+                                    {categoryItem.prof}
+                                    {isUser === 'salon' && <Button color="danger"  onClick =  {deleteCategory} salon-index = {salonIndex} category-index = {categotyIndex}>X</Button>}
                                 </h2>
                             </Col>
                         </Row>
-                        <Row>{item.workers.map((item1, index1) => {
-                                return <React.Fragment key = {item1.surname}> 
+                        <Row>{categoryItem.workers.map((specialistItem, specialistIndex) => {
+                                return <React.Fragment key = {specialistItem.surname}> 
                                     {(isUser === 'salon')?
                                     <CardCategory 
-                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteWorker} specialist-id = {item1.id}>X</Button>}
-                                        img={item1.img}
-                                        title= {`${item1.name} ${item1.surname}`}
-                                        name = {`${salonIndex}/${index}/${index1}`}
+                                        deleteCard = {<Button color="danger" className="delete" onClick = {deleteWorker} salon-index = {salonIndex} category-index = {categotyIndex} specialist-index = {specialistIndex}>X</Button>}
+                                        img={specialistItem.img}
+                                        title= {`${specialistItem.name} ${specialistItem.surname}`}
+                                        name = {`${salonIndex}/${categotyIndex}/${specialistIndex}`}
                                         buttonText = {Messages.table.specialiistButtonText}
                                         url = {this.props.match.url}
                                         />:
                                     <CardCategory 
-                                        img={item1.img}
-                                        title= {`${item1.name} ${item1.surname}`}
-                                        name = {`${salonIndex}/${index}/${index1}`}
+                                        img={specialistItem.img}
+                                        title= {`${specialistItem.name} ${specialistItem.surname}`}
+                                        name = {`${salonIndex}/${categotyIndex}/${specialistIndex}`}
                                         buttonText = {Messages.table.specialiistButtonText}
                                         url = {this.props.match.url}
                                         />}
                                 </React.Fragment>
                             })}
-                            <SalonAddWorker categoryId={item.id}/>
+                            {isUser === 'salon' && <SalonAddWorker salonIndex = {salonIndex} categoryIndex = {categotyIndex}/>}
                         </Row>
                         
                     </React.Fragment>

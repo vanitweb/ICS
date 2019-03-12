@@ -25,7 +25,7 @@ class AppStore {
         _UserData : this.UserData,
 
 
-        isUser : 'user',
+        isUser : 'salon',
 
 
 
@@ -157,17 +157,10 @@ class AppStore {
     //salon
     @action
     deleteWorker = (event) => {
-        const id = event.target.getAttribute('specialist-id');
-        this.filterId(id);
-        const {salonIndex, categoryIndex} = this.id;
-        this._Data[salonIndex].category[categoryIndex].workers.forEach((item, index) => {
-            if(item.id === id){
-                this._Data[salonIndex].category[categoryIndex].workers.splice(index, 1);
-            }
-        });
-        this._Data[salonIndex].category[categoryIndex].workers.forEach((item, index) => {
-            item.id = `${salonIndex}-${categoryIndex}-${index}`;
-        })
+        const salonIndex = event.target.getAttribute('salon-index');
+        const categoryIndex = event.target.getAttribute('category-index');
+        const specialistIndex = event.target.getAttribute('specialist-index');
+        this._Data[salonIndex].category[categoryIndex].workers.splice(specialistIndex, 1);
     }
     @action
     AddWorkerInfo = (event) =>
@@ -199,19 +192,12 @@ class AppStore {
     }
     @action
     AddWorker = (event) => {
-        const id = event.target.getAttribute('category-id');
-        this.filterId(id)
-        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        const salonIndex = event.target.getAttribute('salon-index');
+        const categoryIndex = event.target.getAttribute('category-index');
         this.information.salonTitle = this._Data[salonIndex].name;
         this.information.salonAddress = this._Data[salonIndex].address;
         this.information.workImgs = [];
         const category = this._Data[salonIndex].category[categoryIndex];
-        if(category.workers.length === 0){
-            this.id.specialistIndex = 0;
-        }else{
-            this.id.specialistIndex = this._Data[salonIndex].category[categoryIndex].workers.length;
-        }//nkar chi vercnum
-        this.information.id = `${salonIndex}-${categoryIndex}-${this.id.specialistIndex}`
         category.workers.push(this.information)
         this.information = {
             img : this.defaultSpecialistImage,
@@ -229,37 +215,16 @@ class AppStore {
     @action
     addCategory = (event) => {
         const salonIndex = event.target.getAttribute('salon-index');
-        if(this._Data[salonIndex].category.length === 0){
-            this.id.categoryIndex = 0;
-        }else{
-            this.id.categoryIndex = this._Data[salonIndex].category.length;
-        }
         this._Data[salonIndex].category.push({
-            id : `${salonIndex}-${this.id.categoryIndex}`,
             prof : this.addCategoryName,
             workers : [],
         })
     }
     @action
     deleteCategory = (event) => {
-        const id = event.target.getAttribute('category-id');
-        this.filterId(id);
-        const {salonIndex, categoryIndex} = this.id;
-        this._Data[salonIndex].category.forEach((item, index) => {
-            if(item.id === id){
-                this._Data[salonIndex].category.splice(index, 1);
-            }
-        });
-        this._Data[salonIndex].category.forEach((item, index) => {
-            this.id.categoryIndex = index;
-            item.id = `${salonIndex}-${index}`;
-        });
-        if (this._Data[salonIndex].category.length !== 0) {
-            this._Data[salonIndex].category[this.id.categoryIndex].workers.forEach((item, index) => {
-                item.id = `${salonIndex}-${this.id.categoryIndex}-${index}`
-            })
-        }
-        
+        const salonIndex = event.target.getAttribute('salon-index');
+        const categoryIndex = event.target.getAttribute('category-index');
+        this._Data[salonIndex].category.splice(categoryIndex, 1);
     }
     @action
     changeSalonInfo = (name) =>{
@@ -291,8 +256,8 @@ class AppStore {
     }
     @action
     changeSalonSubmit = (event) =>{
-        const id = event.target.getAttribute('salon-id');
-        const item = this._Data[id];
+        const salonIndex = event.target.getAttribute('salon-index');
+        const item = this._Data[salonIndex];
         item.name = this.changeSalon.name;
         item.info = this.changeSalon.info;
         item.address = this.changeSalon.address;
