@@ -14,36 +14,39 @@ const Messages = {
             signInButton : 'Հաստատել'
         },
         signUp : {
+            signUpAs : 'Մուտք որպես',
+            signUpAsUser : 'օգտատեր',
+            signUpAsSalon : 'գեղեցկության սրահ',
             signUp : 'Գրանցվել',
             signUpTitle : 'Գրանցվել',
             signUpName : 'Անուն',
             signUpSurname : 'Ազգանուն',
             signUpEmail : 'Էլ. փոստ',
             signUpEmailPlaceholder : 'exampleEmail@bk.ru',
-            signUpPhone : 'Հեռախոսահամար',
+            signUpNickName : 'Մուտքանուն',
             signUpPassword : 'Գաղտնաբառ',
             signUpPasswordPlaceholder : '********',
             signUpRepeatPassword : 'Կրկնել գաղտնաբառը',
             signUpRepeatPasswordPlaceholder : '********',
-            signUpCheck : "Գրանցում որպես գեղեցկության սրահ",
             signUpButton : 'Հաստատել'
         }
     },
     validationErrors: {
-                nameError: "Անունը պետք է պարունակի միայն տառեր և 10 սիմվոլից ավել չլինի",
-                surnameError: "Ազգանոընը պետք է պարունակի միայն տառեր և 15 սիմվոլից ավել չլինի",
+                nameError: "Անունը պետք է պարունակի միայն տառեր և 1-ից 10 սիմվոլից բաղկացած լինի",
+                surnameError: "Ազգանոընը պետք է պարունակի միայն տառեր և 1-ից 15 սիմվոլից բաղկացած լինի",
                 emailError: "Սխալ էլ․փոստ",
                 emailError2: "Այդ էլ․փոստը արդեն գրանցված է ",
-                phoneError: "Հեռախոսահամարը պետք է պարունակի միայն թվեր և 12 սիմվոլից ավել չլինի",
+                phoneError: "Հեռախոսահամարը պետք է պարունակի միայն թվեր և 5-ից 12 սիմվոլից բաղկացած լինի",
                 phoneError2: "Այդ հեռախոսահամարը արդեն գրանցված է ",
                 passwordError: "Գաղտնաբառը պետք է 8 սիմվոլից քիչ չլինի",
                 passwordError2: "Այդ գաղտնաբառը արդեն գրանցված է ",
                 repeatPasswordError: "Գաղտնաբառերը չեն համընկնում",
                 ageError: "Տարիքը պետք է պարունակի միայն թվեր և 2 սիմվոլից ավել չլինի",
-                salonNameError: "Գեղեցկության սրահի անունը չի կարող 30 սիմվոլից ավել լինել",
-                addressError: "Հասցեն չի կարող 30 սիմվոլից ավել լինել",
-                infoError: "Տեքստը չի կարող 300 սիմվոլից ավել լինել",
-                mailError: "Հասցեն սխալ է նշված"
+                salonNameError: "Գեղեցկության սրահի անունը պետք է պարունակի 1-ից 30 սիմվոլ",
+                addressError: "Հասցեն պետք է պարունակի 1-ից 30 սիմվոլ",
+                infoError: "Տեքստը չի կարող 700 սիմվոլից ավել լինել",
+                mailError: "Հասցեն սխալ է նշված",
+                categoryError: "Կատեգորիայի անունը  պետք է պարունակի 1-ից 30 սիմվոլ"
             },
    
     section : {

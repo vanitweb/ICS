@@ -6,9 +6,11 @@ class Data {
             img : '/static/assets/images/salon/salon1.jpg',
             address : 'Տիգրան Մեծ 74',
             phone : '+374 98 52 64 78',
+            email: 'SyuziBeautySalon@mail.ru',
+            password: 'Qrst123Qrz',
             info :`Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
-            	Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
-            	որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
+              Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
+              որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
             category : [
                 {
                     prof : 'Վարսահարդարներ',
@@ -206,9 +208,11 @@ class Data {
             img : '/static/assets/images/salon/salon2.jpg',
             address : 'Գր․ Լուսավորիչ 42',
             phone : '+374 43 50 10 24',
+            email: 'lilitSalon@mail.ru',
+            password: 'pkduf252d54d',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
-            	Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
-            	որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
+              Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
+              որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
             category : [
                 {
                     prof : 'Վարսահարդարներ',
@@ -374,9 +378,11 @@ class Data {
             img : '/static/assets/images/salon/salon3.jpg',
             address : 'Նժդեհի 25',
             phone : '0322 4 35 25',
+            email: 'ParvanaBeautySalon@mail.ru',
+            password: 'tfdb54ht54hb1tg',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2000թ-ից ։
-            	Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
-            	որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ `,
+              Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
+              որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ `,
             category : [
                 {
                     prof : 'Վարսահարդարներ',
@@ -599,9 +605,11 @@ class Data {
             img : '/static/assets/images/salon/salon4.jpg',
             address : 'Մյասնիկյան 64',
             phone : '0322 5 05 81',
+            email: 'Koket64@mail.ru',
+            password: 'koketkoket1234',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
-            	Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
-            	որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
+              Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
+              որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
             category : [
                 {
                     prof : 'Վարսահարդարներ',
@@ -773,9 +781,11 @@ class Data {
             img : '/static/assets/images/salon/salon5.jpg',
             address : 'Մյասնիկյան 26/4',
             phone : '0322 4 74 55',
+            email: 'Anjelika_Gexeckutyan_Srah@mail.ru',
+            password: 'AnjAnj123',
             info : `Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
-            	Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
-            	որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
+              Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
+              որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
             category : [
                 {
                     prof : 'Վարսահարդարներ',
@@ -932,9 +942,11 @@ class Data {
             img : '/static/assets/images/salon/salon6.jpg',
             address : 'Վարդանանց 14',
             phone : '0322 2 56 83',
+            email: 'AniGexeckutyanSrah@gmail.com',
+            password: 'ANIGEXSRAH1325402',
             info : ` Մեր գեղեցկության սրահը գործում է Վանաձորում դեռևս 2007թ-ից ։
-            	Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
-            	որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
+              Մեր հավատարիմ և մշտական գործնկերներն են  մի շարք աշխարահրջակ ընկերություններ,
+              որոնցից են Bell Cosmetics,Gity Cosmetics, Gity Cosmetics և այլ ընկերություններ`,
             category : [
                 {
                     prof : 'Վարսահարդարներ',

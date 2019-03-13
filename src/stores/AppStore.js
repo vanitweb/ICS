@@ -1,14 +1,16 @@
 import Data from './../data/data.js';
 import UserData from './../data/userData.js'
-import {extendObservable, action} from 'mobx';
+import {extendObservable, action, computed} from 'mobx';
 
 import {homeConfigs} from './../config/categoryConfig';
+import Validator from './validator'
 
 
 
 class AppStore {
     Data = new Data().salons;
     UserData = new UserData();
+    validatorObject = new Validator();
     initData = () => {
         extendObservable(this, this.Data);
     }
@@ -25,10 +27,15 @@ class AppStore {
         _UserData : this.UserData,
 
 
-        isUser : 'salon',
+        isUser : '',
+        RegIsUser: true,
 
 
-
+        validatorItems : { 
+            fieldName : '',
+            value : '',
+            formValid: true
+        },
         information : {
             img : this.defaultSpecialistImage,
             name : 'Անուն',
@@ -84,10 +91,18 @@ class AppStore {
           email: '',
           phoneNumber: '',
           password: ''
-        }
+        },
+        LoginSalonIndex : ''
     }
     constructor(){
         extendObservable(this, this.storeProps);
+    }
+    @computed
+    get validator() {
+        // if(this.validatorObject.validateField(this.validatorItems.fieldName, this.validatorItems.value).length !== 0){
+        //     this.validatorItems.formValid = false;
+        // }
+        return this.validatorObject.validateField(this.validatorItems.fieldName, this.validatorItems.value)
     }
     @action
     filterId(id){
@@ -227,8 +242,10 @@ class AppStore {
         this._Data[salonIndex].category.splice(categoryIndex, 1);
     }
     @action
-    changeSalonInfo = (name) =>{
-        switch(name){
+    changeSalonInfo = (event) =>{
+        this.validatorItems.value = event.target.value;
+        this.validatorItems.fieldName = event.target.name;
+        switch(event.target.name){
             case 'file':
                 if (event.target.files && event.target.files[0]) {
                     this.changeSalon.img = URL.createObjectURL(event.target.files[0])
@@ -272,7 +289,7 @@ class AppStore {
     //specialist
     @action
     changeSpeciaistInfo = (event) =>{
-        switch(event.target.getAttribute("name")){
+        switch(event.target.name){
             case 'file':
                 if (event.target.files && event.target.files[0]) {
                     this.changeSpecialistInfo.img = URL.createObjectURL(event.target.files[0])
@@ -299,9 +316,9 @@ class AppStore {
     }
     @action
     changeSpecialistSubmit = (event) =>{
-        const id = event.target.getAttribute('specialist-id');
-        this.filterId(id);
-        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        const specialistIndex = event.target.getAttribute('specialist-index');
+        const salonIndex = event.target.getAttribute('salon-index');
+        const categoryIndex = event.target.getAttribute('category-index');
         const item = this._Data[salonIndex].category[categoryIndex].workers[specialistIndex];
         item.img = this.changeSpecialistInfo.img;
         item.name = this.changeSpecialistInfo.name;
@@ -318,14 +335,18 @@ class AppStore {
     }
     @action
     deleteWorksImage = (event) => {//?
-        this.filterId(event.target.getAttribute('specialist-id'))
-        const {salonIndex, categoryIndex, specialistIndex} = this.id;
-        this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs.splice(event.target.getAttribute('data-index'),1);
+        const salonIndex = event.target.getAttribute('salon-index');
+        const categoryIndex = event.target.getAttribute('category-index');
+        const specialistIndex = event.target.getAttribute('specialist-index');
+        const dataIndex = event.target.getAttribute('data-index');
+        this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs.splice(dataIndex, 1);
     }
     @action
     changeSpeciaistWorkImages = (event) => {
-        this.filterId(event.target.getAttribute('specialist-id'));
-        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        const salonIndex = event.target.getAttribute('salon-index');
+        const categoryIndex = event.target.getAttribute('category-index');
+        const specialistIndex = event.target.getAttribute('specialist-index');
+        // const {salonIndex, categoryIndex, specialistIndex} = this.id;
         const imageIndex = event.target.getAttribute('index');
         if (event.target.files && event.target.files[0]) {
             this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs[imageIndex] = URL.createObjectURL(event.target.files[0])
@@ -391,7 +412,6 @@ class AppStore {
                 return;
         }
     }
-
     @action
     SaveValues = () => {
         this._UserData.users.push(this.Registr);
@@ -404,6 +424,7 @@ class AppStore {
         }
         console.log(this._UserData.users);
     }
+    
     @action
     InfoLogin = (event) => {
         switch(event.target.previousElementSibling.textContent) {
@@ -417,8 +438,16 @@ class AppStore {
                 return;
         }
     }
+    RegistraciaUser = () => {
+            this.RegIsUser = true;
+            console.log(this.RegIsUser);
+        }
 
-    
+        RegistraciaSalon = () => {
+            this.RegIsUser = false;
+            console.log(this.RegIsUser);
+        }
+        /* COOKIE */
     @action  //cookie e avelacnum
     setCookie = (cname, cvalue, exdays) => {
           var d = new Date();
@@ -454,26 +483,22 @@ class AppStore {
                 this.AccountInfo.email = item.email;
                 this.AccountInfo.phoneNumber = item.phoneNumber;
                 this.AccountInfo.password = item.password;
-                this.setCookie('Login.mail', item.email, "12.02.2020");
-                this.setCookie('Login.password', item.password, "12.02.2020");
+                this.setCookie('Login.mail', item.email, 1);
+                this.setCookie('Login.password', item.password, 1);
                 this.isUser = 'user';
-                this.getCookie('Login.mail') ==="";
-                this.getCookie('Login.password')==="";
 
             }
         });
-        if( this.getCookie('Registr.mail') === this.Login.email  && this.getCookie('Registr.password') === this.Login.password){
+        this._Data.forEach((item, index) => {
+              if(item.email === this.Login.email && item.password === this.Login.password){
+                  console.log(item.id);
+                  this.setCookie('Login.mail', item.email, 1);
+                  this.setCookie('Login.password', item.password, 1);
+                  this.isUser = 'salon';
+                  this.LoginSalonIndex = item.id;
+              }
+          });
 
-            this.AccountInfo.name = "Նոր ստեղծված էջ";
-            this.AccountInfo.image = "Նոր ստեղծված էջ";
-            this.AccountInfo.surname = "Նոր ստեղծված էջ";
-            this.AccountInfo.email = this.getCookie('Registr.mail');
-            this.AccountInfo.phoneNumber = "Նոր ստեղծված էջ";
-            this.AccountInfo.password = this.getCookie('Registr.password');
-            this.setCookie('Login.mail', this.getCookie('Registr.mail') , "12.02.2020");
-            this.setCookie('Login.password', this.getCookie('Registr.password'), "12.02.2020");
-            this.isUser = 'user';
-        }
     }
     @action
     FuncForCookie = () => {
@@ -494,6 +519,12 @@ class AppStore {
                   return;
               }
           });
+          this._Data.forEach((item, index) => {
+                if(item.email === this.getCookie('Login.mail') && item.password === this.getCookie('Login.password')){
+                    this.isUser = 'salon';
+                    this.LoginSalonIndex = item.id;
+                }
+            });
         }
         if(this.getCookie('Registr.mail'))
         {
@@ -507,32 +538,17 @@ class AppStore {
             this.isUser = 'user';
           }
         }
-          
+
+
     }
     @action
     LogOut = () => {
         this.isUser = '';
-        this.AccountInfo.name = "";
-        this.AccountInfo.image = "";
-        this.AccountInfo.surname = "";
-        this.AccountInfo.email = "";
-        this.AccountInfo.phoneNumber = "";
-        this.AccountInfo.password = "";
-        this.setCookie('Login.mail', "", "12.02.2020");
-        this.setCookie('Login.password', "", "12.02.2020");
-    }
-
-    @action
-    SaveValues = () => {
-        this._UserData.users.push(this.Registr);
-
-        this.setCookie('Registr.mail', this.Registr.EmailAdress , "12.02.2020");
-        this.setCookie('Registr.password', this.Registr.password , "12.02.2020");
-        // console.log(this._UserData.users);
+        this.setCookie('Login.mail', this.getCookie('Login.mail') , -2);
+        this.setCookie('Login.password', this.getCookie('Login.password'), -2);
     }
     
-
-    
+        
 }
 
 export default AppStore;

@@ -26,8 +26,13 @@ class HeaderUser extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            FuncForCookie : PropTypes.func,
         };
+    }
+    componentDidMount(){
+          this.context.AppStore.FuncForCookie();
+
     }
     toggle() {
         this.setState({
@@ -35,7 +40,7 @@ class HeaderUser extends Component {
         });
     }
     render() {
-        const {_Data, isUser, LogOut} = this.context.AppStore;
+        const {_Data, isUser, LogOut, LoginSalonIndex} = this.context.AppStore;
         return (
             <div >
                 <Container>
@@ -71,7 +76,7 @@ class HeaderUser extends Component {
                                         {(isUser === 'salon' || isUser === 'user')?
                                         <>
                                             <NavItem>{(isUser === 'salon')?
-                                                <Link to={`/AcountSalon/${_Data[0].id}`}>
+                                                <Link to={`/AcountSalon/${LoginSalonIndex}`}>
                                                     <Button className="ml-auto mod_btn"  color="link">{Messages.header.UserPage}</Button>
                                                 </Link>:
                                                 <Link to={'/Acount'}>

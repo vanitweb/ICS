@@ -37,7 +37,7 @@ class SpecialistUser extends Component {
         const salonIndex = this.props.match.params.salonIndex;
         const categoryIndex = this.props.match.params.categoryIndex;
         const specialistIndex = this.props.match.params.specialistIndex;
-        const {_Data , deleteWorksImage, isUser, id, isPagePath, isPath} = this.context.AppStore;
+        const {_Data , deleteWorksImage, isUser, id, isPagePath, isPath, changeSpeciaistWorkImages} = this.context.AppStore;
         
         let salon, category, specialist;
         if (isPagePath) {
@@ -55,7 +55,7 @@ class SpecialistUser extends Component {
                             <div className="user" >
                                 <img src={specialist.img} height = "200px" alt="user image" width="200px" className ="d-inline" />
                                 <div className="info">
-                                    {isUser === 'salon' && <ChangeSpecialistInfo specialistId = {specialist.id}/>}
+                                    {isUser === 'salon' && <ChangeSpecialistInfo salonIndex={salonIndex} categoryIndex={categoryIndex} specialistIndex = {specialistIndex}/>}
                                     <p>{specialist.textAbout}</p>
                                 </div>
                             </div>
@@ -83,7 +83,13 @@ class SpecialistUser extends Component {
                              {(isUser === 'salon') ?
                                     <Col align = "center">
                                     <div className = "change_spec_img">
-                                        <Button color="danger" className="delete" salon-name={specialist.salonTitle}  onClick = {deleteWorksImage} data-index = {index} specialist-id ={specialist.id}>X</Button>
+                                        <Button color="danger" 
+                                            className="delete" salon-name={specialist.salonTitle} onClick = {deleteWorksImage} data-index = {index} 
+                                            specialist-index = {specialistIndex} salon-index={salonIndex} category-index={categoryIndex}>X</Button>
+                                        {/*<Input className="name" width="100px" type="file" name="file" id="exampleFile"
+                                            onChange={changeSpeciaistWorkImages} specialist-index = {specialistIndex} salon-index={salonIndex} 
+                                            category-index={categoryIndex} index={index}
+                                        />*/}
                                         <img src={item} alt="works image" className ="d-inline " />
                                     </div>
                                     </Col>:

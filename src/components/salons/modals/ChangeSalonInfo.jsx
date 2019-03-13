@@ -43,16 +43,9 @@ class ChangeSalonInfo extends Component {
     changeSalon.phone = salon.phone;
     changeSalon.img = salon.img;
   }
-    Validator = new Validator();
-    handleUserInput = (event) => {
-         const name = event.target.name;
-         this.context.AppStore.changeSalonInfo(name);
-         this.Validator.informationChangeSalon.fieldName = name;
-         this.Validator.informationChangeSalon.value = event.target.value;       
-    }
 
   render() {
-	const {changeSalonSubmit, _Data, changeSalon, AddWorkerImg} = this.context.AppStore;
+	const {changeSalonSubmit, _Data, changeSalon, AddWorkerImg, changeSalonInfo, validator, validatorItems} = this.context.AppStore;
 	const {salonindex} = this.props;
     const salon = _Data[salonindex];
    
@@ -66,30 +59,30 @@ class ChangeSalonInfo extends Component {
 					<FormGroup>
 						<Label for = "exampleFile">{Messages.settings.insertImg}</Label> 
 							<Input className="name" width="100px" type="file" name="file" id="exampleFile"
-                                    onChange={this.handleUserInput}
+                                    onChange={changeSalonInfo}
                                         />
                             <img id="target" src={changeSalon.img} width="250px" height="250px"/>
 						  
 					</FormGroup>
 					<FormGroup>
 						<Label for = "exampleName">{Messages.settings.name}</Label>
-							<Input type="text" name="name" id="exampleName" onChange={this.handleUserInput} value={changeSalon.name}/>						
-							<p className="has-error">{this.Validator.informationChangeSalon.fieldName === 'name' && this.Validator.validateChangeSalonInfo}</p>
+							<Input type="text" name="name" id="exampleName" onChange={changeSalonInfo} value={changeSalon.name}/>						
+							<p className="has-error">{validatorItems.fieldName === 'name' && validator}</p>
 					</FormGroup>
                     <FormGroup>
 						<Label for = "exampleInfo">{Messages.settings.ourSet}</Label>
-							<Input type="textarea" name="info" id="exampleInfo" onChange={this.handleUserInput} value={changeSalon.info}/>		
-							<p className="has-error">{this.Validator.informationChangeSalon.fieldName === 'info' && this.Validator.validateChangeSalonInfo}</p>				
+							<Input type="textarea" name="info" id="exampleInfo" onChange={changeSalonInfo} value={changeSalon.info}/>		
+							<p className="has-error">{validatorItems.fieldName === 'info' && validator}</p>				
 					</FormGroup>
 					<FormGroup>
 						<Label for = "exampleAddress">{Messages.settings.adress}</Label>
-							<Input type="text" name="address" id="exampleAddress" onChange={this.handleUserInput} value={changeSalon.address} min="5" max="30"/>
-							<p className="has-error">{this.Validator.informationChangeSalon.fieldName === 'address' && this.Validator.validateChangeSalonInfo}</p>
+							<Input type="text" name="address" id="exampleAddress" onChange={changeSalonInfo} value={changeSalon.address} min="5" max="30"/>
+							<p className="has-error">{validatorItems.fieldName === 'address' && validator}</p>
 					</FormGroup>
 					<FormGroup>
 						<Label for = "examplePhone">{Messages.settings.phone}</Label>
-							<Input type="text" name="phone" id="examplePhone" onChange={this.handleUserInput} value={changeSalon.phone}/>
-							<p className="has-error">{this.Validator.informationChangeSalon.fieldName === 'phone' && this.Validator.validateChangeSalonInfo}</p>
+							<Input type="text" name="phone" id="examplePhone" onChange={changeSalonInfo} value={changeSalon.phone}/>
+							<p className="has-error">{validatorItems.fieldName === 'phone' && validator}</p>
 					</FormGroup>
                     <FormGroup>
                         <select onChange = {(event) => { 
@@ -101,13 +94,13 @@ class ChangeSalonInfo extends Component {
                             })}
                         </select>
 						<Label for = "exampleCategory">{Messages.settings.category}</Label>
-							<Input type="text" name="category" id="exampleCategory" onChange={this.handleUserInput} value={changeSalon.prof}/>
-						
+							<Input type="text" name="category" id="exampleCategory" onChange={changeSalonInfo} value={changeSalon.prof}/>
+							<p className="has-error">{validatorItems.fieldName === 'category' && validator}</p>
 					</FormGroup>   
 				</Form>
 			</ModalBody>
 			<ModalFooter onClick = {this.toggle}>
-				<Button color="info"  onClick={changeSalonSubmit} salon-index = {salonindex}>{Messages.settings.saveChange}</Button>
+				<Button color="info" disabled={!validatorItems.formValid}  onClick={changeSalonSubmit} salon-index = {salonindex}>{Messages.settings.saveChange}</Button>
 			</ModalFooter>
 		</Modal>
 	  </div>

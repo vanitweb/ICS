@@ -36,11 +36,9 @@ class ChangeSpecialistInfo extends Component {
         }));
         if(event.target.textContent === Messages.AddWorker.modifyData){
         const {_Data, changeSpecialistInfo} = this.context.AppStore;
-        const {specialistId} = this.props;
-        const idSalon = specialistId.split('-')[0];
-        const idCategory = specialistId.split('-')[1];
-        const idSpecialist = specialistId.split('-')[2];
-        const specialist = _Data[idSalon].category[idCategory].workers[idSpecialist];
+
+        const {salonIndex, categoryIndex, specialistIndex} = this.props;
+        const specialist = _Data[salonIndex].category[categoryIndex].workers[specialistIndex];
         changeSpecialistInfo.name = specialist.name;
         changeSpecialistInfo.surname = specialist.surname;
         changeSpecialistInfo.age = specialist.age;
@@ -59,7 +57,7 @@ class ChangeSpecialistInfo extends Component {
     }
     render(){
         const {changeSpecialistSubmit,changeSpecialistInfo, defaultSpecialistImage, AddWorkerImg} = this.context.AppStore;
-        const {specialistId} = this.props;
+        const {salonIndex, categoryIndex, specialistIndex} = this.props;
         return(
             <>
                 <Button onClick={this.toggle} color="info" outline>{Messages.AddWorker.modifyData}</Button>
@@ -104,7 +102,7 @@ class ChangeSpecialistInfo extends Component {
                                 </Form>
                             </ModalBody>
                             <ModalFooter onClick = {this.toggle}>
-                                <Button   onClick={changeSpecialistSubmit} specialist-id={specialistId}>{Messages.AddWorker.confirmChanges}</Button>
+                                <Button   onClick={changeSpecialistSubmit} specialist-index={specialistIndex} salon-index={salonIndex} category-index={categoryIndex}>{Messages.AddWorker.confirmChanges}</Button>
                             </ModalFooter>
                         </Modal>
             </>
