@@ -75,7 +75,7 @@ class Salon extends Component {
                             </Col>
                         </Row>
                         <Row>{categoryItem.workers.map((specialistItem, specialistIndex) => {
-                                return <React.Fragment key = {specialistItem.surname}> 
+                                return <React.Fragment key = {specialistIndex}> 
                                     {(isUser === 'salon')?
                                     <CardCategory 
                                         deleteCard = {<Button color="danger" className="delete" onClick = {deleteWorker} salon-index = {salonIndex} category-index = {categotyIndex} specialist-index = {specialistIndex}>X</Button>}

@@ -46,16 +46,18 @@ class HeaderUser extends Component {
                 <Container>
                     <div className = "header_design">
                         <Navbar  light expand="md">
-                            <NavbarBrand href="/">
-                                <img
-                                    src= '/static/assets/images/header/logo.png'
-                                    width="50"
-                                    height="50"
-                                    className="d-inline-block align-top"
-                                    alt="React Bootstrap logo"
-                                />
-                                <span className="title">{Messages.header.title}</span>
-                            </NavbarBrand>
+                            <Link to="/">
+                                <NavbarBrand>
+                                    <img
+                                        src= '/static/assets/images/header/logo.png'
+                                        width="50"
+                                        height="50"
+                                        className="d-inline-block align-top"
+                                        alt="React Bootstrap logo"
+                                    />
+                                    <span className="title">{Messages.header.title}</span>
+                                </NavbarBrand>
+                            </Link>    
                             <NavbarToggler onClick={this.toggle}/>
                                 <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="ml-auto dropd" navbar>

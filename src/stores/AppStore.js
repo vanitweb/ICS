@@ -105,29 +105,6 @@ class AppStore {
         return this.validatorObject.validateField(this.validatorItems.fieldName, this.validatorItems.value)
     }
     @action
-    filterId(id){
-        this.id = {
-            salonIndex : 0,
-            categoryIndex : 0,
-            specialistIndex : 0,
-        };
-        const idArr = id.split('-');
-        switch(idArr.length){
-            case 1:
-                this.id.salonIndex = idArr[0];
-                break;
-            case 2:
-                this.id.salonIndex = idArr[0];
-                this.id.categoryIndex = idArr[1];
-                break;
-            case 3:
-                this.id.salonIndex = idArr[0];
-                this.id.categoryIndex = idArr[1];
-                this.id.specialistIndex = idArr[2];
-
-        }
-    }
-    @action
     isPath = (whichIndex, whichPage) => {
         if(whichPage === 'salon'){
             if(this._Data[whichIndex.salonIndex]){
@@ -214,14 +191,7 @@ class AppStore {
         this.information.workImgs = [];
         const category = this._Data[salonIndex].category[categoryIndex];
         category.workers.push(this.information)
-        this.information = {
-            img : this.defaultSpecialistImage,
-            name : 'Անուն',
-            surname : 'Ազգանուն',
-            age : 'Տարիք',
-            textAbout : 'Տեղեկատվություն',
-            socialNetwork : [],
-        };
+        this.information = this.storeProps.information;
     }
     @action
     addCategoryChange = (event) => {
@@ -288,7 +258,7 @@ class AppStore {
     }
     //specialist
     @action
-    changeSpeciaistInfo = (event) =>{
+    changeSpeciaist = (event) =>{
         switch(event.target.name){
             case 'file':
                 if (event.target.files && event.target.files[0]) {
@@ -353,8 +323,9 @@ class AppStore {
     }
     @action
     addSpeciaistWorkImages = (event) => {
-        this.filterId(event.target.getAttribute('specialist-id'));
-        const {salonIndex, categoryIndex, specialistIndex} = this.id;
+        const salonIndex = event.target.getAttribute('salon-index');
+        const categoryIndex = event.target.getAttribute('category-index');
+        const specialistIndex = event.target.getAttribute('specialist-index');
         if (event.target.files && event.target.files[0]) {
             this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs.push(URL.createObjectURL(event.target.files[0]));
         }
@@ -410,14 +381,8 @@ class AppStore {
     @action
     SaveValues = () => {
         this._UserData.users.push(this.Registr);
-        this.Registr = {
-            name:'',
-            surname:'',
-            EmailAdress:'',
-            nickName:'',
-            password:''
-        }
-        console.log(this._UserData.users);
+        this.Registr = this.storeProps.Registr;
+        console.log(this._UserData.users, this.Registr);
     }
     
     @action
