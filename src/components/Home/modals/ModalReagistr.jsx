@@ -52,23 +52,23 @@ class ModalRegister extends Component {
                   <Form>
                       <FormGroup>
                           <Label for="examplePassword">{Messages.header.signUp.signUpName}</Label>
-                          <Input type="text" onChange={InfoRegister} id="examplePassword" />
+                          <Input type="text" onChange={InfoRegister} name="Անուն" id="examplePassword" />
 
                           <Label for="examplePassword1">{Messages.header.signUp.signUpSurname}</Label>
-                          <Input type="text" onChange={InfoRegister} id="examplePassword1" />
+                          <Input type="text" onChange={InfoRegister} name="Ազգանուն" id="examplePassword1" />
 
                           <Label for="exampleEmail">{Messages.header.signUp.signUpEmail}</Label>
-                          <Input type="email" onChange={InfoRegister} name="email" id="exampleEmail" placeholder={Messages.header.signUp.signUpEmailPlaceholder} />
+                          <Input type="email" onChange={InfoRegister} name="Էլ. փոստ" id="exampleEmail" placeholder={Messages.header.signUp.signUpEmailPlaceholder} />
 
                           <Label for="exampleEmail1">{Messages.header.signUp.signUpNickName}</Label>
-                          <Input type="text" onChange={InfoRegister} id="exampleEmail1"/>
+                          <Input type="text" onChange={InfoRegister} name="Հեռախոս" id="exampleEmail1"/>
                       </FormGroup>
                       <FormGroup>
                           <Label for="examplePassword2">{Messages.header.signUp.signUpPassword}</Label>
-                          <Input type="password" onChange={InfoRegister} name="password" id="examplePassword2" placeholder={Messages.header.signUp.signUpPasswordPlaceholder} />
+                          <Input type="password" onChange={InfoRegister} name="Գաղտնաբառ" id="examplePassword2" placeholder={Messages.header.signUp.signUpPasswordPlaceholder} />
 
                           <Label for="examplePassword3">{Messages.header.signUp.signUpRepeatPassword}</Label>
-                          <Input type="password" onChange={InfoRegister} name="password" id="examplePassword3" placeholder={Messages.header.signUp.signUpwordPlaceholder} />
+                          <Input type="password" onChange={InfoRegister} name="krknel gaxtnabar@" id="examplePassword3" placeholder={Messages.header.signUp.signUpwordPlaceholder} />
                       </FormGroup>
                   </Form>
               </ModalBody>

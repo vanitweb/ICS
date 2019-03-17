@@ -45,12 +45,12 @@ class ModalLogin extends Component {
                   <Form>
                       <FormGroup>
                           <Label for="exampleEmail">{Messages.header.signIn.signInEmail}</Label>
-                          <Input type="email" onChange={InfoLogin} name="emailLogin" id="exampleEmail" placeholder={Messages.header.signIn.signInEmailPlaceholder} />
+                          <Input type="email" onChange={InfoLogin} name="Էլ. փոստ" id="exampleEmail" placeholder={Messages.header.signIn.signInEmailPlaceholder} />
                           {/*<p className="has-error">{this.Validator.informationModalLogin.fieldName === 'emailLogin' && this.Validator.validateModalLogin}</p>*/}
                       </FormGroup>
                       <FormGroup>
                           <Label for="examplePassword">{Messages.header.signIn.signInPassword}</Label>
-                          <Input type="password" onChange={InfoLogin} name="passwordLogin" id="examplePassword" placeholder={Messages.header.signIn.signInPasswordPlaceholder} />
+                          <Input type="password" onChange={InfoLogin} name="Գաղտնաբառ" id="examplePassword" placeholder={Messages.header.signIn.signInPasswordPlaceholder} />
                           {/*<p className="has-error">{this.Validator.informationModalLogin.fieldName === 'passwordLogin' && this.Validator.validateModalLogin}</p>*/}
                       </FormGroup>
                   </Form>

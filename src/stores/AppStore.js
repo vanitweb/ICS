@@ -27,7 +27,7 @@ class AppStore {
         _UserData : this.UserData,
 
 
-        isUser : '',
+        isUser : 'salon',
         RegIsUser: true,
 
 
@@ -180,7 +180,7 @@ class AppStore {
     @action
     AddWorkerInfo = (event) =>
     {
-        switch(event.target.previousElementSibling.textContent) {
+        switch(event.target.name) {
             case 'Նկար':
                 if (event.target.files && event.target.files[0]) {
                     this.information.img = URL.createObjectURL(event.target.files[0])
@@ -328,7 +328,7 @@ class AppStore {
         // item.socialNetwork = this.changeSpecialistInfo.mail;//Eroooooooooooooooo
     }
     @action
-    AddWorkerImg =(event) => {
+    AddWorkerImg = (event) => {
         if (event.target.files && event.target.files[0]) {
             this.defaultSpecialistImage = URL.createObjectURL(event.target.files[0])
         }
@@ -346,7 +346,6 @@ class AppStore {
         const salonIndex = event.target.getAttribute('salon-index');
         const categoryIndex = event.target.getAttribute('category-index');
         const specialistIndex = event.target.getAttribute('specialist-index');
-        // const {salonIndex, categoryIndex, specialistIndex} = this.id;
         const imageIndex = event.target.getAttribute('index');
         if (event.target.files && event.target.files[0]) {
             this._Data[salonIndex].category[categoryIndex].workers[specialistIndex].workImgs[imageIndex] = URL.createObjectURL(event.target.files[0])
@@ -380,19 +379,15 @@ class AppStore {
 
     @action
     changeUserSubmit = (event) =>{
-        console.log(11111);
         const id = event.target.getAttribute('user-id');
-        console.log(this._UserData[id].name);
         this._UserData.users[id].name = this.changeUser.name;
         this._UserData.users[id].surname = this.changeUser.surname;
         this._UserData.users[id].phoneNumber = this.changeUser.phone;
-        console.log(this._UserData[id].name);
-        console.log(2);
     }
 
     @action
     InfoRegister = (event) => {
-        switch(event.target.previousElementSibling.textContent) {
+        switch(event.target.name) {
             case 'Անուն':
                 this.Registr.name = event.target.value;
                 break;
@@ -426,8 +421,8 @@ class AppStore {
     }
     
     @action
-    InfoLogin = (event) => {
-        switch(event.target.previousElementSibling.textContent) {
+    InfoLogin = (event) => {//constatnts gcel atributneri exac@
+        switch(event.target.name) {
             case 'Էլ. փոստ':
                 this.Login.email = event.target.value;
                 break;

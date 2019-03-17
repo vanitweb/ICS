@@ -50,26 +50,26 @@ class SalonAddWorker extends Component {
                             <Form>
                                 <FormGroup>
                                     <Label for="exampleFile">{Messages.AddWorker.image}</Label>
-                                    <Input className="name" width="100px" type="file" name="file" id="exampleFile"
+                                    <Input className="name" width="100px" type="file" name="Նկար" id="exampleFile"
                                     onChange={AddWorkerInfo}
                                         />
                                     <img id="target" src={information.img} width="250px" height="250px"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.name}</Label>
-                                    <Input onChange={AddWorkerInfo} type="text" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="text" name="Անուն"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.surname}</Label>
-                                    <Input onChange={AddWorkerInfo} type="text" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="text" name="Ազգանուն"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.age}</Label>
-                                    <Input onChange={AddWorkerInfo} type="number" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="number" name="Տարիք"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.information}</Label>
-                                    <Input onChange={AddWorkerInfo} type="text" name="Anun"/>
+                                    <Input onChange={AddWorkerInfo} type="text" name="Տեղեկատվություն"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleAnun">{Messages.AddWorker.connectionWithSocialMedia}</Label>
@@ -77,7 +77,7 @@ class SalonAddWorker extends Component {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleFile">{Messages.AddWorker.AddWorkExample}</Label>
-                                    <Input type="file" name="file" id="exampleFile" className="name"/>
+                                    <Input type="file" name="file" id="exampleFile" className="Կապ սոց․ կայքեր"/>
                                 </FormGroup>
                             </Form>
                         </ModalBody>
