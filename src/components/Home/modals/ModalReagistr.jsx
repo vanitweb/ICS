@@ -83,7 +83,7 @@ class ModalRegister extends Component {
                         <select>
                             <option></option>
                             {_Data.map((item,index) =>{
-                                return<option>{item.name}</option>
+                                return<option key={index}>{item.name}</option>
                             })}
                         </select>
                     </FormGroup>

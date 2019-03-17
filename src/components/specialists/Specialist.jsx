@@ -86,10 +86,10 @@ class SpecialistUser extends Component {
                                         <Button color="danger" 
                                             className="delete" salon-name={specialist.salonTitle} onClick = {deleteWorksImage} data-index = {index} 
                                             specialist-index = {specialistIndex} salon-index={salonIndex} category-index={categoryIndex}>X</Button>
-                                        {/*<Input className="name" width="100px" type="file" name="file" id="exampleFile"
+                                        <Input className="name" width="100px" type="file" name="file" id="exampleFile"
                                             onChange={changeSpeciaistWorkImages} specialist-index = {specialistIndex} salon-index={salonIndex} 
                                             category-index={categoryIndex} index={index}
-                                        />*/}
+                                        />
                                         <img src={item} alt="works image" className ="d-inline " />
                                     </div>
                                     </Col>:
