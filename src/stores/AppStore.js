@@ -105,6 +105,29 @@ class AppStore {
         return this.validatorObject.validateField(this.validatorItems.fieldName, this.validatorItems.value)
     }
     @action
+    filterId(id){
+        this.id = {
+            salonIndex : 0,
+            categoryIndex : 0,
+            specialistIndex : 0,
+        };
+        const idArr = id.split('-');
+        switch(idArr.length){
+            case 1:
+                this.id.salonIndex = idArr[0];
+                break;
+            case 2:
+                this.id.salonIndex = idArr[0];
+                this.id.categoryIndex = idArr[1];
+                break;
+            case 3:
+                this.id.salonIndex = idArr[0];
+                this.id.categoryIndex = idArr[1];
+                this.id.specialistIndex = idArr[2];
+
+        }
+    }
+    @action
     isPath = (whichIndex, whichPage) => {
         if(whichPage === 'salon'){
             if(this._Data[whichIndex.salonIndex]){
@@ -381,8 +404,14 @@ class AppStore {
     @action
     SaveValues = () => {
         this._UserData.users.push(this.Registr);
-        this.Registr = this.storeProps.Registr;
-        console.log(this._UserData.users, this.Registr);
+        this.Registr = {
+            name:'',
+            surname:'',
+            EmailAdress:'',
+            nickName:'',
+            password:''
+        }
+        console.log(this._UserData.users);
     }
     
     @action

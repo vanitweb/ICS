@@ -75,8 +75,8 @@ class ChangeSpecialistInfo extends Component {
                                     <FormGroup>
                                         <Label for="exampleName">{Messages.AddWorker.name}</Label>
                                         <Input onChange={changeSpeciaist} type="text" name="name" id="exampleName" value={changeSpecialistInfo.name}/>
-                                       {/* <p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'name' && this.Validator.validateSpecialistInfo}</p>*/}
-                                    </FormGroup>
+                                        {/*<p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'name' && this.Validator.validateSpecialistInfo}</p>
+  */}                                  </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleSurname">{Messages.AddWorker.surname}</Label>
                                         <Input onChange={changeSpeciaist} type="text" name="surname" id="exampleSurname" value={changeSpecialistInfo.surname}/>
@@ -85,18 +85,18 @@ class ChangeSpecialistInfo extends Component {
                                     <FormGroup>
                                         <Label for="exampleAge">{Messages.AddWorker.age}</Label>
                                         <Input onChange={changeSpeciaist} type="text" name="age" id="exampleAge" value={changeSpecialistInfo.age}/>
-                                        {/*<p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'age' && this.Validator.validateSpecialistInfo}</p>*/}
-                                    </FormGroup>
+                                        {/*<p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'age' && this.Validator.validateSpecialistInfo}</p>
+   */}                                 </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleInfo">{Messages.AddWorker.information}</Label>
                                         <Input onChange={changeSpeciaist} type="textarea" name="info" id="exampleInfo" value={changeSpecialistInfo.info}/>
-                                        {/*<p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'info' && this.Validator.validateSpecialistInfo}</p>*/}
-                                    </FormGroup>
+                                        {/*<p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'info' && this.Validator.validateSpecialistInfo}</p>
+  */}                                  </FormGroup>
                                     <FormGroup>
                                         <Label for="exampleEmail">{Messages.AddWorker.connectionWithSocialMedia}</Label>
                                         <Input onChange={changeSpeciaist} type="text" name="mail" id="exampleEmail" value={changeSpecialistInfo.mail}/>
-                                       {/*<p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'mail' && this.Validator.validateSpecialistInfo}</p>*/}
-                                    </FormGroup>
+{/*                                        <p className="has-error">{this.Validator.informationSpecialistInfo.fieldName === 'mail' && this.Validator.validateSpecialistInfo}</p>
+*/}                                    </FormGroup>
                                     
                                 </Form>
                             </ModalBody>

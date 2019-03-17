@@ -20,3 +20,30 @@
   border-color: #17A2B8;
 }
 
+.login_Log {
+  margin-left: 5%;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  color: #17A2B8;
+}
+.dis_flex {
+
+  margin-top: 5%;   
+}
+.btn_2 {
+   float: right;
+   margin-right: 10%;
+    cursor: pointer;
+    font-weight: 700;   
+    font-size: 1.1em; 
+    color: #17A2B8 !important;      
+}
+.btn_1 {
+    float: left;   
+    cursor: pointer; 
+    margin-left: 10%;
+    font-weight: 700;   
+    font-size: 1.1em;
+    color: #17A2B8 !important;   
+} 

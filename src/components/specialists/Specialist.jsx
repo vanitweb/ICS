@@ -86,15 +86,15 @@ class SpecialistUser extends Component {
                                         <Button color="danger" 
                                             className="delete" salon-name={specialist.salonTitle} onClick = {deleteWorksImage} data-index = {index} 
                                             specialist-index = {specialistIndex} salon-index={salonIndex} category-index={categoryIndex}>X</Button>
-                                        <Input className="name" width="100px" type="file" name="file" id="exampleFile"
+                                        <Input className="name_add"  type="file" name="file" id="exampleFile"
                                             onChange={changeSpeciaistWorkImages} specialist-index = {specialistIndex} salon-index={salonIndex} 
                                             category-index={categoryIndex} index={index}
                                         />
-                                        <img src={item} alt="works image" className ="d-inline " />
+                                        <img src={item} alt="works image" className ="d-inline "  width="200px" height="200px" />
                                     </div>
                                     </Col>:
                                     <Col align = "center">
-                                        <img src={item} alt="works image" className ="d-inline " />
+                                        <img src={item} alt="works image" className ="d-inline " width="200px" height="200px" />
                                     </Col>
                              }
                              </React.Fragment>

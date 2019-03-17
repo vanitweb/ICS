@@ -42,9 +42,11 @@ class ModalRegister extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
         <ModalHeader toggle={this.toggle}>{Messages.header.signUp.signUpTitle}</ModalHeader>
         <FormGroup>
-          {Messages.header.signUp.signUpAs}
-            <Button color="info" onClick={RegistraciaUser}>{Messages.header.signUp.signUpAsUser}</Button>
-            <Button color="info" onClick={RegistraciaSalon}>{Messages.header.signUp.signUpAsSalon}</Button>
+          <div className="dis_flex">
+            <p className="login_Log">{Messages.header.signUp.signUpAs}</p>
+            <a className="btn_1" onClick={RegistraciaUser}>{Messages.header.signUp.signUpAsUser}</a>
+            <a className="btn_2" onClick={RegistraciaSalon}>{Messages.header.signUp.signUpAsSalon}</a>
+          </div>
         </FormGroup>
           {(RegIsUser)?
             <>

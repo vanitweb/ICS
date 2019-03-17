@@ -88,7 +88,7 @@ class Categorys extends Component {
                                             address = {item1.salonAddress}
                                             salonTitle = {item1.salonTitle}
                                             url = {this.props.match.url}
-                                            name = {`${salonIndex}/${item1.id.split('-')[1]}/${item1.id.split('-')[2]}`}
+                                            name = {`${salonIndex}/${categoryIndex}/${index}`}
                                             /> 
                                     </React.Fragment>}
                                 })

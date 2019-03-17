@@ -46,18 +46,16 @@ class HeaderUser extends Component {
                 <Container>
                     <div className = "header_design">
                         <Navbar  light expand="md">
-                            <Link to="/">
-                                <NavbarBrand>
-                                    <img
-                                        src= '/static/assets/images/header/logo.png'
-                                        width="50"
-                                        height="50"
-                                        className="d-inline-block align-top"
-                                        alt="React Bootstrap logo"
-                                    />
-                                    <span className="title">{Messages.header.title}</span>
-                                </NavbarBrand>
-                            </Link>    
+                            <NavbarBrand href="/">
+                                <img
+                                    src= '/static/assets/images/header/logo.png'
+                                    width="50"
+                                    height="50"
+                                    className="d-inline-block align-top"
+                                    alt="React Bootstrap logo"
+                                />
+                                <span className="title">{Messages.header.title}</span>
+                            </NavbarBrand>
                             <NavbarToggler onClick={this.toggle}/>
                                 <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="ml-auto dropd" navbar>
@@ -67,8 +65,8 @@ class HeaderUser extends Component {
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 {_Data.map((item,index) =>{
-                                                    return <Link to={`/Salon/${item.id}`} key = {item.address}>
-                                                        <DropdownItem  className="drop_item" >
+                                                    return <Link to={`/Salon/${index}`} key = {item.address}>
+                                                        <DropdownItem  className="drop_item">
                                                             {item.name}
                                                         </DropdownItem>
                                                     </Link>
